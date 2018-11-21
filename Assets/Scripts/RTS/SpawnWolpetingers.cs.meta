@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: b02117f70582f304981ff5821a5d9538
+timeCreated: 1524108036
+licenseType: Free
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - Wopletinger: {fileID: 1348081605798960, guid: aa6b504f956b95c4fbf9a9944e032525,
+      type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

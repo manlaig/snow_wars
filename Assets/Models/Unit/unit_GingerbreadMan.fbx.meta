@@ -1,0 +1,342 @@
+fileFormatVersion: 2
+guid: 7c1cdcf666922364fa80a792c505d403
+timeCreated: 1523562891
+licenseType: Pro
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: Base
+    100002: J_Chest
+    100004: J_Clav_LE
+    100006: J_Clav_RI
+    100008: J_Elbow_LE
+    100010: J_Elbow_RI
+    100012: J_Foot_LE_END
+    100014: J_Foot_LE_END_end
+    100016: J_Foot_RI_END
+    100018: J_Foot_RI_END_end
+    100020: J_Gumdrop1
+    100022: J_Gumdrop1_end
+    100024: J_Gumdrop2
+    100026: J_Gumdrop2_end
+    100028: J_Gumdrop3
+    100030: J_Gumdrop3_end
+    100032: J_Hand_LE_END
+    100034: J_Hand_LE_END_end
+    100036: J_Hand_RI_END
+    100038: J_Hand_RI_END_end
+    100040: J_Head_END
+    100042: J_Head_END_end
+    100044: J_Knee_LE
+    100046: J_Knee_RI
+    100048: J_Neck1
+    100050: J_Neck2
+    100052: J_Shin_LE
+    100054: J_Shin_RI
+    100056: J_Shoulder_LE
+    100058: J_Shoulder_RI
+    100060: J_Spine1
+    100062: J_Spine2
+    100064: MainRoot
+    100066: //RootNode
+    100068: Unit_GingerbreadMan_MSH
+    100070: Unit_GingerbreadMan_Rig
+    100072: Weapon
+    100074: Weapon_end
+    400000: Base
+    400002: J_Chest
+    400004: J_Clav_LE
+    400006: J_Clav_RI
+    400008: J_Elbow_LE
+    400010: J_Elbow_RI
+    400012: J_Foot_LE_END
+    400014: J_Foot_LE_END_end
+    400016: J_Foot_RI_END
+    400018: J_Foot_RI_END_end
+    400020: J_Gumdrop1
+    400022: J_Gumdrop1_end
+    400024: J_Gumdrop2
+    400026: J_Gumdrop2_end
+    400028: J_Gumdrop3
+    400030: J_Gumdrop3_end
+    400032: J_Hand_LE_END
+    400034: J_Hand_LE_END_end
+    400036: J_Hand_RI_END
+    400038: J_Hand_RI_END_end
+    400040: J_Head_END
+    400042: J_Head_END_end
+    400044: J_Knee_LE
+    400046: J_Knee_RI
+    400048: J_Neck1
+    400050: J_Neck2
+    400052: J_Shin_LE
+    400054: J_Shin_RI
+    400056: J_Shoulder_LE
+    400058: J_Shoulder_RI
+    400060: J_Spine1
+    400062: J_Spine2
+    400064: MainRoot
+    400066: //RootNode
+    400068: Unit_GingerbreadMan_MSH
+    400070: Unit_GingerbreadMan_Rig
+    400072: Weapon
+    400074: Weapon_end
+    2100000: Material
+    4300000: Unit_GingerbreadMan_MSH
+    7400000: GingerbreadMan|Attack
+    7400002: GingerbreadMan|Base
+    7400004: GingerbreadMan|Hit
+    7400006: GingerbreadMan|Death
+    7400008: GingerbreadMan|Idle
+    7400010: GingerbreadMan|Run
+    9500000: //RootNode
+    11100000: //RootNode
+    13700000: Unit_GingerbreadMan_MSH
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: GingerbreadMan|Attack
+      takeName: Unit_GingerbreadMan_Rig|Attack
+      firstFrame: 0
+      lastFrame: 48
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: GingerbreadMan|Base
+      takeName: Unit_GingerbreadMan_Rig|Base
+      firstFrame: 0
+      lastFrame: 1
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: GingerbreadMan|Hit
+      takeName: Unit_GingerbreadMan_Rig|Hit
+      firstFrame: 0
+      lastFrame: 18
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: GingerbreadMan|Death
+      takeName: Unit_GingerbreadMan_Rig|Death
+      firstFrame: 0
+      lastFrame: 48
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: GingerbreadMan|Idle
+      takeName: Unit_GingerbreadMan_Rig|Idle
+      firstFrame: 0
+      lastFrame: 72
+      wrapMode: 2
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: GingerbreadMan|Run
+      takeName: Unit_GingerbreadMan_Rig|Run
+      firstFrame: 0
+      lastFrame: 24
+      wrapMode: 2
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 1
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 1
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

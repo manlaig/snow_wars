@@ -1,0 +1,351 @@
+fileFormatVersion: 2
+guid: 48a0dd2d886b12046aaa10861c6d7664
+timeCreated: 1519482728
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: Ankle.L
+    100002: Ankle.R
+    100004: Arm.L
+    100006: Arm.R
+    100008: Ball.L
+    100010: Ball.R
+    100012: Chest
+    100014: Clav.L
+    100016: Clav.R
+    100018: Ear.L
+    100020: Ear.L_end
+    100022: Ear.R
+    100024: Ear.R_end
+    100026: Fingers_01.L
+    100028: Fingers_01.R
+    100030: Fingers_02.L
+    100032: Fingers_02.L_end
+    100034: Fingers_02.R
+    100036: Fingers_02.R_end
+    100038: Hand.L
+    100040: Hand.R
+    100042: Hat_1
+    100044: Hat_2
+    100046: Hat_3
+    100048: Head
+    100050: Hips
+    100052: IK_Foot.L
+    100054: IK_Foot.R
+    100056: IK_poleKnee.L
+    100058: IK_poleKnee.L_end
+    100060: IK_poleKnee.R
+    100062: IK_poleKnee.R_end
+    100064: Jingle
+    100066: Jingle_end
+    100068: Knee.L
+    100070: Knee.R
+    100072: MainRoot
+    100074: Neck
+    100076: Shin.L
+    100078: Shin.R
+    100080: ShoeFlair.L
+    100082: ShoeFlair.L_end
+    100084: ShoeFlair.R
+    100086: ShoeFlair.R_end
+    100088: Shoulder.L
+    100090: Shoulder.R
+    100092: Spine_01
+    100094: Spine_02
+    100096: Thumb_01.L
+    100098: Thumb_01.R
+    100100: Thumb_02.L
+    100102: Thumb_02.L_end
+    100104: Thumb_02.R
+    100106: Thumb_02.R_end
+    100108: //RootNode
+    100110: Worker_MSH
+    100112: Worker_Rig
+    400000: Ankle.L
+    400002: Ankle.R
+    400004: Arm.L
+    400006: Arm.R
+    400008: Ball.L
+    400010: Ball.R
+    400012: Chest
+    400014: Clav.L
+    400016: Clav.R
+    400018: Ear.L
+    400020: Ear.L_end
+    400022: Ear.R
+    400024: Ear.R_end
+    400026: Fingers_01.L
+    400028: Fingers_01.R
+    400030: Fingers_02.L
+    400032: Fingers_02.L_end
+    400034: Fingers_02.R
+    400036: Fingers_02.R_end
+    400038: Hand.L
+    400040: Hand.R
+    400042: Hat_1
+    400044: Hat_2
+    400046: Hat_3
+    400048: Head
+    400050: Hips
+    400052: IK_Foot.L
+    400054: IK_Foot.R
+    400056: IK_poleKnee.L
+    400058: IK_poleKnee.L_end
+    400060: IK_poleKnee.R
+    400062: IK_poleKnee.R_end
+    400064: Jingle
+    400066: Jingle_end
+    400068: Knee.L
+    400070: Knee.R
+    400072: MainRoot
+    400074: Neck
+    400076: Shin.L
+    400078: Shin.R
+    400080: ShoeFlair.L
+    400082: ShoeFlair.L_end
+    400084: ShoeFlair.R
+    400086: ShoeFlair.R_end
+    400088: Shoulder.L
+    400090: Shoulder.R
+    400092: Spine_01
+    400094: Spine_02
+    400096: Thumb_01.L
+    400098: Thumb_01.R
+    400100: Thumb_02.L
+    400102: Thumb_02.L_end
+    400104: Thumb_02.R
+    400106: Thumb_02.R_end
+    400108: //RootNode
+    400110: Worker_MSH
+    400112: Worker_Rig
+    2100000: Material
+    4300000: Worker_MSH
+    7400000: Worker|Base
+    7400002: Worker|Death
+    7400004: Worker|Gather
+    7400006: Worker|Idle
+    7400008: Worker|Run
+    9500000: //RootNode
+    11100000: //RootNode
+    13700000: Worker_MSH
+  externalObjects: {}
+  materials:
+    importMaterials: 0
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Worker|Base
+      takeName: Worker_Rig|Base
+      firstFrame: 0
+      lastFrame: 1
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Worker|Death
+      takeName: Worker_Rig|death_anim
+      firstFrame: 0
+      lastFrame: 96
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Worker|Gather
+      takeName: Worker_Rig|Gather_Anim
+      firstFrame: 0
+      lastFrame: 48
+      wrapMode: 2
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Worker|Idle
+      takeName: Worker_Rig|Idle_anim01
+      firstFrame: 0
+      lastFrame: 72
+      wrapMode: 2
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Worker|Run
+      takeName: Worker_Rig|run_anim
+      firstFrame: 0
+      lastFrame: 26
+      wrapMode: 2
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 1
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 1
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

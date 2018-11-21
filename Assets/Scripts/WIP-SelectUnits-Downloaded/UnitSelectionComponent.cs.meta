@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 3094cb75ee59bfe4f955458ceac94664
+timeCreated: 1518180082
+licenseType: Free
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - selectionCirclePrefab: {fileID: 166266, guid: dc884a6ec589ce249acc9b5326859165,
+      type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

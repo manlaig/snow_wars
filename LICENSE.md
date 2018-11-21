@@ -1,0 +1,1 @@
+This game is copyright Phoenix Ready Games. All Rights Reserved 
