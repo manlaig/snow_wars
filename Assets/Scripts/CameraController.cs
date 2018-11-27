@@ -7,16 +7,12 @@ public class Boundary
     public float xMin, xMax, zMin, zMax;
 }
 
-/// <summary>
-/// Camera Controller
-/// </summary>
+/* Attach this component to the main camera */
 public class CameraController : MonoBehaviour
 {
-
     [SerializeField]
     public enum WindowEdges { Left, Right, Top, Bottom, LeftTop, LeftBottom, RightTop, RightBottom }
 
-    [SerializeField]
     private GameObject mainCamera;
     [SerializeField]
     private Boundary boundary;
@@ -40,11 +36,6 @@ public class CameraController : MonoBehaviour
         {
             trans.localPosition = new Vector3(trans.localPosition.x, trans.localPosition.y + distance, trans.localPosition.z - distance);
         }
-    }
-
-    public Transform MainCameraTransform()
-    {
-        return mainCamera.transform;
     }
 
     /// <summary>
@@ -97,9 +88,6 @@ public class CameraController : MonoBehaviour
         isCameraMoving = false;
     }
 
-    /// <summary>
-    /// Fixeds the update.
-    /// </summary>
     void FixedUpdate()
     {
         if (!isCameraMoving)
@@ -127,11 +115,9 @@ public class CameraController : MonoBehaviour
             CameraDistance( 1 );
     }
 
-    /// <summary>
-    /// Start this instance.
-    /// </summary>
     void Start()
     {
+        mainCamera = Camera.main.gameObject;
         rb = mainCamera.GetComponent<Rigidbody>();
     }	
 }

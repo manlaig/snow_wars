@@ -9,7 +9,6 @@ public class CameraMover : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
 {
     [SerializeField]
     private CameraController.WindowEdges windowEdge;
-
     private CameraController C;
 
     /// <summary>
@@ -59,11 +58,8 @@ public class CameraMover : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         C.CancelMove();
     }
 
-    /// <summary>
-    /// Start this instance.
-    /// </summary>
     void Start()
     {
-        C = GameObject.FindGameObjectWithTag("CameraController").GetComponent<CameraController>();
+        C = Camera.main.GetComponent<CameraController>();
     }
 }

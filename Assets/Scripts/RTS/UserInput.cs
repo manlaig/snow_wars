@@ -9,22 +9,17 @@ public class UserInput : MonoBehaviour
 {
     private Player player;
     private Coroutine lastLerpCameraTo;
-    private float cameraZoom = 0;
-    public float cameraZoomMaxMin = 100;
 
-    // Use this for initialization
     void Start()
     {
         player = transform.root.GetComponent<Player>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (player.human)
         {
             MoveCamera();
-            //RotateCamera();
             MouseActivity();
         }
     }
@@ -138,10 +133,6 @@ public class UserInput : MonoBehaviour
         ////but ignore the vertical tilt of the camera to get sensible scrolling
         //movement = Camera.mainCamera.transform.TransformDirection(movement);
         //movement.y = 0;
-
-        //away from ground movement
-        movement.y -= ResourceManager.ScrollSpeed * Input.GetAxis("Mouse ScrollWheel");
-        movement.z += ResourceManager.ScrollSpeed * Input.GetAxis("Mouse ScrollWheel");
 
         //calculate desired camera position based on received input
         Vector3 origin = Camera.main.transform.position;

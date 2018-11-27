@@ -24786,6 +24786,7 @@ GameObject:
   - component: {fileID: 1731829405}
   - component: {fileID: 1731829404}
   - component: {fileID: 1731829408}
+  - component: {fileID: 1731829409}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -24830,8 +24831,8 @@ Camera:
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
-  orthographic: 0
-  orthographic size: 5
+  orthographic: 1
+  orthographic size: 30
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -24853,13 +24854,13 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1731829403}
-  m_LocalRotation: {x: 0.41656494, y: -0, z: -0, w: 0.909106}
-  m_LocalPosition: {x: 19.689987, y: 43.149998, z: -67.35999}
+  m_LocalRotation: {x: 0.38268343, y: 0, z: 0, w: 0.92387956}
+  m_LocalPosition: {x: 20.8, y: 34.5, z: -67.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 49.236004, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 45, y: 0, z: 0}
 --- !u!114 &1731829408
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24874,6 +24875,19 @@ MonoBehaviour:
   selectionCirclePrefab: {fileID: 166266, guid: dc884a6ec589ce249acc9b5326859165,
     type: 2}
   guiController: {fileID: 824116914}
+--- !u!114 &1731829409
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1731829403}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44355cf216584b04a99214c7059e5dfc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nearCameraDist: 10
+  farCameraDist: 50
 --- !u!1001 &1748252097
 Prefab:
   m_ObjectHideFlags: 0
@@ -29386,7 +29400,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9802c4fc636461241b97a4fb0d1c8416, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cameraZoomMaxMin: 200
 --- !u!114 &2070159266
 MonoBehaviour:
   m_ObjectHideFlags: 0
