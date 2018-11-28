@@ -87,9 +87,6 @@ public class ControlRange : ControlBasic
 		if(home == null)
 			home = transform.position;
 
-		// Call ControlBasic's Update
-		base.Update();
-
 		// If already DEAD (HP <= 0)
 		// Then do not continue
 		if (unit.GetHealth() <= 0)
@@ -319,16 +316,6 @@ public class ControlRange : ControlBasic
 		}
 	}
 
-	void MoveToLocation(Vector3 destination)
-	{
-		agent.destination = destination;
-	}
-
-	void SetHome(Vector3 point)
-	{
-		home = point;
-	}
-
 	// Attacking Enemy Unit in syncronized interval
 	protected IEnumerator AttackCoroutine()
 	{
@@ -339,35 +326,12 @@ public class ControlRange : ControlBasic
 		// Hit target Enemy if it is alive
 		if (target.gameObject.GetComponent<Unit>().GetHealth() > 0)
 		{
-			target.gameObject.GetComponent<ControlBasic>().Hit(
-				transform.position,
-				attackTime,
-				attackRecoil,
-				damage,
-				unit.GetAttackRecharge(),
-				gameObject);
+			target.gameObject.GetComponent<ControlBasic>().GetHit(damage, gameObject);
 		}
 
 		// Time attacks with Attack Animation
 		yield return new WaitForSeconds(attackTime + attackRecoil);
 
 		attackCoroutineRunning = false;
-	}
-
-	new public void SetTarget(Transform newTarget)
-	{
-		target = newTarget;
-		targetLock = false;
-	}
-
-	new public void LockTarget(Transform newTarget)
-	{
-		target = newTarget;
-		targetLock = true;
-	}
-
-	new public void SetDestination(Vector3 newDestination)
-	{
-		destination = newDestination;
 	}
 }

@@ -24,8 +24,6 @@ public class MoveWorker : ControlBasic
     // Update is called once per frame
     new void Update()
     {
-        base.Update();
-
         if (Input.GetMouseButtonDown(1) && selected)
         {
             /// Only starts new Movement sequence on valid click

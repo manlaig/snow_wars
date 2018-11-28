@@ -14,7 +14,6 @@ public class UnitSelectionComponent : MonoBehaviour
 
     public GameObject selectionCirclePrefab;
     public GameObject guiController;
-    private GuiController G;
     private InGameMenuToggle menuInGame;
 
 
@@ -30,6 +29,7 @@ public class UnitSelectionComponent : MonoBehaviour
 
     private void ClearSelection(GameObject callback)
     {
+        Debug.Log("ClearSelection called");
         foreach (var selectableObject in FindObjectsOfType<SelectableUnitComponent>())
         {
             if (selectableObject.selectionCircle != null && guiController.transform.root == callback.transform.root)
@@ -43,7 +43,6 @@ public class UnitSelectionComponent : MonoBehaviour
 
     void Awake()
     {
-        G = guiController.GetComponent<GuiController>();
         menuInGame = GameObject.Find("Menu-Ingame").GetComponent<InGameMenuToggle>();
     }
 
@@ -102,8 +101,7 @@ public class UnitSelectionComponent : MonoBehaviour
                 Debug.Log(sb.ToString());
             }
 
-            G.SetSelectedObjects(selectedItems);
-
+            guiController.GetComponent<GuiController>().SetSelectedObjects(selectedItems);
             isSelecting = false;
         }
         else if (Input.GetMouseButtonUp( 0 ))

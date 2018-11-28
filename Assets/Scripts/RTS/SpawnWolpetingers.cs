@@ -3,8 +3,7 @@ Spawn Wolpetingers.
 
 Used for special Wolpetinger demo
  */
-using System.Collections;
-using System.Collections.Generic;
+
 using UnityEngine;
 
 public class SpawnWolpetingers : MonoBehaviour
@@ -21,16 +20,6 @@ public class SpawnWolpetingers : MonoBehaviour
 
     public int numberAlive = 1;
     public int totalKilled = 0;
-
-	// Use this for initialization
-	void Start ()
-	{
-	}
-
-	// Update is called once per frame
-	void Update ()
-	{
-	}
 
 	/// <summary>
 	/// Spawn for Wave

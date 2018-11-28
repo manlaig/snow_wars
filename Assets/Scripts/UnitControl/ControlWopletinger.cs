@@ -7,7 +7,6 @@ using UnityEngine.AI;
 /// ControlMelee.
 ///
 /// Control script for Wopletinger unit.
-/// Inherits from ControlBasic.cs
 ///
 /// Certain default values have been changed for desired demo purposes.
 /// At a later date Wopletingers should be able to use the same script
@@ -17,9 +16,9 @@ using UnityEngine.AI;
 public class ControlWopletinger : ControlBasic
 {
     // Action States
-    protected bool attacking;
-    protected bool patrolling;
-    protected bool reseting;
+    private bool attacking;
+    private bool patrolling;
+    private bool reseting;
 
     // Attacking Variables
     protected float attackRange;
@@ -29,23 +28,21 @@ public class ControlWopletinger : ControlBasic
     protected float farDistance;
     protected float damage;
 
-    // Patrol Varibales
-    protected ArrayList patrolPoints;
-    protected int patrolStage;
+    // Patrol Variables
+    private ArrayList patrolPoints;
+    private int patrolStage;
 
-    // Target / Destination / Home(Spawn Point)
-    protected Vector3 home;
-    protected Transform target;
-    protected Vector3 destination;
-    protected Collider[] hitColliders;
-    protected Collider closestEnemy;
+    // Target / Destination / Home (Spawn Point)
+    private Vector3 home;
+    private Transform target;
+    private Vector3 destination;
+    private Collider[] hitColliders;
+    private Collider closestEnemy;
 
     // Use this for initialization
     new void Start()
     {
         base.Start();
-
-        // Initialize Variables
 
         // Action States
         attacking = false;
@@ -66,7 +63,7 @@ public class ControlWopletinger : ControlBasic
 		// Use following with proper function to get real values once getters are created
 		damage = gameObject.GetComponent<Unit>().GetDamagePerHit();
 
-		// Patrol Varibales (part of old patrol system)
+		// Patrol Variables (part of old patrol system)
 		patrolStage = 0;
 		patrolPoints = new ArrayList ();
 
@@ -76,10 +73,8 @@ public class ControlWopletinger : ControlBasic
     }
 
 	// Update is called once per frame
-	new void Update () {
-		// Call ControlBasic's Update
-		base.Update ();
-
+	new void Update ()
+    {
 		// If already DEAD (HP <= 0)
 		// Then do not continue
         if (unit.GetHealth() <= 0)
@@ -88,7 +83,7 @@ public class ControlWopletinger : ControlBasic
         // Handle Right Click (User Command)
         // team == 1 for testing purposes, replace with code to check if team is the players team
         //transform.root.GetComponent<Player>()
-        if (transform.root.GetComponent<Player>().human && Input.GetMouseButtonDown(1) && selected)
+        if (Input.GetMouseButtonDown(1) && selected)
         {
             /// Only starts new Movement sequence on valid click
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -165,9 +160,6 @@ public class ControlWopletinger : ControlBasic
             {
                 if ((transform.position - (Vector3)patrolPoints[patrolStage]).sqrMagnitude < Mathf.Pow(attackRange, 2))
                 {
-                    //++patrolStage;
-                    //if (patrolStage >= patrolPoints.Count)
-                    //	patrolStage = 0;
                     patrolStage = (patrolStage + 1) % patrolPoints.Count;
                 }
                 agent.destination = (Vector3)patrolPoints[patrolStage];
@@ -183,20 +175,6 @@ public class ControlWopletinger : ControlBasic
                     transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, 10);
 
                     StartCoroutine(AttackCoroutine());
-                    /*
-                    if (!attackCoroutineRunning)
-                    {
-                        attackCoroutineRunning = true;
-                        anim.CrossFade(animNames["Attack"]);
-                        StartCoroutine(
-                            target.gameObject.GetComponent<ControlBasic>().Hit(
-                                                                                transform.position,
-                                                                                attackTime,
-                                                                                attackRecoil,
-                                                                                damage,
-                                                                                unit.GetAttackRecharge(),
-                                                                                gameObject));
-                    }*/
                 }
                 else
                 {
@@ -263,17 +241,7 @@ public class ControlWopletinger : ControlBasic
         }
     }
 
-    void MoveToLocation(Vector3 destination)
-    {
-        agent.destination = destination;
-    }
-
-    void SetHome(Vector3 point)
-    {
-        home = point;
-    }
-
-    public IEnumerator AttackCoroutine()
+    private IEnumerator AttackCoroutine()
     {
         if (attackCoroutineRunning)
             yield break;
@@ -284,13 +252,7 @@ public class ControlWopletinger : ControlBasic
         if (target == null)
             yield break;
 
-        target.gameObject.GetComponent<ControlBasic>().Hit(
-            transform.position,
-            attackTime,
-            attackRecoil,
-            damage,
-            unit.GetAttackRecharge(),
-            gameObject);
+        target.gameObject.GetComponent<ControlBasic>().GetHit(damage, gameObject);
 
         yield return new WaitForSeconds(attackRecoil - attackTime);
 

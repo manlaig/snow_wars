@@ -21,9 +21,8 @@ public class BaseBuilding : MonoBehaviour
     [SerializeField]
     protected GameObject upgradedBuilding; // Optional
     [SerializeField]
-    protected GameObject resourcesObject; // Required
+    protected Resources R; // Required
 
-    protected Resources R;
     //protected int buildTime; // Need more information
     [SerializeField]
     protected float health;
@@ -187,8 +186,9 @@ public class BaseBuilding : MonoBehaviour
         //if (resourcesObject == null)
         //    Debug.LogError("Unable to find 'ResourcesController'");
 
-        R = transform.root.GetComponent<Resources>();
-
-        R.AddWorker(workerCapacity); // Need to add a parameter for number of workers
+        if (R != null)
+            R.AddWorker(workerCapacity); // Need to add a parameter for number of workers
+        else
+            Debug.Log("Resources object is NULL");
     }
 }

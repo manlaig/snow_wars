@@ -51,7 +51,7 @@ public class BuildingProduction : MonoBehaviour
             if (Physics.Raycast(ray.origin, ray.direction, out hitInfo))
             {
                 // team == 1 for testing purposes, replace with code to check if team is the players team
-                if (transform.root.GetComponent<Player>().human && hitInfo.transform.position == transform.position)
+                if (hitInfo.transform.position == transform.position)
                     selected = true;
                 else
                     selected = false;

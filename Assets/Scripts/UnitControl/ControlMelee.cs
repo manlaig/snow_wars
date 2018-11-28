@@ -92,8 +92,6 @@ public class ControlMelee : ControlBasic
     // Update is called once per frame
     new void Update()
     {
-        base.Update();
-
         if (unit.GetHealth() <= 0)
             return;
 
@@ -319,18 +317,10 @@ public class ControlMelee : ControlBasic
 
         if (target.gameObject.GetComponent<Unit>().GetHealth() > 0)
         {
-            target.gameObject.GetComponent<ControlBasic>().Hit(
-                transform.position,
-                attackTime,
-                attackRecoil,
-                damage,
-                unit.GetAttackRecharge(),
-                gameObject);
+            target.gameObject.GetComponent<ControlBasic>().GetHit(damage, gameObject);
         }
 
         yield return new WaitForSeconds(attackTime + attackRecoil);
-        //yield return new WaitForSeconds (attackTime);
-        //yield return new WaitForSeconds (attackRecoil-attackTime);
 
         attackCoroutineRunning = false;
     }

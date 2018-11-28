@@ -18,7 +18,6 @@ public class Resources : MonoBehaviour
     [SerializeField]
     private int Workers = 0;
 
-
     void Start()
     {
         EventManager.TriggerEvent(EventManager.Events.SnowballUpdate, gameObject);
@@ -50,14 +49,6 @@ public class Resources : MonoBehaviour
     {
         Snowballs -= numberUsed;
         EventManager.TriggerEvent(EventManager.Events.SnowballUpdate, gameObject);
-    }
-
-    /// <summary> Respawns/Kills the Hero. </summary>
-    public void RespawnHero() { Hero++; }
-    public void KillHero()
-    {
-        Hero--;
-        EventManager.TriggerEvent(EventManager.Events.SupplyUpdate, gameObject);
     }
     
     /// <summary> Adds/Kills Workers. </summary>
