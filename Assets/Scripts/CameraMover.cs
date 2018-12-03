@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.EventSystems;
 
-
+/*
 /// <summary>
 /// Camera mover prototype.
 /// </summary>
@@ -63,3 +63,4 @@ public class CameraMover : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         C = Camera.main.GetComponent<CameraController>();
     }
 }
+*/

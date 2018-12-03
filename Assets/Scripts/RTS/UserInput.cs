@@ -6,7 +6,7 @@ using RTS;
 /// User Input Class
 /// </summary>
 public class UserInput : MonoBehaviour
-{
+{/*
     private Player player;
     private Coroutine lastLerpCameraTo;
 
@@ -19,14 +19,11 @@ public class UserInput : MonoBehaviour
     {
         if (player.human)
         {
-            MoveCamera();
-            MouseActivity();
+            //MoveCamera();
+            //MouseActivity();
         }
     }
 
-    /// <summary>
-    /// Handle any mouse activity
-    /// </summary>
     private void MouseActivity()
     {
         if (Input.GetButtonDown("Fire1"))
@@ -35,22 +32,21 @@ public class UserInput : MonoBehaviour
             RightMouseClick();
     }
 
-    /// <summary>
-    /// Handle left mouse click
-    /// </summary>
     private void LeftMouseClick()
     {
         //if (player.hud.MouseInBounds())
         {
             GameObject hitObject = FindHitObject();
             Vector3 hitPoint = FindHitPoint();
-            if (hitObject && hitPoint != ResourceManager.InvalidPosition)
+            if (hitObject != null && hitPoint != ResourceManager.InvalidPosition)
             {
-                if (player.SelectedObject)
+                Debug.Log("left click");
+                if (player.SelectedObject != null)
                     player.SelectedObject.MouseClick(hitObject, hitPoint, player);
-                else if (hitObject.name != "Ground")
+                else if (hitObject.layer != LayerMask.NameToLayer("Environment"))
                 {
                     WorldObject worldObject = hitObject.transform.root.GetComponent<WorldObject>();
+                    Debug.Log("didn't hit environment");
                     if (worldObject)
                     {
                         player.SelectedObject = worldObject;
@@ -61,13 +57,11 @@ public class UserInput : MonoBehaviour
         }
     }
 
-    /// <summary>
-    /// Handle right mouse click
-    /// </summary>
     private void RightMouseClick()
     {
-        if (/*player.hud.MouseInBounds() &&*/ !Input.GetKey(KeyCode.LeftAlt) && player.SelectedObject)
+        if (!Input.GetKey(KeyCode.LeftAlt) && player.SelectedObject)
         {
+            Debug.Log("right click");
             player.SelectedObject.SetSelection(false);
             player.SelectedObject = null;
         }
@@ -201,5 +195,5 @@ public class UserInput : MonoBehaviour
 
             yield return new WaitForEndOfFrame();
         }
-    }
+    }*/
 }

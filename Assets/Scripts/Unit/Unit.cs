@@ -111,7 +111,6 @@ public class Unit : WorldObject
         return isUnitEnabled;
     }
 
-
     /// <summary>
     /// Set the unit cost
     /// </summary>
@@ -146,7 +145,7 @@ public class Unit : WorldObject
             Destroy(gameObject, animation[deathClip].length);
 
             //TODO Find better place for this
-            if (gameObject.name.Contains("prefab_unit_Wolpetinger"))
+            /*if (gameObject.name.Contains("prefab_unit_Wolpetinger"))
             {
                 attacker.transform.root.GetComponent<Resources>().AddSnowballs(100); //TODO Make snowball amount dynamic
                 SpawnWolpetingers spawnCtrl = transform.root.GetComponent<SpawnWolpetingers>();
@@ -159,7 +158,7 @@ public class Unit : WorldObject
                     spawnCtrl.numberAlive = spawnCtrl.Spawn();
                     PlayerPrefs.SetInt("WOLPETINGERDEATHCOUNT", PlayerPrefs.GetInt("WOLPETINGERDEATHCOUNT") + 1);
                 }
-            }
+            }*/
         }
     }
 
@@ -193,16 +192,9 @@ public class Unit : WorldObject
     /// <summary>
     /// Enables/Disables the unit.
     /// </summary>
-    public void EnableUnit()
+    public void ToggleUnit()
     {
-        if (isUnitEnabled == false)
-        {
-            isUnitEnabled = true;
-        }
-        else
-        {
-            isUnitEnabled = false;
-        }
+        isUnitEnabled = !isUnitEnabled;
     }
 
     /*** Game Engine methods, all can be overridden by subclass ***/

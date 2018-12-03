@@ -1,13 +1,14 @@
 ﻿using System.Collections;
 using UnityEngine;
-
+/*
 [System.Serializable]
 public class Boundary
 {
     public float xMin, xMax, zMin, zMax;
 }
-
+*/
 /* Attach this component to the main camera */
+/*
 public class CameraController : MonoBehaviour
 {
     [SerializeField]
@@ -26,19 +27,6 @@ public class CameraController : MonoBehaviour
     private Rigidbody rb;
 
     /// <summary>
-    /// Change MainCamera distance from view target.
-    /// </summary>
-    /// <param name="distance">Distance.</param>
-    public void CameraDistance(int distance)
-    {
-        Transform trans = mainCamera.transform;
-        if (trans.localPosition.y + distance >= nearCameraDist && trans.localPosition.y + distance <= farCameraDist)
-        {
-            trans.localPosition = new Vector3(trans.localPosition.x, trans.localPosition.y + distance, trans.localPosition.z - distance);
-        }
-    }
-
-    /// <summary>
     /// Move the specified v.
     /// </summary>
     /// <param name="v">V.</param>
@@ -46,37 +34,6 @@ public class CameraController : MonoBehaviour
     {
         isCameraMoving = true;
         rb.velocity = (v * moveSpeed);
-    }
-
-    public void MoveCameraTo(Vector3 dest, float speed)
-    {
-        if ( lastLerpCameraTo != null )
-            StopCoroutine(lastLerpCameraTo);
-
-        lastLerpCameraTo = StartCoroutine( LerpCameraTo(dest,speed) );
-    }
-
-    IEnumerator LerpCameraTo(Vector3 dest, float speed)
-    {
-        float startTime = Time.time;
-        Vector3 startPosition = mainCamera.transform.position;
-        float journeyLength = Vector3.Distance(mainCamera.transform.position, dest);
-
-        while (true)
-        {
-            float distCovered = (Time.time - startTime) * speed;
-            float fracJourney = distCovered / journeyLength;
-
-            if (startPosition != dest)
-                mainCamera.transform.position = Vector3.Lerp(startPosition, dest, fracJourney);
-            else
-                break;
-
-            if (fracJourney >= 1)
-                break;
-
-            yield return new WaitForEndOfFrame();
-        }
     }
     
     /// <summary>
@@ -105,19 +62,10 @@ public class CameraController : MonoBehaviour
         );
     }
 
-    void Update()
-    {
-        float scroll = Input.GetAxis("Mouse ScrollWheel");
-
-        if (scroll > 0)
-            CameraDistance( -1 );
-        else if (scroll < 0)
-            CameraDistance( 1 );
-    }
-
     void Start()
     {
         mainCamera = Camera.main.gameObject;
         rb = mainCamera.GetComponent<Rigidbody>();
     }	
 }
+*/

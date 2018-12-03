@@ -188,6 +188,7 @@ public class UnitSelectionComponent : MonoBehaviour
     {
         if( isSelecting )
         {
+            Debug.Log("is selecting true");
             // Create a rect from both mouse positions
             var rect = Utils.GetScreenRect( mousePosition1, Input.mousePosition );
             Utils.DrawScreenRect( rect, new Color( 0.0f, 0.8f, 0.0f, 0.08f ) );

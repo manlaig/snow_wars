@@ -13,10 +13,10 @@ public class MiniMap : MonoBehaviour
     private Camera minimapCamera;
     private Camera mainCamera;
     private Canvas guiCanvas;
-    private UserInput userInput;
     private Vector2 screenSize;
+    private Coroutine lastLerpCameraTo;
 
-    private void Awake()
+    void Awake()
     {
         // Keep track of screen height and width when script is enabled
         screenSize = new Vector2(Screen.width, Screen.height);
@@ -24,11 +24,9 @@ public class MiniMap : MonoBehaviour
         // Create object links
         minimapCamera = GetComponentsInChildren<Camera>()[0];
         mainCamera = Camera.main;
-        userInput = GameObject.Find("Player").GetComponent<UserInput>();
         guiCanvas = gameObject.transform.parent.gameObject.GetComponent<Canvas>();
     }
 
-    // Use this for initialization
     void Start()
     {
         // Update reder texture on start
@@ -38,7 +36,6 @@ public class MiniMap : MonoBehaviour
             Debug.LogError("Minimap and/or Main Camera not set in Inspector");
     }
 
-    // Update is called once per frame
     void Update()
     {
         // Check if the screen height or width has changed
@@ -62,7 +59,7 @@ public class MiniMap : MonoBehaviour
                 float cameraHeight = mainCamera.transform.localPosition.y;
 
                 // Move camera to new location at a user settable speed.
-                userInput.MoveCameraTo(new Vector3(hit.point.x, cameraHeight, hit.point.z - cameraHeight), cameraSpeed);
+                MoveCameraTo(new Vector3(hit.point.x, cameraHeight, hit.point.z - cameraHeight), cameraSpeed);
             }
         }
     }
@@ -85,5 +82,41 @@ public class MiniMap : MonoBehaviour
         RenderTexture rendTexture = new RenderTexture((int)finalScale.x, (int)finalScale.y, 24);
         minimapCamera.targetTexture = rendTexture;
         gameObject.GetComponent<RawImage>().texture = rendTexture;
+    }
+
+    public void MoveCameraTo(Vector3 dest, float speed)
+    {
+        if (lastLerpCameraTo != null)
+            StopCoroutine(lastLerpCameraTo);
+
+        lastLerpCameraTo = StartCoroutine(LerpCameraTo(dest, speed));
+    }
+
+    /// <summary>
+    /// Move camera to destination over time
+    /// </summary>
+    /// <param name="dest">Destination</param>
+    /// <param name="speed">Speed from 0f to 1f</param>
+    IEnumerator LerpCameraTo(Vector3 dest, float speed)
+    {
+        float startTime = Time.time;
+        Vector3 startPosition = Camera.main.transform.position;
+        float journeyLength = Vector3.Distance(Camera.main.transform.position, dest);
+
+        while (true)
+        {
+            float distCovered = (Time.time - startTime) * speed;
+            float fracJourney = distCovered / journeyLength;
+
+            if (startPosition != dest)
+                Camera.main.transform.position = Vector3.Lerp(startPosition, dest, fracJourney);
+            else
+                break;
+
+            if (fracJourney >= 1)
+                break;
+
+            yield return new WaitForEndOfFrame();
+        }
     }
 }

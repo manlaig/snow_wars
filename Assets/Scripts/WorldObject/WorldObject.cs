@@ -23,6 +23,7 @@ public class WorldObject : MonoBehaviour
 
     public virtual void MouseClick(GameObject hitObject, Vector3 hitPoint, Player controller)
     {
+        Debug.Log("mouse click");
         //only handle input if currently selected
         if (currentlySelected && hitObject && hitObject.name != "Ground")
         {
@@ -72,5 +73,4 @@ public class WorldObject : MonoBehaviour
     {
 
     }
-
 }
