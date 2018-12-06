@@ -31,8 +31,8 @@ public class ControlRange : ControlBasic
 	protected float damage;
 
 	// Patrol Variables
-	protected ArrayList patrolPoints;
-	protected int patrolStage;
+	//private ArrayList patrolPoints;
+	//private int patrolStage;
 
 	// Target / Destination / Home(Spawn Point)
 	protected Vector3 home;
@@ -71,8 +71,8 @@ public class ControlRange : ControlBasic
 
 		// Patrol Varibales
 		// (Used by old Patrol System, may get removed when new patrol system is implemented)
-		patrolStage = 0;
-		patrolPoints = new ArrayList();
+		//patrolStage = 0;
+		//patrolPoints = new ArrayList();
 
 		// Initialize Destination and Home
 		// Target / Destination / Home(Spawn Point)
@@ -122,39 +122,35 @@ public class ControlRange : ControlBasic
 			if (Physics.Raycast(ray.origin, ray.direction, out hitInfo, Mathf.Infinity, layerMask) && (hitInfo.transform != transform))
 			{
 				agent.destination = hitInfo.point;
-
 				// Right Clicked on Attackable unit from a different player
 				// Attack Command
 				if (hitInfo.transform.gameObject.GetComponent<ControlBasic>() && hitInfo.transform.root != transform.root)
 				{
+                    Debug.Log("attacking");
 					attacking = true;
 					target = hitInfo.transform;
 					home = hitInfo.transform.position;
-					// Reset Patrolling (Part of old patrol system)
-					if (patrolPoints.Count >= 2)
-					{
-						patrolPoints.Clear();
-						patrolStage = 0;
-						patrolling = false;
-					}
 				}
 				else // Move Command
 				{
-					destination = hitInfo.point;
+                    //Debug.Log("moving");
+                    destination = hitInfo.point;
 					// Create Destination Arrow for Move Command
 					arrowInstance = Instantiate(selectionArrow, transform.root.transform);
 					arrowInstance.transform.position = destination;
 					attacking = false;
 					home = destination;
-					// Reset Patrolling (Part of old patrol system)
-					if (patrolPoints.Count >= 2)
-					{
-						patrolPoints.Clear();
-						patrolStage = 0;
-						patrolling = false;
-					}
 				}
-			}
+                /*
+                // Reset Patrolling (Part of old patrol system)
+                if (patrolPoints.Count >= 2)
+                {
+                    patrolPoints.Clear();
+                    patrolStage = 0;
+                    patrolling = false;
+                }
+                */
+            }
 		}
 
 		// Remove Destination Arrow if close enough to destination
@@ -197,7 +193,7 @@ public class ControlRange : ControlBasic
 			}
 
 			// Set Destination
-			if (patrolling && !attacking)
+			/*if (patrolling && !attacking)
 			{
 				// (part of old patrol system)
 				if ((transform.position - (Vector3)patrolPoints[patrolStage]).sqrMagnitude < Mathf.Pow((agent.radius + attackRange), 2))
@@ -206,7 +202,7 @@ public class ControlRange : ControlBasic
 				}
 				agent.destination = (Vector3)patrolPoints[patrolStage];
 			}
-			else if (attacking)
+			else*/ if (attacking)
 			{
 				// Attack Sequence
 				// If in attack range attack, else Move to / Chase Enemy

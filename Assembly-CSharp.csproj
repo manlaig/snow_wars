@@ -101,6 +101,7 @@
     <Compile Include="Assets\Scripts\Timer.cs" />
     <Compile Include="Assets\Scripts\Unit\Unit.cs" />
     <Compile Include="Assets\Scripts\UnitCommands.cs" />
+    <Compile Include="Assets\Scripts\UnitControl\AgentTurnInstantly.cs" />
     <Compile Include="Assets\Scripts\UnitControl\ControlBasic.cs" />
     <Compile Include="Assets\Scripts\UnitControl\ControlMelee.cs" />
     <Compile Include="Assets\Scripts\UnitControl\ControlRange.cs" />
