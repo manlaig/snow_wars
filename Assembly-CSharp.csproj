@@ -10,7 +10,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace>
     </RootNamespace>
-    <ProjectGuid>{971EC1DC-1A16-179F-74E2-681329A339B9}</ProjectGuid>
+    <ProjectGuid>{60908FCF-61D3-69AA-26AB-73F163052DE3}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -66,6 +66,8 @@
     <Compile Include="Assets\Scripts\BaseHero.cs" />
     <Compile Include="Assets\Scripts\BaseWorker.cs" />
     <Compile Include="Assets\Scripts\Building\Building.cs" />
+    <Compile Include="Assets\Scripts\BuildingProduction\ProductionTile.cs" />
+    <Compile Include="Assets\Scripts\BuildingProduction\SpawnBuildings.cs" />
     <Compile Include="Assets\Scripts\CameraController.cs" />
     <Compile Include="Assets\Scripts\CameraManagers\HandleLeftRightClick.cs" />
     <Compile Include="Assets\Scripts\CameraManagers\MoveCameraOnEdge.cs" />
@@ -121,10 +123,10 @@
     <None Include="Assets\PrototypeAssets\WIP-SelectUnits-Downloaded\ProjectorAdditiveTint.shader" />
     <None Include="Assets\PrototypeAssets\WIP-SelectUnits-Downloaded\Projector\ProjectorAdditiveTint.shader" />
     <Reference Include="Unity.TextMeshPro.Editor">
-      <HintPath>C:/Users/w1624933/Desktop/snow_wars/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+      <HintPath>C:/Users/w1624933/Desktop/snow_Wars/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
-      <HintPath>C:/Users/w1624933/Desktop/snow_wars/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+      <HintPath>C:/Users/w1624933/Desktop/snow_Wars/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
