@@ -24,13 +24,14 @@ public class SpawnBuildings : MonoBehaviour
 
     void Update()
     {
-        if (currentSpawnedBuilding && RaycastFromMouse(out hit, terrainLayer))
+        if (currentSpawnedBuilding)
         {
-            currentSpawnedBuilding.transform.position = hit.point;
-            //RaycastHit uiHit;
-            if (Input.GetMouseButtonDown(0) /*&& !isOverlappingColliders(currentSpawnedBuilding) && !RaycastFromMouse(out uiHit, uiLayer)*/)
+            if (Input.GetMouseButtonDown(0) && !isOverlappingColliders(currentSpawnedBuilding) /*&& !RaycastFromMouse(out uiHit, uiLayer)*/)
             {
-                //ToggleRenderers(currentSpawnedBuilding, true);
+                if (!RaycastFromMouse(out hit, terrainLayer))
+                    return;
+                currentSpawnedBuilding.transform.position = hit.point;
+                ToggleRenderers(currentSpawnedBuilding, true);
                 currentSpawnedBuilding = null;
             }
             if (Input.GetMouseButtonDown(1))
@@ -39,12 +40,12 @@ public class SpawnBuildings : MonoBehaviour
     }
 
 
-    bool RaycastFromMouse(out RaycastHit hit, LayerMask layer)
+    bool RaycastFromMouse(out RaycastHit h, LayerMask layer)
     {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        if (Physics.Raycast(ray, out hit, layer))
+        if (Physics.Raycast(ray, out h, layer))
         {
-            Debug.Log(hit.transform.gameObject.name);
+            Debug.Log(h.distance);
             return true;
         }
         Debug.Log("Raycast false");
@@ -62,10 +63,11 @@ public class SpawnBuildings : MonoBehaviour
         }
 
         Bounds colliderBonds = allCol[0].bounds;
+        // here is the issue, research more into OverlapBox()
         Collider[] overlaps = Physics.OverlapBox(colliderBonds.center, colliderBonds.extents, Quaternion.identity, environmentLayer);
-        if (Array.IndexOf(overlaps, allCol[0]) != -1)
+        if (Array.IndexOf(overlaps, allCol[0]) != -1) // here is another issue
             return overlaps.Length > 1;
-        Debug.Log(overlaps.Length);
+        Debug.Log(overlaps[0].gameObject.transform.position);
         return overlaps.Length > 0;
     }
 
@@ -76,7 +78,7 @@ public class SpawnBuildings : MonoBehaviour
             return;
         Debug.Log("spawn called");
         currentSpawnedBuilding = Instantiate(building.buidlingPrefab);
-        //ToggleRenderers(currentSpawnedBuilding, false);
+        ToggleRenderers(currentSpawnedBuilding, false);
     }
 
 

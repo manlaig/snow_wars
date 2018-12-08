@@ -61,6 +61,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\ScriptableObjects\Buildings\BuildingSO.cs" />
     <Compile Include="Assets\Scripts\BaseAttackUnit.cs" />
     <Compile Include="Assets\Scripts\BaseBuilding.cs" />
     <Compile Include="Assets\Scripts\BaseHero.cs" />

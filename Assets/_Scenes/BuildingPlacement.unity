@@ -320,7 +320,7 @@ MonoBehaviour:
     m_Bits: 32
   environmentLayer:
     serializedVersion: 2
-    m_Bits: 33024
+    m_Bits: 32768
 --- !u!4 &650936680
 Transform:
   m_ObjectHideFlags: 0
