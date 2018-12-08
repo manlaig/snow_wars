@@ -129,4 +129,4 @@ MonoBehaviour:
   tileMaterial: {fileID: 2100000, guid: dc370998f217d0c4ebab5ff14d7294ba, type: 2}
   collisionLayers:
     serializedVersion: 2
-    m_Bits: 33024
+    m_Bits: 49408

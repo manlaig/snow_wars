@@ -9,7 +9,7 @@ public static class PlacementHelpers
 	public static bool RaycastFromMouse(out RaycastHit h, LayerMask layer)
     {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        if (Physics.Raycast(ray, out h, layer))
+        if (Physics.Raycast(ray, out h, Mathf.Infinity, layer))
         {
             return true;
         }

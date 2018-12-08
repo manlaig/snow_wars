@@ -43,9 +43,4 @@ public class ProductionTile : MonoBehaviour
             colliding = false;
         }
     }
-
-    void Update()
-    {
-        Debug.Log(colliding);
-    }
 }

@@ -9,14 +9,11 @@ public class SpawnBuildings : MonoBehaviour
     [SerializeField] GameObject productionTile;
     [SerializeField] LayerMask terrainLayer;
     [SerializeField] LayerMask uiLayer; // TODO: don't spawn if pressed on UI layer
-    [SerializeField] LayerMask environmentLayer;
 
     GameObject currentSpawnedBuilding;
     RaycastHit hit;
     List<ProductionTile> activeTiles;
     GameObject activeTilesParent;
-
-    bool coroutineRunning = false;
 
 
 	void Start ()
@@ -49,9 +46,10 @@ public class SpawnBuildings : MonoBehaviour
 
     void FixedUpdate()
     {
-        if(currentSpawnedBuilding && !coroutineRunning)
+        if(currentSpawnedBuilding)
         {
-            StartCoroutine(FollowMouse());
+            if(PlacementHelpers.RaycastFromMouse(out hit, terrainLayer))
+                currentSpawnedBuilding.transform.position = hit.point;
         }
     }
 
@@ -78,21 +76,10 @@ public class SpawnBuildings : MonoBehaviour
     {
         for(int i = 0; i < activeTiles.Count; i++)
         {
-            Destroy(activeTiles[i].gameObject);
+            if(activeTiles[i] != null)
+                Destroy(activeTiles[i].gameObject);
         }
         activeTiles.RemoveAll(i => i);
-        Debug.Log(activeTiles.Count);
-    }
-
-
-    IEnumerator FollowMouse()
-    {
-        coroutineRunning = true;
-        RaycastHit h;
-        if(PlacementHelpers.RaycastFromMouse(out h, terrainLayer))
-            currentSpawnedBuilding.transform.position = h.point;
-        yield return null;
-        coroutineRunning = false;
     }
 
 
