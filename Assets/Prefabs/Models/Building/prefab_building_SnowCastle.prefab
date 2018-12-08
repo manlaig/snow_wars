@@ -8,19 +8,20 @@ Prefab:
     m_TransformParent: {fileID: 0}
     m_Modifications: []
     m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 0}
+  m_SourcePrefab: {fileID: 0}
   m_RootGameObject: {fileID: 1155734126070938}
-  m_IsPrefabParent: 1
+  m_IsPrefabAsset: 1
 --- !u!1 &1155734126070938
 GameObject:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
+  serializedVersion: 6
   m_Component:
   - component: {fileID: 4895615442643892}
   - component: {fileID: 33148293966679626}
   - component: {fileID: 23668274257413118}
+  - component: {fileID: 65202146823417252}
   m_Layer: 0
   m_Name: prefab_building_SnowCastle
   m_TagString: Untagged
@@ -31,7 +32,7 @@ GameObject:
 --- !u!4 &4895615442643892
 Transform:
   m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1155734126070938}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0.7071068, w: 0}
@@ -44,7 +45,7 @@ Transform:
 --- !u!23 &23668274257413118
 MeshRenderer:
   m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1155734126070938}
   m_Enabled: 1
@@ -54,6 +55,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100000, guid: cdce902741f8b454aadabac3c43e27f6, type: 2}
   m_StaticBatchInfo:
@@ -78,7 +80,19 @@ MeshRenderer:
 --- !u!33 &33148293966679626
 MeshFilter:
   m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1155734126070938}
   m_Mesh: {fileID: 4300000, guid: 5c8093e613cab2c4eb527947f2a75d64, type: 3}
+--- !u!65 &65202146823417252
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1155734126070938}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 17.5, y: 18.76, z: 13.6}
+  m_Center: {x: 0.040824432, y: -0.15526457, z: 3.5}

@@ -13,10 +13,12 @@ public class SpawnBuildings : MonoBehaviour
 
     GameObject currentSpawnedBuilding;
     RaycastHit hit;
+    List<ProductionTile> activeTiles;
 
 
 	void Start ()
     {
+        activeTiles = new List<ProductionTile>();
         if (!productionTile)
             Debug.LogError("Production Tile is NULL");
 	}
@@ -26,13 +28,26 @@ public class SpawnBuildings : MonoBehaviour
     {
         if (currentSpawnedBuilding)
         {
-            if (Input.GetMouseButtonDown(0) /*&& !isOverlappingColliders(currentSpawnedBuilding) && !RaycastFromMouse(out uiHit, uiLayer)*/)
+            if (Input.GetMouseButtonDown(0) /*&& !RaycastFromMouse(out uiHit, uiLayer)*/)
             {
-                if (!RaycastFromMouse(out hit, terrainLayer))
+                if (!PlacementHelpers.RaycastFromMouse(out hit, terrainLayer))
                     return;
+
                 currentSpawnedBuilding.transform.position = hit.point;
-                ToggleRenderers(currentSpawnedBuilding, true);
+                PlacementHelpers.ToggleRenderers(currentSpawnedBuilding, true);
                 currentSpawnedBuilding = null;
+                activeTiles.RemoveAll(i => i); // not sure about this line
+
+                /*Rect r = PlacementHelpers.MakeRectOfCollider(currentSpawnedBuilding.GetComponentsInChildren<Collider>()[0]);
+                FillRectWithTiles(currentSpawnedBuilding.GetComponentsInChildren<Collider>()[0]);
+                GameObject cube = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+                cube.transform.position = new Vector3(r.position.x, 30, r.position.y);
+                GameObject cube2 = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+                cube2.transform.position = new Vector3(r.position.x + r.width, 30, r.position.y + r.height);
+                GameObject cube3 = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+                cube3.transform.position = new Vector3(r.position.x, 30, r.position.y + r.height);
+                GameObject cube4 = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+                cube4.transform.position = new Vector3(r.position.x + r.width, 30, r.position.y);*/
             }
             if (Input.GetMouseButtonDown(1))
                 Destroy(currentSpawnedBuilding);
@@ -40,59 +55,37 @@ public class SpawnBuildings : MonoBehaviour
     }
 
 
-    bool RaycastFromMouse(out RaycastHit h, LayerMask layer)
+    void FillRectWithTiles(Collider col)
     {
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        if (Physics.Raycast(ray, out h, layer))
-        {
-            Debug.Log(h.distance);
-            return true;
-        }
-        Debug.Log("Raycast false");
-        return false;
-    }
+        Rect rect = PlacementHelpers.MakeRectOfCollider(col);
+        float fromX = rect.position.x;
+        float toX = rect.position.x + rect.width;
+        float fromZ = rect.position.y;
+        float toZ = rect.position.y + rect.height;
 
+        GameObject parent = new GameObject("ProductionTileParent");
+        parent.transform.SetParent(col.gameObject.transform);
+        parent.transform.position = col.gameObject.transform.position;
 
-    // TODO: get rid of this function
-    // TODO: detect collisions with production tiles instead of overlapboxes
-    bool isOverlappingColliders(GameObject go)
-    {
-        Collider[] allCol = go.GetComponentsInChildren<Collider>();
-        if (allCol.Length == 0)
+        for(float i = fromX; i < toX; i += productionTile.transform.localScale.x)
         {
-            Debug.LogError("Building doesn't have colliders");
-            return false;
+            for(float j = fromZ; j < toZ; j += productionTile.transform.localScale.y)
+            {
+                GameObject tile1 = Instantiate(productionTile);
+                tile1.transform.SetParent(parent.transform);
+                tile1.transform.position = new Vector3(i, parent.transform.position.y, j);
+            }
         }
 
-        Bounds colliderBonds = allCol[0].bounds;
-        // here is the issue, research more into OverlapBox()
-        Collider[] overlaps = Physics.OverlapBox(colliderBonds.center, colliderBonds.extents, Quaternion.identity, environmentLayer);
-        if (Array.IndexOf(overlaps, allCol[0]) != -1) // here is another issue
-            return overlaps.Length > 1;
-        Debug.Log(overlaps[0].gameObject.transform.position);
-        return overlaps.Length > 0;
     }
 
 
     public void SpawnBuilding(BuildingSO building)
     {
+        // if haven't placed the spawned building, then return
         if (currentSpawnedBuilding)
             return;
-        Debug.Log("spawn called");
         currentSpawnedBuilding = Instantiate(building.buildingPrefab);
-        ToggleRenderers(currentSpawnedBuilding, false);
-    }
-
-
-    void ToggleRenderers(GameObject go, bool toggle)
-    {
-        if (!go)
-            return;
-        Renderer[] renderers = go.GetComponentsInChildren<Renderer>();
-        if (renderers.Length > 0)
-        {
-            foreach(Renderer r in renderers)
-                r.enabled = toggle;
-        }
+        PlacementHelpers.ToggleRenderers(currentSpawnedBuilding, false);
     }
 }

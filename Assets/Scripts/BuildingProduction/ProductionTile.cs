@@ -14,20 +14,24 @@ public class ProductionTile : MonoBehaviour
 
 	void Start ()
     {
+        GetComponent<Renderer>().material.CopyPropertiesFromMaterial(tileMaterial);
         SetColor(Color.green);
     }
 
     void SetColor(Color c)
     {
-        tileMaterial.SetColor("_TintColor", c);
+        GetComponent<Renderer>().material.SetColor("_TintColor", c);
     }
 
     void OnTriggerEnter(Collider other)
     {
         if(collisionLayers == (collisionLayers | (1 << other.gameObject.layer)))
         {
-            SetColor(Color.red);
-            colliding = true;
+            if(other.gameObject != transform.parent.gameObject)
+            {
+                SetColor(Color.red);
+                colliding = true;
+            }
         }
     }
 
