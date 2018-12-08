@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 33562571429064668}
   - component: {fileID: 23865328260137648}
   - component: {fileID: 65473245349928722}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: prefab_building_SnowFort
   m_TagString: Untagged
   m_Icon: {fileID: 0}

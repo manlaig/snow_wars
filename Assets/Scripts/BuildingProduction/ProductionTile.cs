@@ -27,7 +27,7 @@ public class ProductionTile : MonoBehaviour
     {
         if(collisionLayers == (collisionLayers | (1 << other.gameObject.layer)))
         {
-            if(other.gameObject != transform.parent.gameObject)
+            if(other.gameObject.transform.root.gameObject.GetInstanceID() != transform.root.gameObject.GetInstanceID())
             {
                 SetColor(Color.red);
                 colliding = true;
@@ -42,5 +42,10 @@ public class ProductionTile : MonoBehaviour
             SetColor(Color.green);
             colliding = false;
         }
+    }
+
+    void Update()
+    {
+        Debug.Log(colliding);
     }
 }

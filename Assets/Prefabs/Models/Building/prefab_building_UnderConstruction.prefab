@@ -19,7 +19,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4355773539532046}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: prefab_building_UnderConstruction
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -37,7 +37,7 @@ GameObject:
   - component: {fileID: 33864682980826464}
   - component: {fileID: 23663535569448102}
   - component: {fileID: 65086972015004536}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: UnderConstruction_MSH
   m_TagString: Untagged
   m_Icon: {fileID: 0}

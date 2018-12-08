@@ -14,6 +14,9 @@ public class SpawnBuildings : MonoBehaviour
     GameObject currentSpawnedBuilding;
     RaycastHit hit;
     List<ProductionTile> activeTiles;
+    GameObject activeTilesParent;
+
+    bool coroutineRunning = false;
 
 
 	void Start ()
@@ -34,20 +37,9 @@ public class SpawnBuildings : MonoBehaviour
                     return;
 
                 currentSpawnedBuilding.transform.position = hit.point;
-                PlacementHelpers.ToggleRenderers(currentSpawnedBuilding, true);
-                currentSpawnedBuilding = null;
-                activeTiles.RemoveAll(i => i); // not sure about this line
 
-                /*Rect r = PlacementHelpers.MakeRectOfCollider(currentSpawnedBuilding.GetComponentsInChildren<Collider>()[0]);
-                FillRectWithTiles(currentSpawnedBuilding.GetComponentsInChildren<Collider>()[0]);
-                GameObject cube = GameObject.CreatePrimitive(PrimitiveType.Sphere);
-                cube.transform.position = new Vector3(r.position.x, 30, r.position.y);
-                GameObject cube2 = GameObject.CreatePrimitive(PrimitiveType.Sphere);
-                cube2.transform.position = new Vector3(r.position.x + r.width, 30, r.position.y + r.height);
-                GameObject cube3 = GameObject.CreatePrimitive(PrimitiveType.Sphere);
-                cube3.transform.position = new Vector3(r.position.x, 30, r.position.y + r.height);
-                GameObject cube4 = GameObject.CreatePrimitive(PrimitiveType.Sphere);
-                cube4.transform.position = new Vector3(r.position.x + r.width, 30, r.position.y);*/
+                if(CanPlaceBuilding())
+                    PlaceBuilding();
             }
             if (Input.GetMouseButtonDown(1))
                 Destroy(currentSpawnedBuilding);
@@ -55,8 +47,60 @@ public class SpawnBuildings : MonoBehaviour
     }
 
 
+    void FixedUpdate()
+    {
+        if(currentSpawnedBuilding && !coroutineRunning)
+        {
+            StartCoroutine(FollowMouse());
+        }
+    }
+
+
+    bool CanPlaceBuilding()
+    {
+        for(int i = 0; i < activeTiles.Count; i++)
+            if(activeTiles[i].colliding)
+                return false;
+        return true;
+    }
+
+
+    void PlaceBuilding()
+    {
+        PlacementHelpers.ToggleRenderers(currentSpawnedBuilding, true);
+        currentSpawnedBuilding = null;
+        activeTilesParent = null;
+        ClearList();
+    }
+
+
+    void ClearList()
+    {
+        for(int i = 0; i < activeTiles.Count; i++)
+        {
+            Destroy(activeTiles[i].gameObject);
+        }
+        activeTiles.RemoveAll(i => i);
+        Debug.Log(activeTiles.Count);
+    }
+
+
+    IEnumerator FollowMouse()
+    {
+        coroutineRunning = true;
+        RaycastHit h;
+        if(PlacementHelpers.RaycastFromMouse(out h, terrainLayer))
+            currentSpawnedBuilding.transform.position = h.point;
+        yield return null;
+        coroutineRunning = false;
+    }
+
+
     void FillRectWithTiles(Collider col)
     {
+        if(activeTilesParent)
+            return;
+
         Rect rect = PlacementHelpers.MakeRectOfCollider(col);
         float fromX = rect.position.x;
         float toX = rect.position.x + rect.width;
@@ -64,19 +108,20 @@ public class SpawnBuildings : MonoBehaviour
         float toZ = rect.position.y + rect.height;
 
         GameObject parent = new GameObject("ProductionTileParent");
-        parent.transform.SetParent(col.gameObject.transform);
+        parent.transform.SetParent(col.gameObject.transform.root.gameObject.transform);
         parent.transform.position = col.gameObject.transform.position;
 
         for(float i = fromX; i < toX; i += productionTile.transform.localScale.x)
         {
             for(float j = fromZ; j < toZ; j += productionTile.transform.localScale.y)
             {
-                GameObject tile1 = Instantiate(productionTile);
-                tile1.transform.SetParent(parent.transform);
-                tile1.transform.position = new Vector3(i, parent.transform.position.y, j);
+                GameObject tile = Instantiate(productionTile);
+                tile.transform.SetParent(parent.transform);
+                tile.transform.position = new Vector3(i, parent.transform.position.y + 1, j);
+                activeTiles.Add(tile.GetComponent<ProductionTile>());
             }
         }
-
+        activeTilesParent = parent;
     }
 
 
@@ -87,5 +132,10 @@ public class SpawnBuildings : MonoBehaviour
             return;
         currentSpawnedBuilding = Instantiate(building.buildingPrefab);
         PlacementHelpers.ToggleRenderers(currentSpawnedBuilding, false);
+        Collider[] cols = currentSpawnedBuilding.GetComponentsInChildren<Collider>();
+        if(cols.Length > 0)
+            FillRectWithTiles(cols[0]);
+        else
+            Debug.LogError("Building has no colliders");
     }
 }

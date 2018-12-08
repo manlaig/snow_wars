@@ -19,7 +19,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4731368807806648}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Flag03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -34,7 +34,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4361049843238682}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Flag04_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -49,7 +49,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4184050808050542}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Flag04
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -65,7 +65,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4978476269825112}
   - component: {fileID: 137517805489722340}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Building_Igloo_Msh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -80,7 +80,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4662641832747424}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -95,7 +95,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4294849910846198}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Building_Igloo_Rig
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -110,7 +110,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4790569781800704}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Flag02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -125,7 +125,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4729925315916758}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Flag01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -143,7 +143,7 @@ GameObject:
   - component: {fileID: 111570878958416984}
   - component: {fileID: 114289262757634970}
   - component: {fileID: 65328305089018044}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: prefab_building_Igloo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -158,7 +158,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4355583540898246}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Base_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}

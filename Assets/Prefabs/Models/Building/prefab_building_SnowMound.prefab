@@ -19,7 +19,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4427287238049826}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Snow.007_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -34,7 +34,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4135755508170540}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Snow.004
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -51,7 +51,7 @@ GameObject:
   - component: {fileID: 4490768151146962}
   - component: {fileID: 137997185138401792}
   - component: {fileID: 65525628784813498}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: SnowMound
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -66,7 +66,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4421883177119740}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Snow.005
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -81,7 +81,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4230412031414542}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Snow.007
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -96,7 +96,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4196799484603474}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Snow.006
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -111,7 +111,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4658115994240564}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Snow.001_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -126,7 +126,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4581306431517110}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Snow.003_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -141,7 +141,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4516316252234678}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Snow.002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -156,7 +156,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4394401284015610}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Snow_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -171,7 +171,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4415013367071610}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Snow.009_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -186,7 +186,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4606772672501484}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Snow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -202,7 +202,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4787104786210604}
   - component: {fileID: 111339936880453108}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: prefab_building_SnowMound
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -217,7 +217,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4029938185943654}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Snow.008_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -232,7 +232,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4054693637768462}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Snow.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -247,7 +247,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4838245011818232}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Snow.002_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -262,7 +262,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4269102574095782}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Armature
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -277,7 +277,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4610812389577838}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: MainRoot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -292,7 +292,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4649805912825558}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Snow.006_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -307,7 +307,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4096808413916358}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Snow.010
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -322,7 +322,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4919288342410184}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Snow.010_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -337,7 +337,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4330308412565784}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Snow.004_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -352,7 +352,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4995898572127260}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Snow.005_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -367,7 +367,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4568874103122812}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Snow.003
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -382,7 +382,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4518909067198234}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Snow.008
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -397,7 +397,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4609914844321356}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Snow.009
   m_TagString: Untagged
   m_Icon: {fileID: 0}

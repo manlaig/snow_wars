@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 33148293966679626}
   - component: {fileID: 23668274257413118}
   - component: {fileID: 65202146823417252}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: prefab_building_SnowCastle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
