@@ -8,18 +8,18 @@ Prefab:
     m_TransformParent: {fileID: 0}
     m_Modifications: []
     m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 0}
+  m_SourcePrefab: {fileID: 0}
   m_RootGameObject: {fileID: 1937772000712184}
-  m_IsPrefabParent: 1
+  m_IsPrefabAsset: 1
 --- !u!1 &1048319210566260
 GameObject:
   m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
+  serializedVersion: 6
   m_Component:
   - component: {fileID: 4731368807806648}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Flag03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29,12 +29,12 @@ GameObject:
 --- !u!1 &1064347541570434
 GameObject:
   m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
+  serializedVersion: 6
   m_Component:
   - component: {fileID: 4361049843238682}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Flag04_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -44,12 +44,12 @@ GameObject:
 --- !u!1 &1082943850474770
 GameObject:
   m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
+  serializedVersion: 6
   m_Component:
   - component: {fileID: 4184050808050542}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Flag04
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -59,13 +59,13 @@ GameObject:
 --- !u!1 &1098728309054726
 GameObject:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
+  serializedVersion: 6
   m_Component:
   - component: {fileID: 4978476269825112}
   - component: {fileID: 137517805489722340}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Building_Igloo_Msh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -75,12 +75,12 @@ GameObject:
 --- !u!1 &1584542819021412
 GameObject:
   m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
+  serializedVersion: 6
   m_Component:
   - component: {fileID: 4662641832747424}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -90,12 +90,12 @@ GameObject:
 --- !u!1 &1797255874878510
 GameObject:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
+  serializedVersion: 6
   m_Component:
   - component: {fileID: 4294849910846198}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Building_Igloo_Rig
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -105,12 +105,12 @@ GameObject:
 --- !u!1 &1842901125485846
 GameObject:
   m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
+  serializedVersion: 6
   m_Component:
   - component: {fileID: 4790569781800704}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Flag02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -120,12 +120,12 @@ GameObject:
 --- !u!1 &1858053478848370
 GameObject:
   m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
+  serializedVersion: 6
   m_Component:
   - component: {fileID: 4729925315916758}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Flag01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -135,14 +135,15 @@ GameObject:
 --- !u!1 &1937772000712184
 GameObject:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
+  serializedVersion: 6
   m_Component:
   - component: {fileID: 4227257742844480}
   - component: {fileID: 111570878958416984}
   - component: {fileID: 114289262757634970}
-  m_Layer: 0
+  - component: {fileID: 65328305089018044}
+  m_Layer: 15
   m_Name: prefab_building_Igloo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -152,12 +153,12 @@ GameObject:
 --- !u!1 &1993193639959342
 GameObject:
   m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
+  serializedVersion: 6
   m_Component:
   - component: {fileID: 4355583540898246}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Base_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -167,7 +168,7 @@ GameObject:
 --- !u!4 &4184050808050542
 Transform:
   m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1082943850474770}
   m_LocalRotation: {x: -4.440892e-16, y: -1.4210855e-14, z: -6.287101e-22, w: 1}
@@ -181,7 +182,7 @@ Transform:
 --- !u!4 &4227257742844480
 Transform:
   m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1937772000712184}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
@@ -196,7 +197,7 @@ Transform:
 --- !u!4 &4294849910846198
 Transform:
   m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1797255874878510}
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
@@ -211,7 +212,7 @@ Transform:
 --- !u!4 &4355583540898246
 Transform:
   m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1993193639959342}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
@@ -224,7 +225,7 @@ Transform:
 --- !u!4 &4361049843238682
 Transform:
   m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1064347541570434}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
@@ -237,7 +238,7 @@ Transform:
 --- !u!4 &4662641832747424
 Transform:
   m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1584542819021412}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071067}
@@ -251,7 +252,7 @@ Transform:
 --- !u!4 &4729925315916758
 Transform:
   m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1858053478848370}
   m_LocalRotation: {x: 0.50000006, y: -0.49999994, z: 0.49999988, w: 0.5000001}
@@ -265,7 +266,7 @@ Transform:
 --- !u!4 &4731368807806648
 Transform:
   m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1048319210566260}
   m_LocalRotation: {x: -5.1687373e-15, y: 0.70710665, z: 5.1687352e-15, w: 0.70710695}
@@ -279,7 +280,7 @@ Transform:
 --- !u!4 &4790569781800704
 Transform:
   m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1842901125485846}
   m_LocalRotation: {x: 0.0000000631989, y: -1.6140633e-14, z: -2.5290442e-14, w: 1}
@@ -293,7 +294,7 @@ Transform:
 --- !u!4 &4978476269825112
 Transform:
   m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1098728309054726}
   m_LocalRotation: {x: -0.7071068, y: -0.000000015454312, z: -0.000000015454312, w: 0.7071068}
@@ -303,10 +304,22 @@ Transform:
   m_Father: {fileID: 4227257742844480}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &65328305089018044
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1937772000712184}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 13.53, y: 8.68, z: 20}
+  m_Center: {x: 0.21, y: 4.17, z: 1.4}
 --- !u!111 &111570878958416984
 Animation:
   m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1937772000712184}
   m_Enabled: 1
@@ -322,7 +335,7 @@ Animation:
 --- !u!114 &114289262757634970
 MonoBehaviour:
   m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1937772000712184}
   m_Enabled: 1
@@ -337,12 +350,12 @@ MonoBehaviour:
   workerCapacity: 4
   destroyedBuilding: {fileID: 0}
   upgradedBuilding: {fileID: 0}
-  resourcesObject: {fileID: 0}
+  R: {fileID: 0}
   health: 0
 --- !u!137 &137517805489722340
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1098728309054726}
   m_Enabled: 1
@@ -352,6 +365,7 @@ SkinnedMeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100000, guid: ac0165c435932ba4bac28c74ca99b58e, type: 2}
   m_StaticBatchInfo:
