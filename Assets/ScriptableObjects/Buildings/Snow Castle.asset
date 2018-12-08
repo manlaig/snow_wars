@@ -9,8 +9,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c5aca4dea86736f45904c0d10502538b, type: 3}
-  m_Name: Igloo
+  m_Name: Snow Castle
   m_EditorClassIdentifier: 
-  objectName: Igloo
-  buildingPrefab: {fileID: 1937772000712184, guid: 98db156cc6c8a7e4cb6b7e6459c64720,
+  objectName: Snow Castle
+  buildingPrefab: {fileID: 1155734126070938, guid: afcd623ecf964164fad5519ac77da6f3,
     type: 2}

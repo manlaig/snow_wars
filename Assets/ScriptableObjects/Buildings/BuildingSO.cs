@@ -6,6 +6,6 @@ using UnityEngine;
 public class BuildingSO : ScriptableObject
 {
     public string objectName = "Building Name";
-    public GameObject buidlingPrefab;
+    public GameObject buildingPrefab;
     //public float cost;
 }

@@ -8,7 +8,7 @@ public class SpawnBuildings : MonoBehaviour
     // TODO: assign these layermasks in a script
     [SerializeField] GameObject productionTile;
     [SerializeField] LayerMask terrainLayer;
-    [SerializeField] LayerMask uiLayer; // TODO: down spawn if pressed on UI layer
+    [SerializeField] LayerMask uiLayer; // TODO: don't spawn if pressed on UI layer
     [SerializeField] LayerMask environmentLayer;
 
     GameObject currentSpawnedBuilding;
@@ -26,7 +26,7 @@ public class SpawnBuildings : MonoBehaviour
     {
         if (currentSpawnedBuilding)
         {
-            if (Input.GetMouseButtonDown(0) && !isOverlappingColliders(currentSpawnedBuilding) /*&& !RaycastFromMouse(out uiHit, uiLayer)*/)
+            if (Input.GetMouseButtonDown(0) /*&& !isOverlappingColliders(currentSpawnedBuilding) && !RaycastFromMouse(out uiHit, uiLayer)*/)
             {
                 if (!RaycastFromMouse(out hit, terrainLayer))
                     return;
@@ -53,6 +53,8 @@ public class SpawnBuildings : MonoBehaviour
     }
 
 
+    // TODO: get rid of this function
+    // TODO: detect collisions with production tiles instead of overlapboxes
     bool isOverlappingColliders(GameObject go)
     {
         Collider[] allCol = go.GetComponentsInChildren<Collider>();
@@ -77,7 +79,7 @@ public class SpawnBuildings : MonoBehaviour
         if (currentSpawnedBuilding)
             return;
         Debug.Log("spawn called");
-        currentSpawnedBuilding = Instantiate(building.buidlingPrefab);
+        currentSpawnedBuilding = Instantiate(building.buildingPrefab);
         ToggleRenderers(currentSpawnedBuilding, false);
     }
 
