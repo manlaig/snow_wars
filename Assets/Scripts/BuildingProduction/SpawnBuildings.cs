@@ -49,7 +49,7 @@ public class SpawnBuildings : MonoBehaviour
         if(currentSpawnedBuilding)
         {
             if(PlacementHelpers.RaycastFromMouse(out hit, terrainLayer))
-                currentSpawnedBuilding.transform.position = hit.point;
+                currentSpawnedBuilding.transform.position = new Vector3((int)hit.point.x, (int)hit.point.y, (int)hit.point.z);
         }
     }
 
