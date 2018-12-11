@@ -2,25 +2,39 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using UnityEngine.UI;
 
 public class SpawnBuildings : MonoBehaviour
 {
+    #region Inspector Variables
     // TODO: assign these layermasks in a script
+    [TooltipAttribute("The tile GameObject that make up the grid")]
     [SerializeField] GameObject productionTile;
-    [SerializeField] LayerMask terrainLayer;
-    [SerializeField] LayerMask uiLayer; // TODO: don't spawn if pressed on UI layer
 
+    [TooltipAttribute("The layer in which the terrain is placed")]
+    [SerializeField] LayerMask terrainLayer;
+
+    [TooltipAttribute("Need GraphicRaycaster to detect click on a button")]
+    [SerializeField] GraphicRaycaster uiRaycaster;
+
+    [SerializeField] GameObject underConstructionGO;
+    #endregion
+
+    #region Private Objects
     GameObject currentSpawnedBuilding;
+    BuildingSO buildingToPlace;
     RaycastHit hit;
     List<ProductionTile> activeTiles;
     GameObject activeTilesParent;
+    #endregion
 
-
-	void Start ()
+    void Start ()
     {
         activeTiles = new List<ProductionTile>();
         if (!productionTile)
             Debug.LogError("Production Tile is NULL");
+        if (!uiRaycaster)
+            Debug.Log("GraphicRaycaster not found! Will place objects on button click");
 	}
 
 
@@ -28,7 +42,7 @@ public class SpawnBuildings : MonoBehaviour
     {
         if (currentSpawnedBuilding)
         {
-            if (Input.GetMouseButtonDown(0) /*&& !RaycastFromMouse(out uiHit, uiLayer)*/)
+            if (Input.GetMouseButtonDown(0))
             {
                 if (!PlacementHelpers.RaycastFromMouse(out hit, terrainLayer))
                     return;
@@ -56,6 +70,8 @@ public class SpawnBuildings : MonoBehaviour
 
     bool CanPlaceBuilding()
     {
+        if (PlacementHelpers.IsButtonPressed(uiRaycaster))
+            return false;
         for(int i = 0; i < activeTiles.Count; i++)
             if(activeTiles[i].colliding)
                 return false;
@@ -65,27 +81,42 @@ public class SpawnBuildings : MonoBehaviour
 
     void PlaceBuilding()
     {
-        PlacementHelpers.ToggleRenderers(currentSpawnedBuilding, true);
-        currentSpawnedBuilding = null;
-        activeTilesParent = null;
-        ClearList();
+        StartCoroutine(BeginBuilding());
+        ClearGrid();
     }
 
 
-    void ClearList()
+    IEnumerator BeginBuilding()
+    {
+        Vector3 pos = currentSpawnedBuilding.transform.position;
+        GameObject instance = currentSpawnedBuilding;
+        currentSpawnedBuilding = null;
+        activeTilesParent = null;
+
+        RaycastHit hitTerrain;
+        if (PlacementHelpers.RaycastFromMouse(out hitTerrain, terrainLayer))
+            pos = hitTerrain.point;
+
+        GameObject go = Instantiate(underConstructionGO, pos, Quaternion.identity);
+        yield return new WaitForSeconds(buildingToPlace.buildTime);
+        Debug.Log("waited " + buildingToPlace.buildTime + " seconds");
+        PlacementHelpers.ToggleRenderers(instance, true);
+        Destroy(go);
+    }
+
+
+    void ClearGrid()
     {
         for(int i = 0; i < activeTiles.Count; i++)
-        {
             if(activeTiles[i] != null)
                 Destroy(activeTiles[i].gameObject);
-        }
         activeTiles.RemoveAll(i => i);
     }
 
 
     void FillRectWithTiles(Collider col)
     {
-        if(activeTilesParent)
+        if (activeTilesParent)
             return;
 
         Rect rect = PlacementHelpers.MakeRectOfCollider(col);
@@ -104,7 +135,7 @@ public class SpawnBuildings : MonoBehaviour
             {
                 GameObject tile = Instantiate(productionTile);
                 tile.transform.SetParent(parent.transform);
-                tile.transform.position = new Vector3(i, parent.transform.position.y + 1, j);
+                tile.transform.position = new Vector3(i, parent.transform.position.y + 2, j);
                 activeTiles.Add(tile.GetComponent<ProductionTile>());
             }
         }
@@ -117,7 +148,9 @@ public class SpawnBuildings : MonoBehaviour
         // if haven't placed the spawned building, then return
         if (currentSpawnedBuilding)
             return;
+
         currentSpawnedBuilding = Instantiate(building.buildingPrefab);
+        buildingToPlace = building;
         PlacementHelpers.ToggleRenderers(currentSpawnedBuilding, false);
         Collider[] cols = currentSpawnedBuilding.GetComponentsInChildren<Collider>();
         if(cols.Length > 0)

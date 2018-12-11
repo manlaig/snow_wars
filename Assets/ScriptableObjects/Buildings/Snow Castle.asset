@@ -14,3 +14,4 @@ MonoBehaviour:
   objectName: Snow Castle
   buildingPrefab: {fileID: 1155734126070938, guid: afcd623ecf964164fad5519ac77da6f3,
     type: 2}
+  buildTime: 4

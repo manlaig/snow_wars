@@ -14,3 +14,4 @@ MonoBehaviour:
   objectName: Snow Fort
   buildingPrefab: {fileID: 1916727156834170, guid: da318d0c4b2fda6468d00aa6c9f50563,
     type: 2}
+  buildTime: 3

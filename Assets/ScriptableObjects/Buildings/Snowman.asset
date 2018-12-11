@@ -14,3 +14,4 @@ MonoBehaviour:
   objectName: Snowman
   buildingPrefab: {fileID: 1245859786613144, guid: 95c41b5a22bab9f48896c3c00ef321fb,
     type: 2}
+  buildTime: 2

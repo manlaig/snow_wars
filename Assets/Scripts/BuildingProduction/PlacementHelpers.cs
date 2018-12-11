@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 // helper methods for building placement
 public static class PlacementHelpers
@@ -37,4 +39,19 @@ public static class PlacementHelpers
 						col.bounds.size.x, col.bounds.size.z);
 		return r;
 	}
+
+
+    public static bool IsButtonPressed(GraphicRaycaster raycaster)
+    {
+        if (!EventSystem.current)
+        {
+            Debug.LogError("EventSystem not found");
+            return true;
+        }
+        PointerEventData eventData = new PointerEventData(EventSystem.current);
+        List<RaycastResult> results = new List<RaycastResult>();
+        eventData.position = Input.mousePosition;
+        raycaster.Raycast(eventData, results);
+        return results.Count != 0;
+    }
 }

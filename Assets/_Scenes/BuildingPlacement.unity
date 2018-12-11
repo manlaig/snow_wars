@@ -315,9 +315,9 @@ MonoBehaviour:
   terrainLayer:
     serializedVersion: 2
     m_Bits: 16384
-  uiLayer:
-    serializedVersion: 2
-    m_Bits: 32
+  uiRaycaster: {fileID: 1172360789}
+  underConstructionGO: {fileID: 1060461474943196, guid: 4e30088872019b7449e154cc5ecb3722,
+    type: 2}
 --- !u!4 &650936680
 Transform:
   m_ObjectHideFlags: 0

@@ -14,3 +14,4 @@ MonoBehaviour:
   objectName: Santa Castle
   buildingPrefab: {fileID: 1991359409796626, guid: 0bb7c97fc1428ad4191a66b7e494c9ce,
     type: 2}
+  buildTime: 5
