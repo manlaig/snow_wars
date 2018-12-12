@@ -62,6 +62,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\ScriptableObjects\Buildings\BuildingSO.cs" />
+    <Compile Include="Assets\ScriptableObjects\BuildProgress\BuildProgressSO.cs" />
     <Compile Include="Assets\Scripts\BaseAttackUnit.cs" />
     <Compile Include="Assets\Scripts\BaseBuilding.cs" />
     <Compile Include="Assets\Scripts\BaseHero.cs" />
@@ -69,6 +70,7 @@
     <Compile Include="Assets\Scripts\Building\Building.cs" />
     <Compile Include="Assets\Scripts\BuildingProduction\PlacementHelpers.cs" />
     <Compile Include="Assets\Scripts\BuildingProduction\ProductionTile.cs" />
+    <Compile Include="Assets\Scripts\BuildingProduction\ShowBuildProgress.cs" />
     <Compile Include="Assets\Scripts\BuildingProduction\SpawnBuildings.cs" />
     <Compile Include="Assets\Scripts\CameraController.cs" />
     <Compile Include="Assets\Scripts\CameraManagers\HandleLeftRightClick.cs" />

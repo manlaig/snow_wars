@@ -18,11 +18,11 @@ public class SpawnBuildings : MonoBehaviour
     [SerializeField] GraphicRaycaster uiRaycaster;
 
     [SerializeField] GameObject underConstructionGO;
+    [SerializeField] BuildProgressSO buildingToPlace;
     #endregion
 
     #region Private Objects
     GameObject currentSpawnedBuilding;
-    BuildingSO buildingToPlace;
     RaycastHit hit;
     List<ProductionTile> activeTiles;
     GameObject activeTilesParent;
@@ -98,8 +98,8 @@ public class SpawnBuildings : MonoBehaviour
             pos = hitTerrain.point;
 
         GameObject go = Instantiate(underConstructionGO, pos, Quaternion.identity);
-        yield return new WaitForSeconds(buildingToPlace.buildTime);
-        Debug.Log("waited " + buildingToPlace.buildTime + " seconds");
+        yield return new WaitForSeconds(buildingToPlace.currentBuilding.buildTime);
+        Debug.Log("waited " + buildingToPlace.currentBuilding.buildTime + " seconds to build " + buildingToPlace.currentBuilding.name);
         PlacementHelpers.ToggleRenderers(instance, true);
         Destroy(go);
     }
@@ -150,7 +150,7 @@ public class SpawnBuildings : MonoBehaviour
             return;
 
         currentSpawnedBuilding = Instantiate(building.buildingPrefab);
-        buildingToPlace = building;
+        buildingToPlace.currentBuilding = building;
         PlacementHelpers.ToggleRenderers(currentSpawnedBuilding, false);
         Collider[] cols = currentSpawnedBuilding.GetComponentsInChildren<Collider>();
         if(cols.Length > 0)
