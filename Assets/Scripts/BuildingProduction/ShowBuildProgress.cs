@@ -31,5 +31,8 @@ public class ShowBuildProgress : MonoBehaviour
 
         GUI.EndGroup();
         GUI.EndGroup();
+
+        GUI.contentColor = Color.black;
+        GUI.Label(new Rect(guiPosition.x + width/2, guiPosition.y - height/2, width, 75), Mathf.Round(buildTime - Time.time + startTime).ToString());
     }
 }
