@@ -21,7 +21,7 @@ public class SpawnBuildings : MonoBehaviour
     [SerializeField] BuildProgressSO buildingToPlace;
     #endregion
 
-    #region Private Objects
+    #region Instance Objects
     GameObject currentSpawnedBuilding;
     RaycastHit hit;
     List<ProductionTile> activeTiles;
@@ -61,10 +61,8 @@ public class SpawnBuildings : MonoBehaviour
     void FixedUpdate()
     {
         if(currentSpawnedBuilding)
-        {
             if(PlacementHelpers.RaycastFromMouse(out hit, terrainLayer))
                 currentSpawnedBuilding.transform.position = new Vector3((int)hit.point.x, (int)hit.point.y, (int)hit.point.z);
-        }
     }
 
 
@@ -81,8 +79,15 @@ public class SpawnBuildings : MonoBehaviour
 
     void PlaceBuilding()
     {
-        StartCoroutine(BeginBuilding());
         ClearGrid();
+        StartCoroutine(BeginBuilding());
+    }
+
+
+    void ClearGrid()
+    {
+        Destroy(activeTilesParent);
+        activeTiles.RemoveAll(i => i);
     }
 
 
@@ -91,7 +96,6 @@ public class SpawnBuildings : MonoBehaviour
         Vector3 pos = currentSpawnedBuilding.transform.position;
         GameObject instance = currentSpawnedBuilding;
         currentSpawnedBuilding = null;
-        activeTilesParent = null;
 
         RaycastHit hitTerrain;
         if (PlacementHelpers.RaycastFromMouse(out hitTerrain, terrainLayer))
@@ -102,15 +106,6 @@ public class SpawnBuildings : MonoBehaviour
         Debug.Log("waited " + buildingToPlace.currentBuilding.buildTime + " seconds to build " + buildingToPlace.currentBuilding.name);
         PlacementHelpers.ToggleRenderers(instance, true);
         Destroy(go);
-    }
-
-
-    void ClearGrid()
-    {
-        for(int i = 0; i < activeTiles.Count; i++)
-            if(activeTiles[i] != null)
-                Destroy(activeTiles[i].gameObject);
-        activeTiles.RemoveAll(i => i);
     }
 
 
