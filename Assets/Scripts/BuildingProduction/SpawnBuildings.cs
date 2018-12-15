@@ -125,8 +125,8 @@ public class SpawnBuildings : MonoBehaviour
         float fromZ = rect.position.y;
         float toZ = rect.position.y + rect.height;
 
-        GameObject parent = new GameObject("ProductionTileParent");
-        parent.transform.SetParent(col.gameObject.transform.root.gameObject.transform);
+        GameObject parent = new GameObject("PlacementGrid");
+        parent.transform.SetParent(col.gameObject.transform.root);
         parent.transform.position = col.gameObject.transform.position;
 
         for(float i = fromX; i < toX; i += productionTile.transform.localScale.x)
