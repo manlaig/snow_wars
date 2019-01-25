@@ -68,6 +68,7 @@
     <Compile Include="Assets\Scripts\BaseHero.cs" />
     <Compile Include="Assets\Scripts\BaseWorker.cs" />
     <Compile Include="Assets\Scripts\Building\Building.cs" />
+    <Compile Include="Assets\Scripts\BuildingProduction\BuilderUnit.cs" />
     <Compile Include="Assets\Scripts\BuildingProduction\PlacementHelpers.cs" />
     <Compile Include="Assets\Scripts\BuildingProduction\ProductionTile.cs" />
     <Compile Include="Assets\Scripts\BuildingProduction\ShowBuildProgress.cs" />
