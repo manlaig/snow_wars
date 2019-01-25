@@ -17,7 +17,9 @@ public class EventManager : MonoBehaviour
         UnitKilled,
         SnowballUpdate,
         SupplyUpdate,
-        ClearSelection
+        ClearSelection,
+        NewBuildingPlaced,
+        WorkerFinishedBuilding
     }
 
     private static EventManager eventManager;

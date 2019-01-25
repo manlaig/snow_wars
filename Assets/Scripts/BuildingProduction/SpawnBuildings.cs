@@ -102,10 +102,18 @@ public class SpawnBuildings : MonoBehaviour
             pos = hitTerrain.point;
 
         GameObject go = Instantiate(underConstructionGO, pos, Quaternion.identity);
+        EventManager.TriggerEvent(EventManager.Events.NewBuildingPlaced, go);
+        Debug.Log("Triggered event");
+
+        while (!go.GetComponent<ShowBuildProgress>().started)
+            yield return null;
+
         yield return new WaitForSeconds(buildingToPlace.currentBuilding.buildTime);
         Debug.Log("waited " + buildingToPlace.currentBuilding.buildTime + " seconds to build " + buildingToPlace.currentBuilding.name);
         PlacementHelpers.ToggleRenderers(instance, true);
         Destroy(go);
+
+        EventManager.TriggerEvent(EventManager.Events.WorkerFinishedBuilding, null);
     }
 
 

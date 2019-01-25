@@ -37,7 +37,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4094748147672424}
-  - component: {fileID: 114418371115947608}
+  - component: {fileID: 114179657269175760}
   m_Layer: 15
   m_Name: ConstructionProgress
   m_TagString: Untagged
@@ -126,7 +126,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 14.459882, y: 14.627382, z: 11.371397}
   m_Center: {x: 0.09406233, y: 0.53765607, z: 1.5002489}
---- !u!114 &114418371115947608
+--- !u!114 &114179657269175760
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}

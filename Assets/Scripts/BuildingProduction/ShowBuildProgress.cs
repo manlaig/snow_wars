@@ -8,17 +8,28 @@ public class ShowBuildProgress : MonoBehaviour
     [SerializeField] float width = 90f;
     [SerializeField] float height = 10f;
 
-    float startTime;
+    public bool started { get; private set; }
+
+    float startTime = -1f;
     float buildTime;
 
-    void Start ()
+    void Start()
     {
+        started = false;
+    }
+
+    // called when a worker unit collides with the construction unit
+    public void StartBuilding()
+    {
+        started = true;
         startTime = Time.time;
         buildTime = buildingToPlace.currentBuilding.buildTime;
     }
 	
-	void OnGUI ()
+	void OnGUI()
     {
+        if (startTime == -1f)
+            return;
         Vector3 screenPos = Camera.main.WorldToScreenPoint(transform.position);
         Vector2 guiPosition = new Vector2(screenPos.x - (width / 2), Screen.height - screenPos.y - height * 4);
 

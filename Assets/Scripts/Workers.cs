@@ -14,7 +14,7 @@ public class Workers : BaseWorker
     void Start()
     {
         // The type is the name of the class
-        R = transform.root.GetComponent<Resources>();
+        //R = transform.root.GetComponent<Resources>();
     }
 
     /// <summary>
@@ -23,7 +23,7 @@ public class Workers : BaseWorker
     public void CollectSnowBalls()
     {
         // TODO Add code to trigger snowball animation
-        R.AddSnowballs();
+        //R.AddSnowballs();
     }
 
     /// <summary>

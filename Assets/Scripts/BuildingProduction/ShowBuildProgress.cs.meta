@@ -3,7 +3,10 @@ guid: c9c5c2967cf55764bafc71190f0093f6
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - background: {fileID: 2800000, guid: c9b5081da69697448ac493c4d31ae657, type: 3}
+  - fillTexture: {fileID: 2800000, guid: 16a1fb88da06d4d48ab51422a5425634, type: 3}
+  - buildingToPlace: {fileID: 11400000, guid: 1402da2341da23f4ca4762fb9bdcf62e, type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
