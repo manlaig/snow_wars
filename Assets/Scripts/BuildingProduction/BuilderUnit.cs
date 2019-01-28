@@ -71,7 +71,7 @@ public class BuilderUnit : MonoBehaviour
     {
         if (!currentBuildingToBuild)
             return;
-        if (Vector3.Distance(transform.position, currentBuildingToBuild.transform.position) < 15)
+        if (Vector3.Distance(transform.position, currentBuildingToBuild.transform.position) < 20)
         {
             ShowBuildProgress progress = currentBuildingToBuild.GetComponent<ShowBuildProgress>();
             if (progress)

@@ -10,10 +10,11 @@ public class ProductionTile : MonoBehaviour
     [SerializeField] Material tileMaterial;
     [SerializeField] LayerMask collisionLayers;
 
-    public bool colliding { get; private set; } 
+    public bool colliding;
 
 	void Start ()
     {
+        colliding = false;
         GetComponent<Renderer>().material.CopyPropertiesFromMaterial(tileMaterial);
         SetColor(Color.green);
     }

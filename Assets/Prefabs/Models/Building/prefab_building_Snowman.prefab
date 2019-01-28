@@ -1027,6 +1027,7 @@ GameObject:
   - component: {fileID: 4857653563352874}
   - component: {fileID: 137016033905907758}
   - component: {fileID: 65938053778110240}
+  - component: {fileID: 208806474407117178}
   m_Layer: 15
   m_Name: Snowman_MSH
   m_TagString: Untagged
@@ -1639,7 +1640,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1245859786613144}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: -4.5436735, y: 0.96929026, z: 0.9103763}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4857653563352874}
@@ -2349,3 +2350,18 @@ SkinnedMeshRenderer:
     m_Center: {x: 0.31274557, y: 3.6368968, z: -2.7665465}
     m_Extent: {x: 6.506923, y: 5.04823, z: 7.550146}
   m_DirtyAABB: 0
+--- !u!208 &208806474407117178
+NavMeshObstacle:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1931203566469566}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 3.95, y: 3.67, z: 4.37}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: -0.1, y: 0.7, z: 3.28}
+  m_TimeToStationary: 0.1

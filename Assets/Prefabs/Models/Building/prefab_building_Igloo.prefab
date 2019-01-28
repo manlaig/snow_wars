@@ -143,6 +143,7 @@ GameObject:
   - component: {fileID: 111570878958416984}
   - component: {fileID: 114289262757634970}
   - component: {fileID: 65328305089018044}
+  - component: {fileID: 208767221649015032}
   m_Layer: 15
   m_Name: prefab_building_Igloo
   m_TagString: Untagged
@@ -338,7 +339,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1937772000712184}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a8392912d22bbf1478d80f83c566cdea, type: 3}
   m_Name: 
@@ -404,3 +405,18 @@ SkinnedMeshRenderer:
     m_Center: {x: -5.457312, y: -0.73030376, z: 1.2594991}
     m_Extent: {x: 8.505096, y: 9.843832, z: 11.0304165}
   m_DirtyAABB: 0
+--- !u!208 &208767221649015032
+NavMeshObstacle:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1937772000712184}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 9.235, y: 4.34, z: 10}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0.21, y: 4.17, z: 1.4}
+  m_TimeToStationary: 0.1

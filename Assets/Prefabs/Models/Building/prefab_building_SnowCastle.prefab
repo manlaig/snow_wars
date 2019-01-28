@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 33148293966679626}
   - component: {fileID: 23668274257413118}
   - component: {fileID: 65202146823417252}
+  - component: {fileID: 208100275667178986}
   m_Layer: 15
   m_Name: prefab_building_SnowCastle
   m_TagString: Untagged
@@ -96,3 +97,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 17.5, y: 18.76, z: 13.6}
   m_Center: {x: 0.040824432, y: -0.15526457, z: 3.5}
+--- !u!208 &208100275667178986
+NavMeshObstacle:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1155734126070938}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 9.831, y: 9.859, z: 8.265}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0.041, y: -0.155, z: 4.6870003}
+  m_TimeToStationary: 0.1

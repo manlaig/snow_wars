@@ -19,6 +19,7 @@ public static class PlacementHelpers
     }
 
 
+    // find a way to make this method generic
     public static void ToggleRenderers(GameObject go, bool toggle)
     {
         if (!go)
@@ -32,7 +33,20 @@ public static class PlacementHelpers
     }
 
 
-	public static Rect MakeRectOfCollider(Collider col)
+    public static void ToggleColliders(GameObject go, bool toggle)
+    {
+        if (!go)
+            return;
+        Collider[] colliders = go.GetComponentsInChildren<Collider>();
+        if (colliders.Length > 0)
+        {
+            foreach (Collider c in colliders)
+                c.enabled = toggle;
+        }
+    }
+
+
+    public static Rect MakeRectOfCollider(Collider col)
 	{
 		Rect r = new Rect(col.bounds.center.x - col.bounds.extents.x,
 						col.bounds.center.z - col.bounds.extents.z,

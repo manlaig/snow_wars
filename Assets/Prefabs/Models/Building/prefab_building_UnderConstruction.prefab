@@ -37,6 +37,7 @@ GameObject:
   - component: {fileID: 33864682980826464}
   - component: {fileID: 23663535569448102}
   - component: {fileID: 65086972015004536}
+  - component: {fileID: 208984994953892046}
   m_Layer: 15
   m_Name: UnderConstruction_MSH
   m_TagString: Untagged
@@ -125,3 +126,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 14.459882, y: 14.627382, z: 11.371397}
   m_Center: {x: 0.09406233, y: 0.53765607, z: 1.5002489}
+--- !u!208 &208984994953892046
+NavMeshObstacle:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1354125076026046}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 7.2300005, y: 7.314, z: 5.6860003}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0.094000004, y: 0.53800005, z: 1.5000001}
+  m_TimeToStationary: 0.1

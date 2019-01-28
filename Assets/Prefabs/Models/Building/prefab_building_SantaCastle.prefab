@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 33376787975400686}
   - component: {fileID: 23660418421865902}
   - component: {fileID: 65245089840844150}
+  - component: {fileID: 208062830276857490}
   m_Layer: 15
   m_Name: prefab_building_SantaCastle
   m_TagString: Untagged
@@ -96,3 +97,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 12.8, y: 13.43, z: 22.604156}
   m_Center: {x: -0.05014374, y: 0.020110754, z: 8.4035845}
+--- !u!208 &208062830276857490
+NavMeshObstacle:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1991359409796626}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 7.7520003, y: 7.7520003, z: 11.302001}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: -0.05, y: 0.020000001, z: 8.404}
+  m_TimeToStationary: 0.1
