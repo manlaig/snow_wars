@@ -507,6 +507,7 @@ GameObject:
   - component: {fileID: 54117178443803808}
   - component: {fileID: 136250446796391066}
   - component: {fileID: 195161779710269694}
+  - component: {fileID: 114179346569604808}
   m_Layer: 0
   m_Name: prefab_unit_Worker
   m_TagString: Untagged
@@ -1527,8 +1528,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1535199333902548}
   m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalPosition: {x: 133.96776, y: 18.39495, z: 118.92019}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 4941699812810952}
   - {fileID: 4307280274731750}
@@ -1758,6 +1759,18 @@ MonoBehaviour:
   attackRecharge: -1
   isUnitEnabled: 0
   icon: {fileID: 21300000, guid: fd3f4a68395b1ef4bb4c95e20c6ada44, type: 3}
+--- !u!114 &114179346569604808
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1535199333902548}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b99d0f9309061d44e8466ae0b6d1cea3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buildingDistance: 25
 --- !u!114 &114201473744780658
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1796,7 +1809,7 @@ CapsuleCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1535199333902548}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 1.1030121
   m_Height: 4.766635

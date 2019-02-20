@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 // required for collision detection
 [RequireComponent(typeof(Collider))]
@@ -10,7 +8,7 @@ public class ProductionTile : MonoBehaviour
     [SerializeField] Material tileMaterial;
     [SerializeField] LayerMask collisionLayers;
 
-    public bool colliding;
+    public bool colliding { get; private set; }
 
 	void Start ()
     {

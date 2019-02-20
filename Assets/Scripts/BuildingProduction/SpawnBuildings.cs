@@ -1,8 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System;
 using UnityEngine.UI;
+using BuildingSystem;
 
 public class SpawnBuildings : MonoBehaviour
 {
@@ -42,8 +42,13 @@ public class SpawnBuildings : MonoBehaviour
     {
         if (currentSpawnedBuilding)
         {
+            /*
+             * Since currentSpawnedBuilding != null, there's already a building chosen to build
+             * place the building on left mouse click
+             */
             if (Input.GetMouseButtonDown(0))
             {
+                // don't build if mouse if click is not on terrainLayer
                 if (!PlacementHelpers.RaycastFromMouse(out hit, terrainLayer))
                     return;
 
@@ -101,17 +106,26 @@ public class SpawnBuildings : MonoBehaviour
         if (PlacementHelpers.RaycastFromMouse(out hitTerrain, terrainLayer))
             pos = hitTerrain.point;
 
-        GameObject go = Instantiate(underConstructionGO, pos, Quaternion.identity);
-        EventManager.TriggerEvent(EventManager.Events.NewBuildingPlaced, go);
-        Debug.Log("Triggered event");
+        GameObject underConstructionIns = Instantiate(underConstructionGO, pos, Quaternion.identity);
+        EventManager.TriggerEvent(EventManager.Events.NewBuildingPlaced, underConstructionIns);
 
-        while (!go.GetComponent<ShowBuildProgress>().started)
+        // wait until the worker reaches the building
+        while (!underConstructionIns.GetComponent<ShowBuildProgress>().started)
             yield return null;
 
         yield return new WaitForSeconds(buildingToPlace.currentBuilding.buildTime);
         Debug.Log("waited " + buildingToPlace.currentBuilding.buildTime + " seconds to build " + buildingToPlace.currentBuilding.name);
+
+        // activating the mesh renderers
         PlacementHelpers.ToggleRenderers(instance, true);
-        Destroy(go);
+
+        /*
+         * Buildings need to be nav mesh obstacles, so that the worker and other agents avoid it while finding path
+         * When a building is finished building, it needs to become an obstacle for agents
+         */
+        PlacementHelpers.ToggleNavMeshObstacle(instance, true);
+
+        Destroy(underConstructionIns);
 
         EventManager.TriggerEvent(EventManager.Events.WorkerFinishedBuilding, null);
     }
@@ -154,7 +168,10 @@ public class SpawnBuildings : MonoBehaviour
 
         currentSpawnedBuilding = Instantiate(building.buildingPrefab);
         buildingToPlace.currentBuilding = building;
+
         PlacementHelpers.ToggleRenderers(currentSpawnedBuilding, false);
+        PlacementHelpers.ToggleNavMeshObstacle(currentSpawnedBuilding, false);
+
         Collider[] cols = currentSpawnedBuilding.GetComponentsInChildren<Collider>();
         if(cols.Length > 0)
             FillRectWithTiles(cols[0]);

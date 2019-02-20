@@ -371,41 +371,23 @@ Prefab:
       propertyPath: m_RootOrder
       value: 6
       objectReference: {fileID: 0}
-    - target: {fileID: 4751296186069040, guid: 9a36df8498f5e2f4a94a467ab8a5ddcd, type: 2}
-      propertyPath: m_LocalScale.x
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4751296186069040, guid: 9a36df8498f5e2f4a94a467ab8a5ddcd, type: 2}
-      propertyPath: m_LocalScale.y
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4751296186069040, guid: 9a36df8498f5e2f4a94a467ab8a5ddcd, type: 2}
-      propertyPath: m_LocalScale.z
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 1535199333902548, guid: 9a36df8498f5e2f4a94a467ab8a5ddcd, type: 2}
       propertyPath: m_Name
       value: Worker
       objectReference: {fileID: 0}
+    - target: {fileID: 195161779710269694, guid: 9a36df8498f5e2f4a94a467ab8a5ddcd,
+        type: 2}
+      propertyPath: m_Speed
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 195161779710269694, guid: 9a36df8498f5e2f4a94a467ab8a5ddcd,
+        type: 2}
+      propertyPath: m_ObstacleAvoidanceType
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9a36df8498f5e2f4a94a467ab8a5ddcd, type: 2}
   m_IsPrefabAsset: 0
---- !u!1 &700166950 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1535199333902548, guid: 9a36df8498f5e2f4a94a467ab8a5ddcd,
-    type: 2}
-  m_PrefabInternal: {fileID: 700166949}
---- !u!114 &700166951
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 700166950}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b99d0f9309061d44e8466ae0b6d1cea3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &747070536
 GameObject:
   m_ObjectHideFlags: 0
