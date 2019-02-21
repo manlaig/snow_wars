@@ -13,28 +13,29 @@ public class SpawnWolpetingers : MonoBehaviour
     // Used for repeated spawning
     //public float spawnTime = 2f;
 
-    public Vector3 spawnPoint;
-    public Quaternion spawnRotation;
+    public Transform spawnPoint;
     public static int wave = 0;
     public float spawnVariance = 15;
 
     public int numberAlive = 1;
-    public int totalKilled = 0;
 
-	/// <summary>
-	/// Spawn for Wave
-	/// </summary>
-	public int Spawn()
+    void Start()
+    {
+        //Spawn(10);
+    }
+
+    /// <summary>
+    /// Spawn for Wave
+    /// </summary>
+    public int Spawn()
 	{
-		GameObject spawn;
 		// How many to spawn in this wave
 		int amount = (wave / 2) + 1;
 		Debug.Log ("prespawn # Wol: " + numberAlive.ToString ());
 		for (int i = 0; i < amount; ++i)
 		{
-			// Spawn with random variance in position
-			spawn = Instantiate (Wopletinger, (spawnPoint + new Vector3(spawnVariance * (Random.value - 0.5f), 0, spawnVariance * (Random.value - 0.5f))), spawnRotation);
-			spawn.transform.parent = transform;
+            // Spawn with random variance in position
+            SpawnAtSpawnPoint();
 		}
 		// Update the amount of wolpetingers that are alive
 		numberAlive += amount;
@@ -50,14 +51,17 @@ public class SpawnWolpetingers : MonoBehaviour
 	/// <param name="amount">Amount.</param>
 	public void Spawn(int amount)
 	{
-		GameObject spawn;
 		for (int i = 0; i < amount; ++i)
 		{
-			// Spawn with random variance in position
-			spawn = Instantiate (Wopletinger, (spawnPoint + new Vector3(spawnVariance * (Random.value - 0.5f), 0, spawnVariance * (Random.value - 0.5f))), spawnRotation);
-			spawn.transform.parent = transform;
+            // Spawn with random variance in position
+            SpawnAtSpawnPoint();
 		}
 		// Update the amount of wolpetingers that are alive
 		numberAlive += amount;
 	}
+
+    void SpawnAtSpawnPoint()
+    {
+        Instantiate(Wopletinger, (spawnPoint.position + new Vector3(spawnVariance * (Random.value - 0.5f), 0, spawnVariance * (Random.value - 0.5f))), spawnPoint.rotation);
+    }
 }
