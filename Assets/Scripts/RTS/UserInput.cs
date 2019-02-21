@@ -6,7 +6,7 @@ using RTS;
 /// User Input Class
 /// </summary>
 public class UserInput : MonoBehaviour
-{/*
+{
     private Player player;
     private Coroutine lastLerpCameraTo;
 
@@ -195,5 +195,5 @@ public class UserInput : MonoBehaviour
 
             yield return new WaitForEndOfFrame();
         }
-    }*/
+    }
 }
