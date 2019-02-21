@@ -27,6 +27,13 @@ public class BuilderUnit : MonoBehaviour
     {
         if(buildingsQ.Count > 0 && idle)
             WorkOnBuilding(buildingsQ.Dequeue());
+
+        // the worker can build if he gets close enough to the building
+        if (currentBuildingToBuild)
+            if (Vector3.Distance(transform.position, currentBuildingToBuild.transform.position) <= buildingDistance)
+            {
+                HandleCollision();
+            }
     }
 
     void WorkOnBuilding(GameObject go)

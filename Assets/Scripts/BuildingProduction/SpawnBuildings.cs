@@ -74,9 +74,11 @@ public class SpawnBuildings : MonoBehaviour
     bool CanPlaceBuilding()
     {
         if (PlacementHelpers.IsButtonPressed(uiRaycaster))
+        {
             return false;
-        for(int i = 0; i < activeTiles.Count; i++)
-            if(activeTiles[i].colliding)
+        }
+        for (int i = 0; i < activeTiles.Count; i++)
+            if (activeTiles[i].colliding)
                 return false;
         return true;
     }
@@ -92,7 +94,7 @@ public class SpawnBuildings : MonoBehaviour
     void ClearGrid()
     {
         Destroy(activeTilesParent);
-        activeTiles.RemoveAll(i => i);
+        activeTiles.Clear();
     }
 
 
@@ -146,7 +148,8 @@ public class SpawnBuildings : MonoBehaviour
         parent.transform.SetParent(col.gameObject.transform.root);
         parent.transform.position = col.gameObject.transform.position;
 
-        for(float i = fromX; i < toX; i += productionTile.transform.localScale.x)
+        activeTiles.Clear();
+        for (float i = fromX; i < toX; i += productionTile.transform.localScale.x)
         {
             for(float j = fromZ; j < toZ; j += productionTile.transform.localScale.y)
             {
@@ -159,7 +162,8 @@ public class SpawnBuildings : MonoBehaviour
         activeTilesParent = parent;
     }
 
-
+    
+    // make a BuildingSO object for all buildings that can be placed, and call this function
     public void SpawnBuilding(BuildingSO building)
     {
         // if haven't placed the spawned building, then return
