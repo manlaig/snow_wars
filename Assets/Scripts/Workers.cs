@@ -3,6 +3,7 @@
 /// </summary>
 public class Workers : BaseWorker
 {
+    /*
     /// <summary>
     /// Is Our Workers on Lunch Break
     /// </summary>    
@@ -34,4 +35,5 @@ public class Workers : BaseWorker
         if (onLunchBreak == false) { onLunchBreak = true; }
         else { onLunchBreak = false; }
     }
+    */
 }
