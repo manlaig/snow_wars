@@ -43,6 +43,7 @@ public class GuiController : MonoBehaviour
     void Start()
     {
         selectedObjects = new List<GameObject>();
+        Cursor.SetCursor(cursor, Vector2.zero, CursorMode.Auto);
     }
 
     /// <summary>
@@ -196,9 +197,9 @@ public class GuiController : MonoBehaviour
 
 
     /// <summary>
-    /// Do the atack (button).
+    /// Do the attack (button).
     /// </summary>
-    public void DoAtack()
+    public void DoAttack()
     {
         StartCoroutine(WaitForCommand(UnitCommands.Actions.Attack));
     }
