@@ -143,22 +143,6 @@ public class Unit : WorldObject
             string deathClip = animation.clip.name.Split('|')[0] + "|Death";
             animation.Play(deathClip);
             Destroy(gameObject, animation[deathClip].length);
-
-            //TODO Find better place for this
-            /*if (gameObject.name.Contains("prefab_unit_Wolpetinger"))
-            {
-                attacker.transform.root.GetComponent<Resources>().AddSnowballs(100); //TODO Make snowball amount dynamic
-                SpawnWolpetingers spawnCtrl = transform.root.GetComponent<SpawnWolpetingers>();
-                ++(spawnCtrl.totalKilled);
-                --(spawnCtrl.numberAlive);
-
-                if (spawnCtrl.numberAlive == 0)
-                {
-                    //Debug.Log("SPAWNING WOLPETINGER!!!!!");
-                    spawnCtrl.numberAlive = spawnCtrl.Spawn();
-                    PlayerPrefs.SetInt("WOLPETINGERDEATHCOUNT", PlayerPrefs.GetInt("WOLPETINGERDEATHCOUNT") + 1);
-                }
-            }*/
         }
     }
 
