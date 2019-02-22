@@ -16,6 +16,7 @@ using UnityEngine.UI;
 /// </summary>
 public class BuildingProduction : MonoBehaviour
 {
+    /*
     protected RaycastHit hitInfo = new RaycastHit();
     [SerializeField]
     protected bool selected = false;
@@ -178,4 +179,5 @@ public class BuildingProduction : MonoBehaviour
             }
         }
     }
+    */
 }
