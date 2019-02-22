@@ -314,7 +314,7 @@ MonoBehaviour:
     type: 2}
   terrainLayer:
     serializedVersion: 2
-    m_Bits: 16384
+    m_Bits: 16640
   uiRaycaster: {fileID: 1172360789}
   underConstructionGO: {fileID: 1797291617397466, guid: 21f263d80970b36418d03aa628806ccc,
     type: 2}
@@ -1203,7 +1203,7 @@ GameObject:
   - component: {fileID: 1958441813}
   - component: {fileID: 1958441812}
   - component: {fileID: 1958441811}
-  m_Layer: 14
+  m_Layer: 8
   m_Name: Terrain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
