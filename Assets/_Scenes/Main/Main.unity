@@ -5687,11 +5687,12 @@ Transform:
   m_Father: {fileID: 705561793}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &720617961 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1482247458403984, guid: 9f6637257414b264385bc7cb91a23366,
+--- !u!114 &720617963 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114828417025129798, guid: 9f6637257414b264385bc7cb91a23366,
     type: 2}
   m_PrefabInternal: {fileID: 374482681}
+  m_Script: {fileID: 11500000, guid: 0648a85e417a75b4f8473e7ebbbfe249, type: 3}
 --- !u!1 &720999809
 GameObject:
   m_ObjectHideFlags: 0
@@ -8189,7 +8190,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   selectionCirclePrefab: {fileID: 166266, guid: dc884a6ec589ce249acc9b5326859165,
     type: 2}
-  guiController: {fileID: 720617961}
+  guiController: {fileID: 720617963}
 --- !u!114 &1217610231
 MonoBehaviour:
   m_ObjectHideFlags: 0
