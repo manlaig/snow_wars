@@ -1770,7 +1770,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b99d0f9309061d44e8466ae0b6d1cea3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buildingDistance: 25
+  buildingDistance: 15
 --- !u!114 &114201473744780658
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1809,7 +1809,7 @@ CapsuleCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1535199333902548}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 1.1030121
   m_Height: 4.766635
@@ -1914,7 +1914,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 11
+  m_Speed: 15
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -1925,4 +1925,4 @@ NavMeshAgent:
   m_Height: 2
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
+  m_ObstacleAvoidanceType: 3
