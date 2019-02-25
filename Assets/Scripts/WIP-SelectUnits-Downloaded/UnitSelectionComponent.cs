@@ -9,11 +9,10 @@ using System.Text;
 public class UnitSelectionComponent : MonoBehaviour
 {
     bool isSelecting = false;
-    //bool singleSelection = true;
     Vector3 initialMousePos;
 
-    public GameObject selectionCirclePrefab;
-    public GameObject guiController;
+    [SerializeField] GameObject selectionCirclePrefab;
+    [SerializeField] GuiController guiController;
     private InGameMenuToggle menuInGame;
 
 
@@ -22,7 +21,6 @@ public class UnitSelectionComponent : MonoBehaviour
         EventManager.StartListening(EventManager.Events.ClearSelection, ClearSelection);
         EventManager.StartListening(EventManager.Events.LeftMouseClickedDown, StartSelecting);
         EventManager.StartListening(EventManager.Events.LeftMouseClickedUp, StopSelecting);
-
     }
 
     private void OnDisable()
@@ -37,7 +35,7 @@ public class UnitSelectionComponent : MonoBehaviour
         Debug.Log("ClearSelection called");
         foreach (var selectableObject in FindObjectsOfType<SelectableUnitComponent>())
         {
-            if (selectableObject.selectionCircle != null && guiController.transform.root == callback.transform.root)
+            if (selectableObject.selectionCircle != null && guiController.gameObject.transform.root == callback.transform.root)
             {
                 Destroy(selectableObject.selectionCircle.gameObject);
                 selectableObject.selectionCircle = null;
@@ -48,7 +46,6 @@ public class UnitSelectionComponent : MonoBehaviour
 
     void StartSelecting(GameObject not_used)
     {
-        Debug.Log("Starting selection");
         // If we press the left mouse button, begin selection and remember the location of the mouse
         if (!isMenuActive() && !EventSystem.current.IsPointerOverGameObject())
         {
@@ -56,8 +53,11 @@ public class UnitSelectionComponent : MonoBehaviour
 
             initialMousePos = Input.mousePosition;
 
-            foreach (var selectableObject in FindObjectsOfType<SelectableUnitComponent>())
+            List<GameObject> currentlySelected = guiController.GetSelectedObjects();
+            foreach (GameObject go in currentlySelected)
             {
+                SelectableUnitComponent selectableObject = go.GetComponent<SelectableUnitComponent>();
+                // if there's already gameobjects selected, then unselect them
                 if (selectableObject.selectionCircle != null)
                 {
                     Destroy(selectableObject.selectionCircle.gameObject);
@@ -70,7 +70,6 @@ public class UnitSelectionComponent : MonoBehaviour
 
     void StopSelecting(GameObject not_used)
     {
-        Debug.Log("Stopping selection");
         // If we let go of the left mouse button, end selection
         if (!isMenuActive())
         {
@@ -86,22 +85,19 @@ public class UnitSelectionComponent : MonoBehaviour
                 if (IsWithinSelectionBounds(selectableObject.gameObject) && player.human)
                 {
                     selectableObject.GetComponent<ControlBasic>().selected = true;
+                    SelectObject(selectableObject);
                     selectedItems.Add(selectableObject.gameObject);
                 }
             }
 
-            if (selectedItems.Count > 0)
-            {
-                Debug.Log("Selecting " + selectedItems.Count + " units");
-            }
-
-            guiController.GetComponent<GuiController>().SetSelectedObjects(selectedItems);
+            guiController.SetSelectedObjects(selectedItems);
             isSelecting = false;
         }
     }
 
     void Awake()
     {
+        // DON'T HARDCODE OBJECT NAMES LIKE THIS
         menuInGame = GameObject.Find("Menu-Ingame").GetComponent<InGameMenuToggle>();
     }
 
@@ -110,37 +106,10 @@ public class UnitSelectionComponent : MonoBehaviour
         return menuInGame.IsMenuActive();
     }
 
-    void Update()
-    {
-        // Highlight all objects within the selection box
-        if( isSelecting )
-        {
-            // FindObjectsOfType is very expensive, we need a better way
-            // Since selecting is called so often, we can't use this method all the time
-            // One solution: listen for a event and have a list that will update itself based on active units on the scene
-            foreach( var selectableObject in FindObjectsOfType<SelectableUnitComponent>() )
-            {
-                Player player = selectableObject.gameObject.transform.root.GetComponent<Player>();
-
-                if ( IsWithinSelectionBounds( selectableObject.gameObject ) && player.human )
-                {
-                    SelectObject(selectableObject);
-                }
-                else
-                {
-                    if( selectableObject.selectionCircle != null )
-                    {
-                        Destroy( selectableObject.selectionCircle.gameObject );
-                        selectableObject.selectionCircle = null;
-                    }
-                }
-            }
-        }
-    }
-
 
     public void SelectObject(SelectableUnitComponent selectableObject)
     {
+        // if not selected, then select it
         if( selectableObject.selectionCircle == null )
         {
             selectableObject.selectionCircle = Instantiate( selectionCirclePrefab );
