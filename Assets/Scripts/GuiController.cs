@@ -56,6 +56,14 @@ public class GuiController : MonoBehaviour
     }
 
     /// <summary>
+    /// Get the selected objects.
+    /// </summary>
+    public List<GameObject> GetSelectedObjects()
+    {
+        return selectedObjects;
+    }
+
+    /// <summary>
     /// Sets the active squad.
     /// </summary>
     /// <param name="squad">Squad.</param>
