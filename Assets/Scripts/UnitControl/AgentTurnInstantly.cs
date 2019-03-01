@@ -6,6 +6,10 @@ using UnityEngine.AI;
 [RequireComponent(typeof(NavMeshAgent))]
 public class AgentTurnInstantly : MonoBehaviour
 {
+    // IGNORE THIS CODE FOR NOW
+    // IT DOESN'T DO WHAT IT'S SUPPOSED TO DO AND IT WILL BE FIXED SOON
+
+    /*
     [SerializeField] float rotationSpeed = 20f;
     private NavMeshAgent agent;
     RaycastHit hitInfo;
@@ -37,4 +41,5 @@ public class AgentTurnInstantly : MonoBehaviour
             }
         }
     }
+    */
 }

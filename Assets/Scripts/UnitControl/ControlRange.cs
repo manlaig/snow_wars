@@ -3,6 +3,22 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
 
+
+/*
+ * This script needs a change
+ * 1. It is spawning a selection arrow depending on how many units are selected.
+ *    In other words, if you select 4 units and right click, 4 selection arrows are spawned at the same position
+ * 2. Use setting active/inactive instead of instantiating and destroying
+ */
+
+/*
+ * Important points:
+ * 1. The way this script is designed so that all units under the control of the player MUST be a child gameObject of it.
+ *    If they don't share the same root gameobject, then they are considered enemies. This script can be optimized a lot.
+ */
+
+
+
 /// <summary>
 /// ControlRange.
 ///
@@ -41,7 +57,11 @@ public class ControlRange : ControlBasic
 	protected Collider[] hitColliders;
 	protected Collider closestEnemy;
 
-	protected GameObject arrowInstance;
+    /*
+     * When the user selects units and right clicks, it spawns an arrow at the destination point
+     * This is a reference to that instance of selection arrow
+     */
+    private GameObject arrowInstance;
 
 	// Use this for initialization
 	new void Start()
@@ -59,15 +79,15 @@ public class ControlRange : ControlBasic
 		targetLock = false;
 
 		// Times(float) used to synchronize attack animations
-		attackTime = gameObject.GetComponent<Unit>().GetHitDelay();
-		attackRecoil = gameObject.GetComponent<Animation>()[animNames["Attack"]].length;
+		attackTime = GetComponent<Unit>().GetHitDelay();
+		attackRecoil = GetComponent<Animation>()[animNames["Attack"]].length;
 
 		// Hard coded Agro Settings
 		agroRange = 50;
 		farDistance = agroRange * 2;
 
 		// Use following with proper function to get real values once getters are created
-		damage = gameObject.GetComponent<Unit>().GetDamagePerHit();
+		damage = GetComponent<Unit>().GetDamagePerHit();
 
 		// Patrol Varibales
 		// (Used by old Patrol System, may get removed when new patrol system is implemented)

@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// Make sure the fog place is in a separate layer than other gameobject in the scene
 public class FogPlane : MonoBehaviour
 {
-    [SerializeField] LayerMask layer;
+    [SerializeField] LayerMask fogOfWarLayer;
     Vector3[] vertices;
     Color[] colors;
 
@@ -13,7 +14,9 @@ public class FogPlane : MonoBehaviour
         vertices = GetComponent<MeshFilter>().mesh.vertices;
         colors = new Color[vertices.Length];
         for (int i = 0; i < vertices.Length; i++)
+        {
             colors[i] = Color.black;
+        }
         GetComponent<MeshFilter>().mesh.colors = colors;
     }
 
@@ -21,7 +24,9 @@ public class FogPlane : MonoBehaviour
     {
         Ray ray = new Ray(Camera.main.transform.position, t.position - Camera.main.transform.position);
         RaycastHit hit;
-        if (Physics.Raycast(ray, out hit, Mathf.Infinity, layer, QueryTriggerInteraction.Collide))
+
+        // raycasting and finding the intersection between fog plane and camera
+        if (Physics.Raycast(ray, out hit, Mathf.Infinity, fogOfWarLayer, QueryTriggerInteraction.Collide))
         {
             for (int i = 0; i < vertices.Length; i++)
             {

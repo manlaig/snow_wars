@@ -27,17 +27,21 @@ public class ControlBasic : MonoBehaviour
 
     protected void Start()
     {
+        unit = GetComponent<Unit>();
         agent = GetComponent<NavMeshAgent>();
         anim = GetComponent<Animation>();
         animNames = new Dictionary<string, string>();
 
         foreach (AnimationState state in anim)
         {
+            /*
+             * Animations are formatted in a way, for example: Worker|Idle, Santa|Hit
+             * The line below is getting the title of the animation, like Idle and Hit
+             */
             string stripped = state.name.Substring(state.name.IndexOf("|") + 1);
             animNames.Add(stripped, state.name);
         }
 
-        unit = gameObject.GetComponent<Unit>();
     }
 
     public void SetDestination(Vector3 destination)
@@ -68,7 +72,7 @@ public class ControlBasic : MonoBehaviour
     // Control Animation when hit by attacker
     public void GetHit(float damage, GameObject _attacker)
     {
-        gameObject.GetComponent<Unit>().TakeDamage(_attacker, damage);
+        unit.TakeDamage(_attacker, damage);
     }
 
     public void toggleSelected()

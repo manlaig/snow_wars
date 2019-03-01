@@ -4,6 +4,7 @@ using System.Collections.Generic;
 
 /// <summary>
 /// Event manager.
+/// Very common events like Left and Right mouse clicks are triggered from this script
 /// </summary>
 public class EventManager : MonoBehaviour
 {
@@ -19,7 +20,11 @@ public class EventManager : MonoBehaviour
         SupplyUpdate,
         ClearSelection,
         NewBuildingPlaced,
-        WorkerFinishedBuilding
+        WorkerFinishedBuilding,
+        LeftMouseClickedDown,
+        RightMouseClickedDown,
+        LeftMouseClickedUp,
+        RightMouseClickedUp,
     }
 
     private static EventManager eventManager;
@@ -112,5 +117,20 @@ public class EventManager : MonoBehaviour
                 action.Invoke(callback);
             }
         }
+    }
+
+
+
+    ///////////////// Triggering common events /////////////////
+    void Update()
+    {
+        if (Input.GetMouseButtonDown(0))
+            TriggerEvent(Events.LeftMouseClickedDown);
+        if (Input.GetMouseButtonDown(1))
+            TriggerEvent(Events.RightMouseClickedDown);
+        if (Input.GetMouseButtonUp(0))
+            TriggerEvent(Events.LeftMouseClickedUp);
+        if (Input.GetMouseButtonUp(1))
+            TriggerEvent(Events.RightMouseClickedUp);
     }
 }
