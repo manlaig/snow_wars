@@ -49,6 +49,15 @@ public class Unit : WorldObject
     }
 
     /// <summary>
+    /// Gets the health of character.
+    /// </summary>
+    /// <returns>The health.</returns>
+    public float GetMaxHealth()
+    {
+        return fullHealth;
+    }
+
+    /// <summary>
     /// Gets the Unit health as a percent
     /// </summary>
     /// <returns>Health as a percent (100% = 1f)</returns>
@@ -143,22 +152,6 @@ public class Unit : WorldObject
             string deathClip = animation.clip.name.Split('|')[0] + "|Death";
             animation.Play(deathClip);
             Destroy(gameObject, animation[deathClip].length);
-
-            //TODO Find better place for this
-            /*if (gameObject.name.Contains("prefab_unit_Wolpetinger"))
-            {
-                attacker.transform.root.GetComponent<Resources>().AddSnowballs(100); //TODO Make snowball amount dynamic
-                SpawnWolpetingers spawnCtrl = transform.root.GetComponent<SpawnWolpetingers>();
-                ++(spawnCtrl.totalKilled);
-                --(spawnCtrl.numberAlive);
-
-                if (spawnCtrl.numberAlive == 0)
-                {
-                    //Debug.Log("SPAWNING WOLPETINGER!!!!!");
-                    spawnCtrl.numberAlive = spawnCtrl.Spawn();
-                    PlayerPrefs.SetInt("WOLPETINGERDEATHCOUNT", PlayerPrefs.GetInt("WOLPETINGERDEATHCOUNT") + 1);
-                }
-            }*/
         }
     }
 
@@ -166,7 +159,7 @@ public class Unit : WorldObject
     /// Set health of Unit
     /// </summary>
     /// <param name="unitHealth">Unit Health</param>
-    public void SetHealth(float unitHealth = 100)
+    public void SetHealth(float unitHealth)
     {
         health = unitHealth;
     }
@@ -179,12 +172,7 @@ public class Unit : WorldObject
         mana -= manaCast;
     }
 
-    public void ManaRegen()
-    {
-        mana += 2;
-    }
-
-    public void SetMana(float unitMana = 100)
+    public void SetMana(float unitMana)
     {
         mana = unitMana;
     }
