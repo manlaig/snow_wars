@@ -29,7 +29,6 @@ public class UnitHealthBar : MonoBehaviour
     private float lastHealth;
     private float displayedHealth;
 
-    // Use this for initialization
     void Awake()
     {
         unit = transform.parent.GetComponent<Unit>();
@@ -41,7 +40,6 @@ public class UnitHealthBar : MonoBehaviour
         lastHealth = displayedHealth = unit.GetHealthPercent();
     }
 
-    // Update is called once per frame
     void OnGUI()
     {
         // TODO: Make toggleable
