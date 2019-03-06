@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-// Make sure the fog place is in a separate layer than other gameobject in the scene
 public class FogPlane : MonoBehaviour
 {
+    // Make sure the fog place is in a separate layer than other gameobject in the scene
     [SerializeField] LayerMask fogOfWarLayer;
     Vector3[] vertices;
     Color[] colors;
