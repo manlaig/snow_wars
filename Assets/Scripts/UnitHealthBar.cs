@@ -46,7 +46,8 @@ public class UnitHealthBar : MonoBehaviour
     {
         // TODO: Make toggleable
         // Display healthbar when unit is enabled
-        if (unit.enabled) UpdateHeathBar();
+        if (unit.enabled)
+            UpdateHeathBar();
     }
 
     /// <summary>

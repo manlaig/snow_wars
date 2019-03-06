@@ -82,7 +82,7 @@ public class UnitSelectionComponent : MonoBehaviour
                 // TODO: Find better way for excluding non-player
                 Player player = selectableObject.gameObject.transform.root.GetComponent<Player>();
 
-                if (IsWithinSelectionBounds(selectableObject.gameObject) && player.human)
+                if (IsWithinSelectionBounds(selectableObject.gameObject) && player && player.human)
                 {
                     selectableObject.GetComponent<ControlBasic>().selected = true;
                     SelectObject(selectableObject);
