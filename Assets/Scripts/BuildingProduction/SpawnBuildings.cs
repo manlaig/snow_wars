@@ -17,6 +17,9 @@ public class SpawnBuildings : MonoBehaviour
     [TooltipAttribute("Need GraphicRaycaster to detect click on a button")]
     [SerializeField] GraphicRaycaster uiRaycaster;
 
+    [Tooltip("How high to scan for collision")]
+    [SerializeField] float scanHeight = 2f;
+
     [SerializeField] GameObject underConstructionGO;
     [SerializeField] BuildProgressSO buildingToPlace;
     #endregion
@@ -65,9 +68,9 @@ public class SpawnBuildings : MonoBehaviour
 
     void FixedUpdate()
     {
-        if(currentSpawnedBuilding)
-            if(PlacementHelpers.RaycastFromMouse(out hit, terrainLayer))
-                currentSpawnedBuilding.transform.position = new Vector3((int)hit.point.x, (int)hit.point.y, (int)hit.point.z);
+        if (currentSpawnedBuilding)
+            if (PlacementHelpers.RaycastFromMouse(out hit, terrainLayer))
+                currentSpawnedBuilding.transform.position = hit.point;
     }
 
 
@@ -155,7 +158,7 @@ public class SpawnBuildings : MonoBehaviour
             {
                 GameObject tile = Instantiate(productionTile);
                 tile.transform.SetParent(parent.transform);
-                tile.transform.position = new Vector3(i, parent.transform.position.y + 2, j);
+                tile.transform.position = new Vector3(i, parent.transform.position.y + scanHeight, j);
                 activeTiles.Add(tile.GetComponent<ProductionTile>());
             }
         }

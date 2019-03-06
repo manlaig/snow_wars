@@ -3,7 +3,13 @@ guid: 9e7665803c971484b91497561e5d971c
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - productionTile: {fileID: 1716995834413964, guid: ade55f8bc473db54f82a9df97b5d4d90,
+      type: 2}
+  - uiRaycaster: {instanceID: 0}
+  - underConstructionGO: {fileID: 1797291617397466, guid: 21f263d80970b36418d03aa628806ccc,
+      type: 2}
+  - buildingToPlace: {fileID: 11400000, guid: 1402da2341da23f4ca4762fb9bdcf62e, type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
