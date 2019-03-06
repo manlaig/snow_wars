@@ -6,9 +6,11 @@ using UnityEngine;
 /// </summary>
 public class InGameMenuToggle : MonoBehaviour
 {
-    private GameObject menuCanvas;
+    [SerializeField]
     private Transform mainPanel;
+    [SerializeField]
     private Transform audioPanel;
+    [SerializeField]
     private Transform videoPanel;
 
     public bool IsMenuActive()
@@ -17,15 +19,6 @@ public class InGameMenuToggle : MonoBehaviour
                 audioPanel.gameObject.activeSelf ||
                 videoPanel.gameObject.activeSelf
                );
-    }
-
-    // Use this for initialization
-    void Start()
-    {
-        menuCanvas = gameObject;
-        mainPanel = menuCanvas.transform.Find("mainDropPanel");
-        audioPanel = menuCanvas.transform.Find("audioDropPanel");
-        videoPanel = menuCanvas.transform.Find("videoDropPanel");
     }
 
     // Update is called once per frame

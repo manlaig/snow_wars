@@ -1823,6 +1823,21 @@ Prefab:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 114944587639032028, guid: f4d4b65f59efb404a9b8b3b8c035f27b,
+        type: 2}
+      propertyPath: mainPanel
+      value: 
+      objectReference: {fileID: 1903114833}
+    - target: {fileID: 114944587639032028, guid: f4d4b65f59efb404a9b8b3b8c035f27b,
+        type: 2}
+      propertyPath: audioPanel
+      value: 
+      objectReference: {fileID: 1910412668}
+    - target: {fileID: 114944587639032028, guid: f4d4b65f59efb404a9b8b3b8c035f27b,
+        type: 2}
+      propertyPath: videoPanel
+      value: 
+      objectReference: {fileID: 1926450123}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f4d4b65f59efb404a9b8b3b8c035f27b, type: 2}
   m_IsPrefabAsset: 0
@@ -8561,7 +8576,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 60215
+    m_Bits: 64311
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -12165,6 +12180,16 @@ Transform:
   m_Father: {fileID: 1725262279}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!224 &1903114833 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 224942027760268306, guid: f4d4b65f59efb404a9b8b3b8c035f27b,
+    type: 2}
+  m_PrefabInternal: {fileID: 198989220}
+--- !u!224 &1910412668 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 224702899554415714, guid: f4d4b65f59efb404a9b8b3b8c035f27b,
+    type: 2}
+  m_PrefabInternal: {fileID: 198989220}
 --- !u!1 &1915375550
 GameObject:
   m_ObjectHideFlags: 0
@@ -12196,6 +12221,11 @@ Transform:
   m_Father: {fileID: 1700518645}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!224 &1926450123 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 224987449186516476, guid: f4d4b65f59efb404a9b8b3b8c035f27b,
+    type: 2}
+  m_PrefabInternal: {fileID: 198989220}
 --- !u!1 &1930979584
 GameObject:
   m_ObjectHideFlags: 0
