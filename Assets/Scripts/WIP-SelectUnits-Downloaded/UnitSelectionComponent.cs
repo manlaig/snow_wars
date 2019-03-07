@@ -44,6 +44,13 @@ public class UnitSelectionComponent : MonoBehaviour
         }
     }
 
+    //for single click
+    GameObject previousSingleSelected;
+    float doubleClickLimit;
+
+    Vector3 releasedMousePos;
+
+
     void StartSelecting(GameObject not_used)
     {
         // If we press the left mouse button, begin selection and remember the location of the mouse
@@ -64,7 +71,7 @@ public class UnitSelectionComponent : MonoBehaviour
                     selectableObject.selectionCircle = null;
                     selectableObject.GetComponent<ControlBasic>().selected = false;
                 }
-            }
+            }            
         }
     }
 
@@ -76,12 +83,16 @@ public class UnitSelectionComponent : MonoBehaviour
             // TODO: this block is being executed every time left mouse is pressed
             // FindObjectsOfType is very slow, this block is running it every left mouse press
 
+            //Used to check against previous for single click
+            releasedMousePos = Input.mousePosition;
+
             List<GameObject> selectedItems = new List<GameObject>();
             foreach (var selectableObject in FindObjectsOfType<SelectableUnitComponent>())
             {
                 // TODO: Find better way for excluding non-player
                 Player player = selectableObject.gameObject.transform.root.GetComponent<Player>();
 
+                //Checking each selectable GameObject to see if they are within the selection bounds
                 if (IsWithinSelectionBounds(selectableObject.gameObject) && player && player.human)
                 {
                     selectableObject.GetComponent<ControlBasic>().selected = true;
@@ -92,6 +103,28 @@ public class UnitSelectionComponent : MonoBehaviour
 
             guiController.SetSelectedObjects(selectedItems);
             isSelecting = false;
+
+            //if you moved your mouse you dragged
+            //if you just left clicked down and up then it is a click
+            if(initialMousePos == releasedMousePos)
+            {
+                //shoot a ray from the mouse and if it collides with selectable object
+                //issue is angle
+                print("Working");
+                Debug.DrawRay(initialMousePos, new Vector3(0,0,0), Color.blue, 10f);
+
+                //or create a single pixel of the selectable green square
+
+                //singleSelected = returned Gameobject from ray;
+
+                /*//previousSingleSelected and if that is equal to the returned gameobject
+                if (previousSingleSelected == SelectObject() && clickTime < doubleClickLimit)
+                {
+                    //find all player object of class type
+                    
+                }*/
+            }
+
         }
     }
 
