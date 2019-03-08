@@ -5,11 +5,7 @@
 /// </summary>
 public class WorldObject : MonoBehaviour
 {
-    public string objectName;
-    public Texture2D buildImage;
     public int cost;
-    public int hitPoints;
-    public int maxHitPoints;
 
     protected Player player;
     protected string[] actions = { };

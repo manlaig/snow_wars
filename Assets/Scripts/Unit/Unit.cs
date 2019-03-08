@@ -12,17 +12,15 @@ public class Unit : WorldObject
     public int PRIORITY = -1;
 
     [SerializeField]
-    protected float fullHealth = -1;
+    protected float fullHealth = 100;
     [SerializeField]
-    protected float fullMana = -1;
+    protected float fullMana = 100;
     [SerializeField]
-    protected float damagePerHit = -1;
+    protected float damagePerHit = 0;
     [SerializeField]
-    protected float attackHitDelay = -1;
+    protected float attackHitDelay = 0;
     [SerializeField]
-    protected float attackRecharge = -1;
-    [SerializeField]
-    protected bool isUnitEnabled = false;
+    protected float attackRecharge = 0;
     [SerializeField]
     protected Sprite icon;
 
@@ -112,15 +110,6 @@ public class Unit : WorldObject
     }
 
     /// <summary>
-    /// Returns the unit status of character.
-    /// </summary>
-    /// <returns><c>true</c>, if unit status was returned, <c>false</c> otherwise.</returns>
-    public bool ReturnUnitStatus()
-    {
-        return isUnitEnabled;
-    }
-
-    /// <summary>
     /// Set the unit cost
     /// </summary>
     /// <param name="snowballCost">The amount of snowballs for the unit.</param>
@@ -175,14 +164,6 @@ public class Unit : WorldObject
     public void SetMana(float unitMana)
     {
         mana = unitMana;
-    }
-
-    /// <summary>
-    /// Enables/Disables the unit.
-    /// </summary>
-    public void ToggleUnit()
-    {
-        isUnitEnabled = !isUnitEnabled;
     }
 
     /*** Game Engine methods, all can be overridden by subclass ***/

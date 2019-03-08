@@ -3,6 +3,7 @@
 /// <summary>
 /// Displays a health bare above a unit
 /// </summary>
+
 public class UnitHealthBar : MonoBehaviour
 {
     [SerializeField]
@@ -32,19 +33,21 @@ public class UnitHealthBar : MonoBehaviour
     void Awake()
     {
         unit = transform.parent.GetComponent<Unit>();
+        if (!unit)
+            Debug.LogError("Health Bar: Unit is NULL");
     }
 
     void OnEnable()
     {
-        // Prime the displyedHealth and lastHealth
-        lastHealth = displayedHealth = unit.GetHealthPercent();
+        if(unit)
+            lastHealth = displayedHealth = unit.GetHealthPercent();
     }
 
     void OnGUI()
     {
         // TODO: Make toggleable
         // Display healthbar when unit is enabled
-        if (unit.enabled)
+        if (unit && unit.enabled)
             UpdateHeathBar();
     }
 

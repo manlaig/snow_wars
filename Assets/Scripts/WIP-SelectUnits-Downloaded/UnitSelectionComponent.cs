@@ -13,7 +13,7 @@ public class UnitSelectionComponent : MonoBehaviour
 
     [SerializeField] GameObject selectionCirclePrefab;
     [SerializeField] GuiController guiController;
-    private InGameMenuToggle menuInGame;
+    [SerializeField] InGameMenuToggle menuInGame;
 
 
     private void OnEnable()
@@ -128,12 +128,6 @@ public class UnitSelectionComponent : MonoBehaviour
         }
     }
 
-    void Awake()
-    {
-        // DON'T HARDCODE OBJECT NAMES LIKE THIS
-        menuInGame = GameObject.Find("Menu-Ingame").GetComponent<InGameMenuToggle>();
-    }
-
     bool isMenuActive()
     {
         return menuInGame.IsMenuActive();
@@ -143,11 +137,11 @@ public class UnitSelectionComponent : MonoBehaviour
     public void SelectObject(SelectableUnitComponent selectableObject)
     {
         // if not selected, then select it
-        if( selectableObject.selectionCircle == null )
+        if (selectableObject.selectionCircle == null)
         {
-            selectableObject.selectionCircle = Instantiate( selectionCirclePrefab );
-            selectableObject.selectionCircle.transform.SetParent( selectableObject.transform, false );
-            selectableObject.selectionCircle.transform.eulerAngles = new Vector3( 90, 0, 0 );
+            selectableObject.selectionCircle = Instantiate(selectionCirclePrefab);
+            selectableObject.selectionCircle.transform.SetParent(selectableObject.transform, false);
+            selectableObject.selectionCircle.transform.eulerAngles = new Vector3(90, 0, 0);
 
             if (selectableObject.transform.GetComponent<ControlBasic>() != null)
             {
@@ -157,11 +151,11 @@ public class UnitSelectionComponent : MonoBehaviour
     }
 
 
-    public bool IsWithinSelectionBounds( GameObject gameObject )
+    public bool IsWithinSelectionBounds(GameObject gameObject)
     {
         bool isFound = false;
 
-        if( !isSelecting )
+        if (!isSelecting)
             return false;
 
         Camera camera = Camera.main;
@@ -169,31 +163,31 @@ public class UnitSelectionComponent : MonoBehaviour
         {
             RaycastHit hit;
             Ray ray = Camera.main.ScreenPointToRay(initialMousePos);
-            if(Physics.Raycast(ray, out hit))
+            if (Physics.Raycast(ray, out hit))
             {
-                if( hit.collider.gameObject == gameObject )
+                if (hit.collider.gameObject == gameObject)
                     isFound = true;
             }
         }
         else
         {
-            var viewportBounds = Utils.GetViewportBounds( camera, initialMousePos, Input.mousePosition );
-            isFound = viewportBounds.Contains( camera.WorldToViewportPoint( gameObject.transform.position ) );
+            var viewportBounds = Utils.GetViewportBounds(camera, initialMousePos, Input.mousePosition);
+            isFound = viewportBounds.Contains(camera.WorldToViewportPoint(gameObject.transform.position));
         }
         return isFound;
     }
 
     void OnGUI()
     {
-        if( isSelecting )
+        if (isSelecting)
         {
             /*
              * We you click and drag, a rectangle appears that will select all units under it
              * The lines below draws that rectangle
              */
-            var rect = Utils.GetScreenRect( initialMousePos, Input.mousePosition );
-            Utils.DrawScreenRect( rect, new Color( 0.0f, 0.8f, 0.0f, 0.08f ) );
-            Utils.DrawScreenRectBorder( rect, 2, Color.green );
+            var rect = Utils.GetScreenRect(initialMousePos, Input.mousePosition);
+            Utils.DrawScreenRect(rect, new Color(0.0f, 0.8f, 0.0f, 0.08f));
+            Utils.DrawScreenRectBorder(rect, 2, Color.green);
         }
     }
 }
