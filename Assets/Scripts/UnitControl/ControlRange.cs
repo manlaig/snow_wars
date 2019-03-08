@@ -117,12 +117,14 @@ public class ControlRange : ControlBasic
 			return;
 		}
 
-		/*
+        /*
 		3 Phases of Basic AI
 			1 User Command
 			2 React to States
 			3 Set Appropriate Animation
 		 */
+
+        if (!transform.root.GetComponent<Player>()) return;
 
 		// 1 User Command
 		// Handle User Command (Right Click)
@@ -339,14 +341,14 @@ public class ControlRange : ControlBasic
 			yield break;
 		attackCoroutineRunning = true;
 
-		// Hit target Enemy if it is alive
+		// Time attacks with Attack Animation
+		yield return new WaitForSeconds(attackTime + attackRecoil);
+		
+        // Hit target Enemy if it is alive
 		if (target.gameObject.GetComponent<Unit>().GetHealth() > 0)
 		{
 			target.gameObject.GetComponent<ControlBasic>().GetHit(damage, gameObject);
 		}
-
-		// Time attacks with Attack Animation
-		yield return new WaitForSeconds(attackTime + attackRecoil);
 
 		attackCoroutineRunning = false;
 	}

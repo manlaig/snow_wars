@@ -4,12 +4,10 @@ using UnityEngine;
 /// <summary>
 /// Base Building Class.
 /// </summary>
-public class BaseBuilding : MonoBehaviour
+public abstract class BaseBuilding : MonoBehaviour
 {
     [SerializeField] // Exposes Protected Variable to the Inspector
     protected float fullHealth = 100;  // Unconfirmed Value
-    [SerializeField]
-    protected int buildCost = 15;  // Unconfirmed Value
     [SerializeField]
     protected int repairCost = 5;  // Unconfirmed Value
     [SerializeField]
@@ -23,7 +21,6 @@ public class BaseBuilding : MonoBehaviour
     [SerializeField]
     protected Resources R; // Required
 
-    //protected int buildTime; // Need more information
     [SerializeField]
     protected float health;
     protected bool isRepairing = false;
@@ -35,48 +32,12 @@ public class BaseBuilding : MonoBehaviour
     }
 
     /// <summary>
-    /// Gets the build cost.
-    /// </summary>
-    /// <returns>The build cost.</returns>
-    public int GetBuildCost()
-    {
-        return buildCost;
-    }
-
-    /// <summary>
     /// Gets the building health.
     /// </summary>
     /// <returns>The building health.</returns>
     public float GetHealth()
     {
         return health;
-    }
-
-    /// <summary>
-    /// Gets the building location.
-    /// </summary>
-    /// <returns>The building location as Vector3 using only the x and z components.</returns>
-    public Vector3 GetLocation()
-    {
-        return new Vector3(gameObject.transform.position.x, 0, gameObject.transform.position.z);
-    }
-
-    /// <summary>
-    /// Gets the building repair cost.
-    /// </summary>
-    /// <returns>The repair cost.</returns>
-    public int GetRepairCost()
-    {
-        return repairCost;
-    }
-
-    /// <summary>
-    /// Gets the building worker capacity.
-    /// </summary>
-    /// <returns>The worker capacity.</returns>
-    public int GetWorkerCapacity()
-    {
-        return workerCapacity;
     }
 
     /// <summary>
@@ -98,14 +59,6 @@ public class BaseBuilding : MonoBehaviour
     }
 
     /// <summary>
-    /// Cancel an in-progress building repair.
-    /// </summary>
-    public void CancelRepair()
-    {
-        isRepairing = false;
-    }
-
-    /// <summary>
     /// Takes the damage.
     /// </summary>
     /// <param name="damage">Damage.</param>
@@ -116,20 +69,6 @@ public class BaseBuilding : MonoBehaviour
         if (health <= 0)
         {
             DistroyBuilding();
-        }
-    }
-
-    /// <summary>
-    /// Upgrades the building.
-    /// </summary>
-    public void UpgradeBuilding()
-    {
-        if (IsUpgradable() &&
-            buildCost <= R.GetSnowballCount())
-        {
-            R.RemoveSnowballs(buildCost);
-            Instantiate(upgradedBuilding, transform.position, transform.rotation);
-            Destroy(gameObject);
         }
     }
 
@@ -191,4 +130,17 @@ public class BaseBuilding : MonoBehaviour
         else
             Debug.Log("Resources object is NULL");
     }
+
+    void OnEnable()
+    {
+        EventManager.StartListening(EventManager.Events.LeftMouseClickedDown, OnClick);
+    }
+
+    void OnDisable()
+    {
+        EventManager.StopListening(EventManager.Events.LeftMouseClickedDown, OnClick);
+    }
+
+    // the events require a GameObject parameter, but we'll not use it
+    protected abstract void OnClick(GameObject not_used);
 }

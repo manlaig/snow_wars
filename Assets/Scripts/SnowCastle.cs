@@ -29,4 +29,9 @@ public class SnowCastle : BaseBuilding
             EventManager.TriggerEvent(EventManager.Events.CastleDistroyed);
         }
     }
+
+    protected override void OnClick(GameObject not_used)
+    {
+        
+    }
 }

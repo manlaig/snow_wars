@@ -115,4 +115,9 @@ public class ChristmasTree : BaseBuilding
         /// chance to gain presents whenever you kill an enemy
     } */
     }
+
+    protected override void OnClick(GameObject not_used)
+    {
+        
+    }
 }

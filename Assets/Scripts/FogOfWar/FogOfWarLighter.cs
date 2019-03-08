@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class FogOfWarLighter : MonoBehaviour
 {
@@ -15,7 +13,6 @@ public class FogOfWarLighter : MonoBehaviour
             Debug.LogError("Need a reference to the current fog plane. If you don't have any, disable this component");
     }
 
-    // TODO: create an event when mouse 2 is clicked and update the fog plane in response to the event
     void Update ()
     {
         fogPlane.GetComponent<FogPlane>().UpdateColor(transform, radius);

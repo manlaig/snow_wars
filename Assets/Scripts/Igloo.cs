@@ -14,4 +14,9 @@ public class Igloo : BaseBuilding
     {
         workerCapacity = 4;
     }
+
+    protected override void OnClick(GameObject not_used)
+    {
+        
+    }
 }
