@@ -487,6 +487,7 @@ MonoBehaviour:
   attacking: 0
   reseting: 0
   attackRange: 45
+  snowballSpawn: {fileID: 1665289754}
 --- !u!195 &61465180
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -551,18 +552,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e30204e346a9c3440ab3c56b52f34c2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectName: 
-  buildImage: {fileID: 0}
   cost: 100
-  hitPoints: 0
-  maxHitPoints: 0
   PRIORITY: 50
   fullHealth: 100
   fullMana: -1
   damagePerHit: 8
   attackHitDelay: 2.1
-  attackRecharge: 1
-  isUnitEnabled: 0
   icon: {fileID: 21300000, guid: 76ec4d24930c87e49a844660e321a1d5, type: 3}
 --- !u!114 &61465184
 MonoBehaviour:
@@ -4625,7 +4620,8 @@ MonoBehaviour:
     m_Bits: 12087
   attacking: 0
   reseting: 0
-  attackRange: 5
+  attackRange: 50
+  snowballSpawn: {fileID: 1448733993}
 --- !u!195 &528726291
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -4690,18 +4686,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c1006e08082e1346b602dc3bab3f53e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectName: 
-  buildImage: {fileID: 0}
   cost: -1
-  hitPoints: 0
-  maxHitPoints: 0
   PRIORITY: 100
   fullHealth: 200
   fullMana: 100
   damagePerHit: 15
-  attackHitDelay: 1.13
-  attackRecharge: 1.5
-  isUnitEnabled: 0
+  attackHitDelay: 1
   icon: {fileID: 21300000, guid: 6122154dae6390049923ccee913f082b, type: 3}
   presentProbability: 25
   st: 0
@@ -4814,7 +4804,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fullHealth: 100
-  buildCost: 15
   repairCost: 5
   repairAmount: 10
   workerCapacity: 4
@@ -8630,6 +8619,7 @@ MonoBehaviour:
   selectionCirclePrefab: {fileID: 166266, guid: dc884a6ec589ce249acc9b5326859165,
     type: 2}
   guiController: {fileID: 720617963}
+  menuInGame: {fileID: 1494294089}
 --- !u!114 &1217610231
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10811,7 +10801,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1672823585
 Transform:
   m_ObjectHideFlags: 0
@@ -10866,6 +10856,7 @@ MonoBehaviour:
   attacking: 0
   reseting: 0
   attackRange: 45
+  snowballSpawn: {fileID: 0}
 --- !u!195 &1672823588
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -10930,18 +10921,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e30204e346a9c3440ab3c56b52f34c2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectName: 
-  buildImage: {fileID: 0}
   cost: 100
-  hitPoints: 0
-  maxHitPoints: 0
   PRIORITY: 50
   fullHealth: 100
   fullMana: -1
   damagePerHit: 8
   attackHitDelay: 2.1
-  attackRecharge: 1
-  isUnitEnabled: 0
   icon: {fileID: 21300000, guid: 76ec4d24930c87e49a844660e321a1d5, type: 3}
 --- !u!114 &1672823592
 MonoBehaviour:
@@ -11368,7 +11353,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1757518981
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11637,7 +11622,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fullHealth: 100
-  buildCost: 15
   repairCost: 5
   repairAmount: 10
   workerCapacity: 4
@@ -12069,6 +12053,10 @@ Prefab:
         type: 2}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1535199333902548, guid: 9a36df8498f5e2f4a94a467ab8a5ddcd, type: 2}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114067222588939212, guid: 9a36df8498f5e2f4a94a467ab8a5ddcd, type: 2}
@@ -12606,7 +12594,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1990956043
 Transform:
   m_ObjectHideFlags: 0
@@ -12661,6 +12649,7 @@ MonoBehaviour:
   attacking: 0
   reseting: 0
   attackRange: 45
+  snowballSpawn: {fileID: 0}
 --- !u!195 &1990956046
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -12725,18 +12714,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e30204e346a9c3440ab3c56b52f34c2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectName: 
-  buildImage: {fileID: 0}
   cost: 100
-  hitPoints: 0
-  maxHitPoints: 0
   PRIORITY: 50
   fullHealth: 100
   fullMana: -1
   damagePerHit: 8
   attackHitDelay: 2.1
-  attackRecharge: 1
-  isUnitEnabled: 0
   icon: {fileID: 21300000, guid: 76ec4d24930c87e49a844660e321a1d5, type: 3}
 --- !u!114 &1990956050
 MonoBehaviour:
