@@ -46,6 +46,8 @@ public class ControlRange : ControlBasic
 	protected float farDistance;
 	protected float damage;
 
+    [SerializeField] Transform snowballSpawn;
+
 	// Patrol Variables
 	//private ArrayList patrolPoints;
 	//private int patrolStage;
@@ -67,11 +69,10 @@ public class ControlRange : ControlBasic
 	new void Start()
 	{
 		base.Start();
+        // Initialize Variables
 
-		// Initialize Variables
-
-		// Action States
-		attacking = false;
+        // Action States
+        attacking = false;
 		patrolling = false;
 		reseting = false;
 		halted = false;
@@ -241,7 +242,7 @@ public class ControlRange : ControlBasic
 					// Attack if alive
 					if (target.gameObject.GetComponent<Unit>().GetHealth() > 0)
 					{
-						StartCoroutine(AttackCoroutine());
+                        StartCoroutine(AttackCoroutine());
 					}
 					else
 					{
@@ -273,25 +274,17 @@ public class ControlRange : ControlBasic
 
 		// 3 Set Appropriate Animation
 		// Set Animations
-		if ((agent.velocity.magnitude) > 0.1)
+		if ((agent.velocity.magnitude) > 0.1 && !attacking)
 		{
 			// Run Animation
 			anim.CrossFade(animNames["Run"]);
 		}
 		else
 		{
-			if (attacking)
+			if (!inHit && !attacking)
 			{
-				// Attack
-				anim.CrossFade(animNames["Attack"]);
-			}
-			else
-			{
-				if (!inHit)
-				{
-					// Idle
-					anim.CrossFade(animNames["Idle"]);
-				}
+				// Idle
+				anim.CrossFade(animNames["Idle"]);
 			}
 		}
 	}
@@ -337,9 +330,25 @@ public class ControlRange : ControlBasic
 	// Attacking Enemy Unit in syncronized interval
 	protected IEnumerator AttackCoroutine()
 	{
-		if (attackCoroutineRunning)
-			yield break;
-		attackCoroutineRunning = true;
+        if (attackCoroutineRunning)
+            yield break;
+        else
+            anim.CrossFade(animNames["Attack"], 0f);
+        attackCoroutineRunning = true;
+
+        yield return new WaitForSeconds(attackRecoil * 0.6f);
+
+        // triggering event
+        GameObject go = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+        go.AddComponent<Rigidbody>();
+        go.transform.position = snowballSpawn.position;
+        go.GetComponent<Rigidbody>().useGravity = false;
+        go.GetComponent<Rigidbody>().velocity = new Vector3(target.position.x - snowballSpawn.position.x, target.position.y - snowballSpawn.position.y, target.position.z - snowballSpawn.position.z);
+
+        yield return new WaitForSeconds(attackRecoil * 0.4f + attackTime);
+
+        attackCoroutineRunning = false;
+        /*
 
 		// Time attacks with Attack Animation
 		yield return new WaitForSeconds(attackTime + attackRecoil);
@@ -349,7 +358,6 @@ public class ControlRange : ControlBasic
 		{
 			target.gameObject.GetComponent<ControlBasic>().GetHit(damage, gameObject);
 		}
-
-		attackCoroutineRunning = false;
-	}
+        */
+    }
 }

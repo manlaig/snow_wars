@@ -19,8 +19,8 @@ public class Unit : WorldObject
     protected float damagePerHit = 0;
     [SerializeField]
     protected float attackHitDelay = 0;
-    [SerializeField]
-    protected float attackRecharge = 0;
+    //[SerializeField]
+    //protected float attackRecharge = 0;
     [SerializeField]
     protected Sprite icon;
 
@@ -86,10 +86,12 @@ public class Unit : WorldObject
     /// Get the amount of time before the Unit can attack again
     /// </summary>
     /// <returns>Amount of time before next attack in seconds</returns>
+    /*
     public float GetAttackRecharge()
     {
         return attackRecharge;
     }
+    */
 
     /// <summary>
     /// The time till the animation attack hits

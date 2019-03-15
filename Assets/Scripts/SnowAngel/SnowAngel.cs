@@ -30,6 +30,11 @@ public class SnowAngel : MonoBehaviour
 
         foreach(Collider col in colliderInRadius)
         {
+            if (col.gameObject.GetComponent<WoppleUnit>() != null)
+            {
+                Debug.Log("Enemy");
+                continue;
+            }
             // check if collider is a unit
             Unit unit = col.gameObject.GetComponent<Unit>();
 
