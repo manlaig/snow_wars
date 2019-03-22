@@ -12,6 +12,12 @@ public class Snowball : MonoBehaviour
     // the ControlRange script specifies the damage to deal on the target
     [HideInInspector] public float damage = 10f;
 
+    void Start()
+    {
+        // the snowball will initially play the spinning animation
+        GetComponent<Animation>().CrossFade("Snowball|Spinning");
+    }
+
     void OnTriggerEnter(Collider other)
     {
         if (other.gameObject == target.gameObject)
@@ -26,8 +32,6 @@ public class Snowball : MonoBehaviour
     void Update ()
     {
 		if(target != null)
-        {
             transform.position = Vector3.MoveTowards(transform.position, target.position, speed / 10f);
-        }
 	}
 }

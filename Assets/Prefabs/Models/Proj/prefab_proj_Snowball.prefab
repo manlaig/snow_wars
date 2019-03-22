@@ -204,8 +204,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   explode_effect: {fileID: 1381595575031446, guid: b6f762054bf69294f93655d89bfa95bf,
     type: 2}
-  speed: 3
+  speed: 5
   target: {fileID: 0}
+  damage: 10
 --- !u!135 &135636834767198008
 SphereCollider:
   m_ObjectHideFlags: 1
