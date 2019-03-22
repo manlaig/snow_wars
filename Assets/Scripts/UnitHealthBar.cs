@@ -30,10 +30,12 @@ public class UnitHealthBar : MonoBehaviour
     private float lastHealth;
     private float displayedHealth;
 
-    void Awake()
+    void Start()
     {
-        unit = transform.parent.GetComponent<Unit>();
+        unit = GetComponent<Unit>();
         if (!unit)
+            unit = transform.parent.GetComponent<Unit>();
+        if(!unit)
             Debug.LogError("Health Bar: Unit is NULL");
     }
 
