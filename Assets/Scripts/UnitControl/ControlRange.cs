@@ -29,10 +29,8 @@ public class ControlRange : ControlBasic
 {
     [SerializeField] LayerMask layerMask;
 	// Action States
-	[SerializeField]
 	protected bool attacking;
 	protected bool patrolling;
-	[SerializeField]
 	protected bool reseting;
 	protected bool commanded;
 	protected bool targetLock;
@@ -47,13 +45,14 @@ public class ControlRange : ControlBasic
 	protected float damage;
 
     [SerializeField] Transform snowballSpawn;
+    [SerializeField] GameObject snowball;
 
-	// Patrol Variables
-	//private ArrayList patrolPoints;
-	//private int patrolStage;
+    // Patrol Variables
+    //private ArrayList patrolPoints;
+    //private int patrolStage;
 
-	// Target / Destination / Home(Spawn Point)
-	protected Vector3 home;
+    // Target / Destination / Home(Spawn Point)
+    protected Vector3 home;
 	protected Transform target;
 	protected Vector3 destination;
 	protected Collider[] hitColliders;
@@ -339,25 +338,13 @@ public class ControlRange : ControlBasic
         yield return new WaitForSeconds(attackRecoil * 0.6f);
 
         // triggering event
-        GameObject go = GameObject.CreatePrimitive(PrimitiveType.Sphere);
-        go.AddComponent<Rigidbody>();
-        go.transform.position = snowballSpawn.position;
-        go.GetComponent<Rigidbody>().useGravity = false;
-        go.GetComponent<Rigidbody>().velocity = new Vector3(target.position.x - snowballSpawn.position.x, target.position.y - snowballSpawn.position.y, target.position.z - snowballSpawn.position.z);
+        GameObject go = Instantiate(snowball, snowballSpawn.position, Quaternion.identity);
+        go.GetComponent<Snowball>().target = target;
+        go.GetComponent<Snowball>().damage = damage;
+
 
         yield return new WaitForSeconds(attackRecoil * 0.4f + attackTime);
 
         attackCoroutineRunning = false;
-        /*
-
-		// Time attacks with Attack Animation
-		yield return new WaitForSeconds(attackTime + attackRecoil);
-		
-        // Hit target Enemy if it is alive
-		if (target.gameObject.GetComponent<Unit>().GetHealth() > 0)
-		{
-			target.gameObject.GetComponent<ControlBasic>().GetHit(damage, gameObject);
-		}
-        */
     }
 }

@@ -41,7 +41,6 @@ public class ControlBasic : MonoBehaviour
             string stripped = state.name.Substring(state.name.IndexOf("|") + 1);
             animNames.Add(stripped, state.name);
         }
-
     }
 
     public void SetDestination(Vector3 destination)

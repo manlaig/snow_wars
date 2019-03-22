@@ -21,7 +21,7 @@ public class SpawnWolpetingers : MonoBehaviour
 
     void Start()
     {
-        Spawn(10);
+        Spawn(1);
     }
 
     /// <summary>
