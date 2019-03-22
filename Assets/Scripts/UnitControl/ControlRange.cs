@@ -27,6 +27,8 @@ using UnityEngine.AI;
 /// </summary>
 public class ControlRange : ControlBasic
 {
+    [Tooltip("The time in the attack animation in which when damage is dealt")]
+    [SerializeField] float dealDamageTime = 0.6f;
     [SerializeField] LayerMask layerMask;
 	// Action States
 	protected bool attacking;
@@ -278,13 +280,9 @@ public class ControlRange : ControlBasic
 			// Run Animation
 			anim.CrossFade(animNames["Run"]);
 		}
-		else
-		{
-			if (!inHit && !attacking)
-			{
-				// Idle
-				anim.CrossFade(animNames["Idle"]);
-			}
+		else if (!inHit && !attacking)
+        {
+			anim.CrossFade(animNames["Idle"]);
 		}
 	}
 
@@ -335,15 +333,14 @@ public class ControlRange : ControlBasic
             anim.CrossFade(animNames["Attack"], 0f);
         attackCoroutineRunning = true;
 
-        yield return new WaitForSeconds(attackRecoil * 0.6f);
+        yield return new WaitForSeconds(attackRecoil * dealDamageTime);
 
-        // triggering event
         GameObject go = Instantiate(snowball, snowballSpawn.position, Quaternion.identity);
         go.GetComponent<Snowball>().target = target;
         go.GetComponent<Snowball>().damage = damage;
 
 
-        yield return new WaitForSeconds(attackRecoil * 0.4f + attackTime);
+        yield return new WaitForSeconds(attackRecoil * (1-dealDamageTime) + attackTime);
 
         attackCoroutineRunning = false;
     }

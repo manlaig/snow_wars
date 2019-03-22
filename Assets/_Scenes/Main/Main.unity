@@ -390,6 +390,7 @@ MonoBehaviour:
   attackCoroutineRunning: 0
   selectionArrow: {fileID: 1150763044397182, guid: 6cd79ca7343a90d41899d8e89cf25dce,
     type: 2}
+  dealDamageTime: 0.6
   layerMask:
     serializedVersion: 2
     m_Bits: 2835
@@ -465,7 +466,7 @@ MonoBehaviour:
   fullHealth: 100
   fullMana: -1
   damagePerHit: 8
-  attackHitDelay: 2.1
+  attackHitDelay: 2
   icon: {fileID: 21300000, guid: 76ec4d24930c87e49a844660e321a1d5, type: 3}
 --- !u!114 &61465184
 MonoBehaviour:
@@ -517,8 +518,8 @@ MonoBehaviour:
   criticalHealth: {fileID: 2800000, guid: eaf7f714929f1d644a41e4814a11f2e6, type: 3}
   background: {fileID: 2800000, guid: 64c1e49b2da0c9845ba614daaf8a62df, type: 3}
   opacity: {r: 1, g: 1, b: 1, a: 0.691}
-  height: 8
-  width: 60
+  height: 7
+  width: 50
   timeDelay: 50
 --- !u!1 &61484714
 GameObject:
@@ -3007,6 +3008,7 @@ MonoBehaviour:
   attackCoroutineRunning: 0
   selectionArrow: {fileID: 1150763044397182, guid: 6cd79ca7343a90d41899d8e89cf25dce,
     type: 2}
+  dealDamageTime: 0.6
   layerMask:
     serializedVersion: 2
     m_Bits: 12087
@@ -3082,7 +3084,7 @@ MonoBehaviour:
   fullHealth: 200
   fullMana: 100
   damagePerHit: 15
-  attackHitDelay: 1
+  attackHitDelay: 0.8
   icon: {fileID: 21300000, guid: 6122154dae6390049923ccee913f082b, type: 3}
   presentProbability: 25
   st: 0
@@ -3138,8 +3140,8 @@ MonoBehaviour:
   criticalHealth: {fileID: 2800000, guid: eaf7f714929f1d644a41e4814a11f2e6, type: 3}
   background: {fileID: 2800000, guid: 64c1e49b2da0c9845ba614daaf8a62df, type: 3}
   opacity: {r: 1, g: 1, b: 1, a: 0.691}
-  height: 8
-  width: 60
+  height: 7
+  width: 50
   timeDelay: 50
 --- !u!1 &534816603
 GameObject:

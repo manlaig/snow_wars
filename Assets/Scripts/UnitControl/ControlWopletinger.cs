@@ -15,6 +15,9 @@ using UnityEngine.AI;
 /// </summary>
 public class ControlWopletinger : ControlBasic
 {
+    [Tooltip("The time in the attack animation in which when damage is dealt")]
+    [SerializeField] float dealDamageTime = 0.65f;
+
     // Action States
     private bool attacking;
     private bool patrolling;
@@ -192,26 +195,14 @@ public class ControlWopletinger : ControlBasic
         try
         {
             // Set Animations
-            if ((agent.velocity.magnitude) > 0.1)
+            if ((agent.velocity.magnitude) > 0.1 && !attacking)
             {
                 // Run Animation
                 anim.CrossFade(animNames["Run"]);
             }
-            else
+            else if (!inHit && !attacking)
             {
-                if (attacking)
-                {
-                    // Attack
-                    anim.CrossFade(animNames["Attack"]);
-                }
-                else
-                {
-                    if (!inHit)
-                    {
-                        // Idle
-                        anim.CrossFade(animNames["Idle"]);
-                    }
-                }
+                anim.CrossFade(animNames["Idle"]);
             }
         }
         catch (Exception e)
@@ -245,16 +236,15 @@ public class ControlWopletinger : ControlBasic
     {
         if (attackCoroutineRunning)
             yield break;
+        else
+            anim.CrossFade(animNames["Attack"], 0f);
         attackCoroutineRunning = true;
 
-        yield return new WaitForSeconds(attackTime);
-
-        if (target == null)
-            yield break;
+        yield return new WaitForSeconds(attackRecoil * dealDamageTime);
 
         target.gameObject.GetComponent<ControlBasic>().GetHit(damage, gameObject);
 
-        yield return new WaitForSeconds(attackRecoil - attackTime);
+        yield return new WaitForSeconds(attackRecoil * (1-dealDamageTime) + attackTime);
 
         attackCoroutineRunning = false;
     }
