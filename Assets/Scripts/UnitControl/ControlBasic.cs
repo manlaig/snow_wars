@@ -17,10 +17,10 @@ public class ControlBasic : MonoBehaviour
     protected bool isHit = false;
     protected bool inHit = false;
     protected Dictionary<string, string> animNames;
-    public bool selected = false;
-    public bool halted;
+    protected bool halted;
     protected Unit unit;
-    public bool attackCoroutineRunning = false;
+    protected bool attackCoroutineRunning = false;
+    public bool selected = false;
 
     [SerializeField]
     protected GameObject selectionArrow;

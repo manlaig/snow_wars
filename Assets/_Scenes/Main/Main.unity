@@ -335,6 +335,7 @@ GameObject:
   - component: {fileID: 61465179}
   - component: {fileID: 61465178}
   - component: {fileID: 61465186}
+  - component: {fileID: 61465187}
   m_Layer: 0
   m_Name: USS
   m_TagString: Untagged
@@ -386,17 +387,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   selected: 0
-  halted: 0
-  attackCoroutineRunning: 0
   selectionArrow: {fileID: 1150763044397182, guid: 6cd79ca7343a90d41899d8e89cf25dce,
     type: 2}
   dealDamageTime: 0.6
-  layerMask:
+  walkableLayers:
     serializedVersion: 2
-    m_Bits: 2835
+    m_Bits: 51969
   attackRange: 45
   snowballSpawn: {fileID: 1665289754}
-  snowball: {fileID: 1914409360476038, guid: 9930396cec8d8044890d33dad01aa65c, type: 2}
 --- !u!195 &61465180
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -521,6 +519,20 @@ MonoBehaviour:
   height: 7
   width: 50
   timeDelay: 50
+--- !u!114 &61465187
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 61465176}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a47ef80db70914eadfcc60d2510603, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectToPool: {fileID: 1914409360476038, guid: 9930396cec8d8044890d33dad01aa65c,
+    type: 2}
+  amountToPool: 10
 --- !u!1 &61484714
 GameObject:
   m_ObjectHideFlags: 0
@@ -2945,14 +2957,15 @@ GameObject:
   m_Component:
   - component: {fileID: 528726288}
   - component: {fileID: 528726296}
-  - component: {fileID: 528726295}
-  - component: {fileID: 528726294}
   - component: {fileID: 528726293}
   - component: {fileID: 528726292}
   - component: {fileID: 528726291}
+  - component: {fileID: 528726294}
   - component: {fileID: 528726290}
+  - component: {fileID: 528726295}
   - component: {fileID: 528726289}
   - component: {fileID: 528726297}
+  - component: {fileID: 528726298}
   m_Layer: 0
   m_Name: Santa
   m_TagString: Untagged
@@ -3004,17 +3017,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   selected: 0
-  halted: 0
-  attackCoroutineRunning: 0
   selectionArrow: {fileID: 1150763044397182, guid: 6cd79ca7343a90d41899d8e89cf25dce,
     type: 2}
   dealDamageTime: 0.6
-  layerMask:
+  walkableLayers:
     serializedVersion: 2
-    m_Bits: 12087
-  attackRange: 50
+    m_Bits: 51969
+  attackRange: 40
   snowballSpawn: {fileID: 1448733993}
-  snowball: {fileID: 1914409360476038, guid: 9930396cec8d8044890d33dad01aa65c, type: 2}
 --- !u!195 &528726291
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -3143,6 +3153,20 @@ MonoBehaviour:
   height: 7
   width: 50
   timeDelay: 50
+--- !u!114 &528726298
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 528726287}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a47ef80db70914eadfcc60d2510603, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectToPool: {fileID: 1914409360476038, guid: 9930396cec8d8044890d33dad01aa65c,
+    type: 2}
+  amountToPool: 10
 --- !u!1 &534816603
 GameObject:
   m_ObjectHideFlags: 0

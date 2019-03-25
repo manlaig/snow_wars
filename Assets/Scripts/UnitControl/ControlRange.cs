@@ -25,11 +25,12 @@ using UnityEngine.AI;
 /// Control script for ranged units.
 /// Inherits from ControlBasic.cs
 /// </summary>
+[RequireComponent(typeof(ObjectPooler))]
 public class ControlRange : ControlBasic
 {
     [Tooltip("The time in the attack animation in which when damage is dealt")]
     [SerializeField] float dealDamageTime = 0.6f;
-    [SerializeField] LayerMask layerMask;
+    [SerializeField] LayerMask walkableLayers;
 	// Action States
 	protected bool attacking;
 	protected bool patrolling;
@@ -47,11 +48,6 @@ public class ControlRange : ControlBasic
 	protected float damage;
 
     [SerializeField] Transform snowballSpawn;
-    [SerializeField] GameObject snowball;
-
-    // Patrol Variables
-    //private ArrayList patrolPoints;
-    //private int patrolStage;
 
     // Target / Destination / Home(Spawn Point)
     protected Vector3 home;
@@ -64,7 +60,8 @@ public class ControlRange : ControlBasic
      * When the user selects units and right clicks, it spawns an arrow at the destination point
      * This is a reference to that instance of selection arrow
      */
-    private GameObject arrowInstance;
+    GameObject arrowInstance;
+    ObjectPooler pool;
 
 	// Use this for initialization
 	new void Start()
@@ -80,6 +77,8 @@ public class ControlRange : ControlBasic
 		commanded = false;
 		targetLock = false;
 
+        pool = GetComponent<ObjectPooler>();
+
 		// Times(float) used to synchronize attack animations
 		attackTime = GetComponent<Unit>().GetHitDelay();
 		attackRecoil = GetComponent<Animation>()[animNames["Attack"]].length;
@@ -90,11 +89,6 @@ public class ControlRange : ControlBasic
 
 		// Use following with proper function to get real values once getters are created
 		damage = GetComponent<Unit>().GetDamagePerHit();
-
-		// Patrol Varibales
-		// (Used by old Patrol System, may get removed when new patrol system is implemented)
-		//patrolStage = 0;
-		//patrolPoints = new ArrayList();
 
 		// Initialize Destination and Home
 		// Target / Destination / Home(Spawn Point)
@@ -143,21 +137,19 @@ public class ControlRange : ControlBasic
 
 			/// Only starts new Movement sequence on valid click
 			Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-			if (Physics.Raycast(ray.origin, ray.direction, out hitInfo, Mathf.Infinity, layerMask) && (hitInfo.transform != transform))
+			if (Physics.Raycast(ray.origin, ray.direction, out hitInfo, Mathf.Infinity, walkableLayers) && (hitInfo.transform != transform))
 			{
 				agent.destination = hitInfo.point;
 				// Right Clicked on Attackable unit from a different player
 				// Attack Command
 				if (hitInfo.transform.gameObject.GetComponent<ControlBasic>() && hitInfo.transform.root != transform.root)
 				{
-                    Debug.Log("attacking");
 					attacking = true;
 					target = hitInfo.transform;
 					home = hitInfo.transform.position;
 				}
 				else // Move Command
 				{
-                    //Debug.Log("moving");
                     destination = hitInfo.point;
 					// Create Destination Arrow for Move Command
 					arrowInstance = Instantiate(selectionArrow, transform.root.transform);
@@ -165,15 +157,6 @@ public class ControlRange : ControlBasic
 					attacking = false;
 					home = destination;
 				}
-                /*
-                // Reset Patrolling (Part of old patrol system)
-                if (patrolPoints.Count >= 2)
-                {
-                    patrolPoints.Clear();
-                    patrolStage = 0;
-                    patrolling = false;
-                }
-                */
             }
 		}
 
@@ -216,17 +199,7 @@ public class ControlRange : ControlBasic
 				reseting = true;
 			}
 
-			// Set Destination
-			/*if (patrolling && !attacking)
-			{
-				// (part of old patrol system)
-				if ((transform.position - (Vector3)patrolPoints[patrolStage]).sqrMagnitude < Mathf.Pow((agent.radius + attackRange), 2))
-				{
-					patrolStage = (patrolStage + 1) % patrolPoints.Count;
-				}
-				agent.destination = (Vector3)patrolPoints[patrolStage];
-			}
-			else*/ if (attacking)
+            if (attacking)
 			{
 				// Attack Sequence
 				// If in attack range attack, else Move to / Chase Enemy
@@ -335,10 +308,12 @@ public class ControlRange : ControlBasic
 
         yield return new WaitForSeconds(attackRecoil * dealDamageTime);
 
-        GameObject go = Instantiate(snowball, snowballSpawn.position, Quaternion.identity);
+        GameObject go = pool.Get();
+        go.transform.position = snowballSpawn.position;
         go.GetComponent<Snowball>().target = target;
         go.GetComponent<Snowball>().damage = damage;
 
+        //TODO: putback the snowball to the pool, instead of destroying it
 
         yield return new WaitForSeconds(attackRecoil * (1-dealDamageTime) + attackTime);
 
