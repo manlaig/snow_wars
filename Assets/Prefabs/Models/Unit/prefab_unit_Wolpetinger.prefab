@@ -2722,7 +2722,7 @@ MonoBehaviour:
   fullHealth: 150
   fullMana: -1
   damagePerHit: 12
-  attackHitDelay: 1
+  attackHitDelay: 0.7
   icon: {fileID: 21300000, guid: 78f82c0de31f2a0489b2eaed6151bd72, type: 3}
 --- !u!114 &114339331317218092
 MonoBehaviour:
