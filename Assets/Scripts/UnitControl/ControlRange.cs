@@ -308,10 +308,14 @@ public class ControlRange : ControlBasic
 
         yield return new WaitForSeconds(attackRecoil * dealDamageTime);
 
-        GameObject go = pool.Get();
-        go.transform.position = snowballSpawn.position;
-        go.GetComponent<Snowball>().target = target;
-        go.GetComponent<Snowball>().damage = damage;
+        // only throw if attack animation is played until the throwing point
+        if (attacking)
+        {
+            GameObject go = pool.Get();
+            go.transform.position = snowballSpawn.position;
+            go.GetComponent<Snowball>().target = target;
+            go.GetComponent<Snowball>().damage = damage;
+        }
 
         //TODO: putback the snowball to the pool, instead of destroying it
 
