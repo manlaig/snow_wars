@@ -67,11 +67,6 @@ public class ControlMelee : ControlBasic
 
         // Attacking Variables
         attackRange = 30;
-        // Times(float) used to synchronize attack animations
-        attackTime = gameObject.GetComponent<Unit>().GetHitDelay();
-        //attackTime = 1.00f;
-        attackRecoil = gameObject.GetComponent<Animation>()[animNames["Attack"]].length;
-        //attackRecoil = 0.95f;
 
         agroRange = 50;
         farDistance = agroRange * 3;
@@ -244,21 +239,25 @@ public class ControlMelee : ControlBasic
         if ((agent.velocity.magnitude) > 0.1)
         {
             // Run Animation
-            anim.CrossFade(animNames["Run"]);
+            anim.SetBool("Movement", true);
         }
         else
         {
+            anim.SetBool("Movement", false);
+
             if (attacking)
             {
-                //// Attack
-                anim.CrossFade(animNames["Attack"]);
+                // Attack
+                anim.SetBool("Action", true);
+                anim.SetBool("Attack", true);
             }
             else
             {
                 if (!inHit)
                 {
                     // Idle
-                    anim.CrossFade(animNames["Idle"]);
+                    anim.SetBool("Action", false);
+                    anim.SetBool("Attack", false);
                 }
             }
         }

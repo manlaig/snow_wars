@@ -410,14 +410,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4197549705341132}
-  - component: {fileID: 111667813322451452}
-  - component: {fileID: 114339331317218092}
   - component: {fileID: 114180194164678520}
-  - component: {fileID: 54061136270556440}
+  - component: {fileID: 114943997747806304}
+  - component: {fileID: 114339331317218092}
+  - component: {fileID: 114166179874296884}
+  - component: {fileID: 95626149676777806}
   - component: {fileID: 136416986838507636}
   - component: {fileID: 195982301094297616}
-  - component: {fileID: 114943997747806304}
-  - component: {fileID: 114166179874296884}
+  - component: {fileID: 54061136270556440}
   m_Layer: 0
   m_Name: prefab_unit_Wolpetinger
   m_TagString: Untagged
@@ -2674,27 +2674,24 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 122
   m_CollisionDetection: 0
---- !u!111 &111667813322451452
-Animation:
+--- !u!95 &95626149676777806
+Animator:
+  serializedVersion: 3
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1348081605798960}
   m_Enabled: 1
-  serializedVersion: 3
-  m_Animation: {fileID: 7400008, guid: b3483c1f3c55e574fb4f4f4484681fc1, type: 3}
-  m_Animations:
-  - {fileID: 7400002, guid: b3483c1f3c55e574fb4f4f4484681fc1, type: 3}
-  - {fileID: 7400008, guid: b3483c1f3c55e574fb4f4f4484681fc1, type: 3}
-  - {fileID: 7400010, guid: b3483c1f3c55e574fb4f4f4484681fc1, type: 3}
-  - {fileID: 7400012, guid: b3483c1f3c55e574fb4f4f4484681fc1, type: 3}
-  - {fileID: 7400000, guid: b3483c1f3c55e574fb4f4f4484681fc1, type: 3}
-  - {fileID: 7400006, guid: b3483c1f3c55e574fb4f4f4484681fc1, type: 3}
-  - {fileID: 7400004, guid: b3483c1f3c55e574fb4f4f4484681fc1, type: 3}
-  m_WrapMode: 0
-  m_PlayAutomatically: 1
-  m_AnimatePhysics: 0
-  m_CullingType: 1
+  m_Avatar: {fileID: 9000000, guid: b3483c1f3c55e574fb4f4f4484681fc1, type: 3}
+  m_Controller: {fileID: 22100000, guid: 6989e41a5dcb1ce4c9d42239e524caa5, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &114166179874296884
 MonoBehaviour:
   m_ObjectHideFlags: 1

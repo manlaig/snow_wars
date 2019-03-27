@@ -125,26 +125,38 @@ public class Unit : WorldObject
     /// </summary>
 	public void TakeDamage(GameObject attacker, float damage = 10)
     {
+        Animator animation = gameObject.GetComponent<Animator>();
+        animation.SetTrigger("Hit");
+
         health -= damage;
         //Debug.Log(this.name + " health = " + health);
 
-        // Check if Unit is still alive
-        if (health > 0 && gameObject != null)
+        // Check if Unit exists
+        if (gameObject)
+        {
             // Broadcast a health update to listening scripts
             EventManager.TriggerEvent(EventManager.Events.HealthUpdate, gameObject);
-        else if (!isUnitKilled)
-        {
-            isUnitKilled = true;
-            // Broadcast a Unit killed to listening scripts
-            EventManager.TriggerEvent(EventManager.Events.UnitKilled, gameObject);
 
-            // Play Killed Animation and remove gameObject
-            Animation animation = gameObject.GetComponent<Animation>();
-            string deathClip = animation.clip.name.Split('|')[0] + "|Death";
-            animation.Play(deathClip);
-            Destroy(gameObject, animation[deathClip].length);
+            if(health <= 0 && !isUnitKilled)
+            {
+                isUnitKilled = true;
+                // Broadcast a Unit killed to listening scripts
+                EventManager.TriggerEvent(EventManager.Events.UnitKilled, gameObject);
+
+                // Play Killed Animation and remove gameObject
+                animation.SetTrigger("Killed");
+
+                // Disable Collier to stop attacks
+                gameObject.GetComponent<Collider>().enabled = false;
+            }
         }
     }
+
+    public void KilledEvent()
+    {
+        Destroy(gameObject, 0); // TODO: Give an option to delay the destroy
+    }
+
 
     /// <summary>
     /// Set health of Unit

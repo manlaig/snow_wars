@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: WorkerAnimator
+  m_Controller: {fileID: 9100000, guid: 1e2f42f928357c94b9ed9f02d81ef304, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400012, guid: da91193dbec17af4198fce257d096312, type: 3}
+    m_OverrideClip: {fileID: 7400002, guid: 48a0dd2d886b12046aaa10861c6d7664, type: 3}
+  - m_OriginalClip: {fileID: 7400014, guid: da91193dbec17af4198fce257d096312, type: 3}
+    m_OverrideClip: {fileID: 7400004, guid: 48a0dd2d886b12046aaa10861c6d7664, type: 3}
+  - m_OriginalClip: {fileID: 7400000, guid: da91193dbec17af4198fce257d096312, type: 3}
+    m_OverrideClip: {fileID: 7400006, guid: 48a0dd2d886b12046aaa10861c6d7664, type: 3}
+  - m_OriginalClip: {fileID: 7400006, guid: da91193dbec17af4198fce257d096312, type: 3}
+    m_OverrideClip: {fileID: 7400008, guid: 48a0dd2d886b12046aaa10861c6d7664, type: 3}

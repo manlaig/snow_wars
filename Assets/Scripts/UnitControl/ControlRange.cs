@@ -79,10 +79,6 @@ public class ControlRange : ControlBasic
 
         pool = GetComponent<ObjectPooler>();
 
-		// Times(float) used to synchronize attack animations
-		attackTime = GetComponent<Unit>().GetHitDelay();
-		attackRecoil = GetComponent<Animation>()[animNames["Attack"]].length;
-
 		// Hard coded Agro Settings
 		agroRange = 50;
 		farDistance = agroRange * 2;
@@ -216,12 +212,16 @@ public class ControlRange : ControlBasic
 					// Attack if alive
 					if (target.gameObject.GetComponent<Unit>().GetHealth() > 0)
 					{
-                        StartCoroutine(AttackCoroutine());
-					}
+                        anim.SetBool("Action", true);
+                        anim.SetBool("Attack", true);
+                    }
 					else
 					{
-						// Remove target and targetLock on enemy target death
-						target = null;
+                        anim.SetBool("Action", false);
+                        anim.SetBool("Attack", false);
+
+                        // Remove target and targetLock on enemy target death
+                        target = null;
 						targetLock = false;
 					}
 				}
@@ -251,11 +251,11 @@ public class ControlRange : ControlBasic
 		if ((agent.velocity.magnitude) > 0.1 && !attacking)
 		{
 			// Run Animation
-			anim.CrossFade(animNames["Run"]);
+			anim.SetBool("Movement", true);
 		}
 		else if (!inHit && !attacking)
         {
-			anim.CrossFade(animNames["Idle"]);
+            anim.SetBool("Movement", false);
 		}
 	}
 
@@ -297,30 +297,14 @@ public class ControlRange : ControlBasic
 		}
 	}
 
-	// Attacking Enemy Unit in syncronized interval
-	protected IEnumerator AttackCoroutine()
-	{
-        if (attackCoroutineRunning)
-            yield break;
-        else
-            anim.CrossFade(animNames["Attack"], 0f);
-        attackCoroutineRunning = true;
-
-        yield return new WaitForSeconds(attackRecoil * dealDamageTime);
-
-        // only throw if attack animation is played until the throwing point
-        if (attacking)
-        {
-            GameObject go = pool.Get();
-            go.transform.position = snowballSpawn.position;
-            go.GetComponent<Snowball>().target = target;
-            go.GetComponent<Snowball>().damage = damage;
-        }
-
+    // Event from the Attack Animation
+    public void AttackEvent()
+    {
         //TODO: putback the snowball to the pool, instead of destroying it
 
-        yield return new WaitForSeconds(attackRecoil * (1-dealDamageTime) + attackTime);
-
-        attackCoroutineRunning = false;
+        GameObject go = pool.Get();
+        go.transform.position = snowballSpawn.position;
+        go.GetComponent<Snowball>().target = target;
+        go.GetComponent<Snowball>().damage = damage;
     }
 }

@@ -56,10 +56,6 @@ public class ControlWopletinger : ControlBasic
         // Attacking Variables
         attackRange = 4f;
 
-		// Times(float) used to synchronize attack animations
-		attackTime = gameObject.GetComponent<Unit>().GetHitDelay();
-        attackRecoil = gameObject.GetComponent<Animation>()[animNames["Attack"]].length;
-
         agroRange = 1000f;
         farDistance = agroRange * 3;
 
@@ -177,10 +173,13 @@ public class ControlWopletinger : ControlBasic
                     // the 10 in the following line is the rotation speed
                     transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, 10);
 
-                    StartCoroutine(AttackCoroutine());
+                    anim.SetBool("Action", true);
+                    anim.SetBool("Attack", true);
                 }
                 else
                 {
+                    anim.SetBool("Action", false);
+                    anim.SetBool("Attack", false);
                     // Chase Enemy
                     agent.destination = target.position;
                 }
@@ -198,11 +197,11 @@ public class ControlWopletinger : ControlBasic
             if ((agent.velocity.magnitude) > 0.1 && !attacking)
             {
                 // Run Animation
-                anim.CrossFade(animNames["Run"]);
+                anim.SetBool("Movement", true);
             }
             else if (!inHit && !attacking)
             {
-                anim.CrossFade(animNames["Idle"]);
+                anim.SetBool("Movement", false);
             }
         }
         catch (Exception e)
@@ -232,20 +231,9 @@ public class ControlWopletinger : ControlBasic
         }
     }
 
-    private IEnumerator AttackCoroutine()
+    // Event from the Attack Animation
+    public void AttackEvent()
     {
-        if (attackCoroutineRunning)
-            yield break;
-        else
-            anim.CrossFade(animNames["Attack"], 0f);
-        attackCoroutineRunning = true;
-
-        yield return new WaitForSeconds(attackRecoil * dealDamageTime);
-
         target.gameObject.GetComponent<ControlBasic>().GetHit(damage, gameObject);
-
-        yield return new WaitForSeconds(attackRecoil * (1-dealDamageTime) + attackTime);
-
-        attackCoroutineRunning = false;
     }
 }

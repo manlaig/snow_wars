@@ -1,152 +1,21 @@
 fileFormatVersion: 2
-guid: 78f1a73354f9e914e8ad135e82c7844a
+guid: da91193dbec17af4198fce257d096312
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
-    100000: Ankle.L
-    100002: Ankle.R
-    100004: Arm.L
-    100006: Arm.R
-    100008: Armature
-    100010: Ball.L
-    100012: Ball.L_end
-    100014: Ball.R
-    100016: Ball.R_end
-    100018: Chest
-    100020: Clav.L
-    100022: Clav.R
-    100024: Ear.1.L
-    100026: Ear.1.R
-    100028: Ear.2.L
-    100030: Ear.2.L_end
-    100032: Ear.2.R
-    100034: Ear.2.R_end
-    100036: Forearm.L
-    100038: Forearm.R
-    100040: Hand.L
-    100042: Hand.R
-    100044: Hat.1
-    100046: Hat.2
-    100048: Hat.3
-    100050: Hat.Fluff
-    100052: Hat.Fluff_end
-    100054: Head
-    100056: Hip_CTR
-    100058: Hips
-    100060: Hips_end
-    100062: IK.Foot.L
-    100064: IK.Foot.R
-    100066: Knee.L
-    100068: Knee.R
-    100070: MainRoot
-    100072: Mitt.1.L
-    100074: Mitt.1.R
-    100076: Mitt.2.L
-    100078: Mitt.2.R
-    100080: Mitt.3.L
-    100082: Mitt.3.L_end
-    100084: Mitt.3.R
-    100086: Mitt.3.R_end
-    100088: Neck.1
-    100090: Neck.2
-    100092: Pole.Knee.L
-    100094: Pole.Knee.L_end
-    100096: Pole.Knee.R
-    100098: Pole.Knee.R_end
-    100100: Shin.L
-    100102: Shin.L_end
-    100104: Shin.R
-    100106: Shin.R_end
-    100108: Spine.1
-    100110: Spine.2
-    100112: Thumb.1.L
-    100114: Thumb.1.R
-    100116: Thumb.2.L
-    100118: Thumb.2.R
-    100120: Thumb.3.L
-    100122: Thumb.3.L_end
-    100124: Thumb.3.R
-    100126: Thumb.3.R_end
-    100128: //RootNode
-    100130: USS_MSH
-    400000: Ankle.L
-    400002: Ankle.R
-    400004: Arm.L
-    400006: Arm.R
-    400008: Armature
-    400010: Ball.L
-    400012: Ball.L_end
-    400014: Ball.R
-    400016: Ball.R_end
-    400018: Chest
-    400020: Clav.L
-    400022: Clav.R
-    400024: Ear.1.L
-    400026: Ear.1.R
-    400028: Ear.2.L
-    400030: Ear.2.L_end
-    400032: Ear.2.R
-    400034: Ear.2.R_end
-    400036: Forearm.L
-    400038: Forearm.R
-    400040: Hand.L
-    400042: Hand.R
-    400044: Hat.1
-    400046: Hat.2
-    400048: Hat.3
-    400050: Hat.Fluff
-    400052: Hat.Fluff_end
-    400054: Head
-    400056: Hip_CTR
-    400058: Hips
-    400060: Hips_end
-    400062: IK.Foot.L
-    400064: IK.Foot.R
-    400066: Knee.L
-    400068: Knee.R
-    400070: MainRoot
-    400072: Mitt.1.L
-    400074: Mitt.1.R
-    400076: Mitt.2.L
-    400078: Mitt.2.R
-    400080: Mitt.3.L
-    400082: Mitt.3.L_end
-    400084: Mitt.3.R
-    400086: Mitt.3.R_end
-    400088: Neck.1
-    400090: Neck.2
-    400092: Pole.Knee.L
-    400094: Pole.Knee.L_end
-    400096: Pole.Knee.R
-    400098: Pole.Knee.R_end
-    400100: Shin.L
-    400102: Shin.L_end
-    400104: Shin.R
-    400106: Shin.R_end
-    400108: Spine.1
-    400110: Spine.2
-    400112: Thumb.1.L
-    400114: Thumb.1.R
-    400116: Thumb.2.L
-    400118: Thumb.2.R
-    400120: Thumb.3.L
-    400122: Thumb.3.L_end
-    400124: Thumb.3.R
-    400126: Thumb.3.R_end
-    400128: //RootNode
-    400130: USS_MSH
-    2100000: Material
-    4300000: USS_MSH
-    7400000: USS|Attack
-    7400002: USS|Base
-    7400004: USS|Death
-    7400006: USS|Hit
-    7400008: USS|Idle
-    7400010: USS|DoNotUse
-    7400012: USS|Run
+    100000: joint1
+    100002: //RootNode
+    400000: joint1
+    400002: //RootNode
+    7400000: unset|Idle
+    7400002: unset|IdleSpecial
+    7400004: unset|Attack
+    7400006: unset|Run
+    7400008: unset|RunAlt
+    7400010: unset|Hit
+    7400012: unset|Death
+    7400014: unset|Gather
     9500000: //RootNode
-    11100000: //RootNode
-    13700000: USS_MSH
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -167,7 +36,7 @@ ModelImporter:
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
     importConstraints: 0
-    animationCompression: 3
+    animationCompression: 1
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
@@ -176,10 +45,10 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: USS|Attack
-      takeName: Armature|Attack
-      firstFrame: 0
-      lastFrame: 72
+      name: unset|Idle
+      takeName: Take 001
+      firstFrame: 1
+      lastFrame: 120
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -204,10 +73,10 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: USS|Base
-      takeName: Armature|Base
-      firstFrame: 0
-      lastFrame: 1
+      name: unset|IdleSpecial
+      takeName: Take 001
+      firstFrame: 1
+      lastFrame: 120
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -232,10 +101,10 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: USS|Death
-      takeName: Armature|Death
-      firstFrame: 0
-      lastFrame: 20
+      name: unset|Attack
+      takeName: Take 001
+      firstFrame: 1
+      lastFrame: 120
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -260,10 +129,10 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: USS|Hit
-      takeName: Armature|Hit
-      firstFrame: 0
-      lastFrame: 16
+      name: unset|Run
+      takeName: Take 001
+      firstFrame: 1
+      lastFrame: 120
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -288,11 +157,11 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: USS|Idle
-      takeName: Armature|Idle
-      firstFrame: 0
-      lastFrame: 96
-      wrapMode: 2
+      name: unset|RunAlt
+      takeName: Take 001
+      firstFrame: 1
+      lastFrame: 120
+      wrapMode: 0
       orientationOffsetY: 0
       level: 0
       cycleOffset: 0
@@ -316,11 +185,67 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: USS|Run
-      takeName: Armature|Run
-      firstFrame: 0
-      lastFrame: 26
-      wrapMode: 2
+      name: unset|Hit
+      takeName: Take 001
+      firstFrame: 1
+      lastFrame: 120
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: unset|Death
+      takeName: Take 001
+      firstFrame: 1
+      lastFrame: 120
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: unset|Gather
+      takeName: Take 001
+      firstFrame: 1
+      lastFrame: 120
+      wrapMode: 0
       orientationOffsetY: 0
       level: 0
       cycleOffset: 0
@@ -366,7 +291,7 @@ ModelImporter:
     secondaryUVHardAngle: 88
     secondaryUVPackMargin: 4
     useFileScale: 1
-    previousCalculatedGlobalScale: 1
+    previousCalculatedGlobalScale: 0.01
     hasPreviousCalculatedGlobalScale: 1
   tangentSpace:
     normalSmoothAngle: 60
@@ -389,7 +314,7 @@ ModelImporter:
     rootMotionBoneName: 
     rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
     hasTranslationDoF: 0
-    hasExtraRoot: 1
+    hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   animationType: 2

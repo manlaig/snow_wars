@@ -42,21 +42,24 @@ public class MoveWorker : ControlBasic
         if (agent.velocity.magnitude > 0.1)
         {
             // Run Animation
-            anim.CrossFade(animNames["Run"]);
+            anim.SetBool("Movement", true);
         }
         else
         {
+            anim.SetBool("Movement", false);
+
             if (gathering)
             {
                 // Gather
-                anim.CrossFade(animNames["Gather"]);
+                anim.SetBool("Action", true);
+                anim.SetBool("Gather", true);
             }
             else
             {
                 if (!inHit)
                 {
                     // Idle Animation
-                    anim.CrossFade(animNames["Idle"]);
+                    anim.SetBool("Movement", false);
                 }
             }
         }

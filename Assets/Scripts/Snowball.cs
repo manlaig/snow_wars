@@ -20,7 +20,7 @@ public class Snowball : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject == target.gameObject)
+        if (target && other.gameObject == target.gameObject)
         {
             // destroy the snowball explode affect after playing
             Destroy(Instantiate(explode_effect, transform.position, transform.rotation), 1f);

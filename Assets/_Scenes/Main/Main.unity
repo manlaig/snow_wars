@@ -326,16 +326,16 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 61465177}
-  - component: {fileID: 61465185}
-  - component: {fileID: 61465184}
   - component: {fileID: 61465183}
-  - component: {fileID: 61465182}
-  - component: {fileID: 61465181}
-  - component: {fileID: 61465180}
   - component: {fileID: 61465179}
   - component: {fileID: 61465178}
-  - component: {fileID: 61465186}
   - component: {fileID: 61465187}
+  - component: {fileID: 61465184}
+  - component: {fileID: 61465186}
+  - component: {fileID: 61465185}
+  - component: {fileID: 61465181}
+  - component: {fileID: 61465180}
+  - component: {fileID: 61465182}
   m_Layer: 0
   m_Name: USS
   m_TagString: Untagged
@@ -479,27 +479,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   selectionCircle: {fileID: 0}
---- !u!111 &61465185
-Animation:
+--- !u!95 &61465185
+Animator:
+  serializedVersion: 3
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 111362557537927460, guid: 645b1eeb91a134b4ab504950828ce180,
-    type: 2}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 61465176}
   m_Enabled: 1
-  serializedVersion: 3
-  m_Animation: {fileID: 7400012, guid: 78f1a73354f9e914e8ad135e82c7844a, type: 3}
-  m_Animations:
-  - {fileID: 7400002, guid: 78f1a73354f9e914e8ad135e82c7844a, type: 3}
-  - {fileID: 7400008, guid: 78f1a73354f9e914e8ad135e82c7844a, type: 3}
-  - {fileID: 7400012, guid: 78f1a73354f9e914e8ad135e82c7844a, type: 3}
-  - {fileID: 7400000, guid: 78f1a73354f9e914e8ad135e82c7844a, type: 3}
-  - {fileID: 7400006, guid: 78f1a73354f9e914e8ad135e82c7844a, type: 3}
-  - {fileID: 7400004, guid: 78f1a73354f9e914e8ad135e82c7844a, type: 3}
-  m_WrapMode: 0
-  m_PlayAutomatically: 1
-  m_AnimatePhysics: 0
-  m_CullingType: 1
+  m_Avatar: {fileID: 9000000, guid: fd046cdc8ca0fb143ae096d9133e3b0b, type: 3}
+  m_Controller: {fileID: 22100000, guid: c1f00f33dfdfb50408abe186e9df365b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &61465186
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2956,16 +2953,16 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 528726288}
-  - component: {fileID: 528726296}
-  - component: {fileID: 528726293}
-  - component: {fileID: 528726292}
-  - component: {fileID: 528726291}
   - component: {fileID: 528726294}
   - component: {fileID: 528726290}
-  - component: {fileID: 528726295}
   - component: {fileID: 528726289}
-  - component: {fileID: 528726297}
   - component: {fileID: 528726298}
+  - component: {fileID: 528726295}
+  - component: {fileID: 528726297}
+  - component: {fileID: 528726296}
+  - component: {fileID: 528726292}
+  - component: {fileID: 528726291}
+  - component: {fileID: 528726293}
   m_Layer: 0
   m_Name: Santa
   m_TagString: Untagged
@@ -3113,27 +3110,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   selectionCircle: {fileID: 0}
---- !u!111 &528726296
-Animation:
+--- !u!95 &528726296
+Animator:
+  serializedVersion: 3
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 111404441676921126, guid: 645b1eeb91a134b4ab504950828ce180,
-    type: 2}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 528726287}
   m_Enabled: 1
-  serializedVersion: 3
-  m_Animation: {fileID: 7400008, guid: 646948c2dead24c4ab33dd5087b9a5f2, type: 3}
-  m_Animations:
-  - {fileID: 7400002, guid: 646948c2dead24c4ab33dd5087b9a5f2, type: 3}
-  - {fileID: 7400008, guid: 646948c2dead24c4ab33dd5087b9a5f2, type: 3}
-  - {fileID: 7400010, guid: 646948c2dead24c4ab33dd5087b9a5f2, type: 3}
-  - {fileID: 7400000, guid: 646948c2dead24c4ab33dd5087b9a5f2, type: 3}
-  - {fileID: 7400006, guid: 646948c2dead24c4ab33dd5087b9a5f2, type: 3}
-  - {fileID: 7400004, guid: 646948c2dead24c4ab33dd5087b9a5f2, type: 3}
-  m_WrapMode: 0
-  m_PlayAutomatically: 1
-  m_AnimatePhysics: 0
-  m_CullingType: 1
+  m_Avatar: {fileID: 9000000, guid: 646948c2dead24c4ab33dd5087b9a5f2, type: 3}
+  m_Controller: {fileID: 22100000, guid: 63171abf0768b034eb44c8afcfe7514a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &528726297
 MonoBehaviour:
   m_ObjectHideFlags: 0
