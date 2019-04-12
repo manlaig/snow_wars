@@ -26,9 +26,8 @@ public class SpawnBuildings : MonoBehaviour
 
     #region Instance Objects
     GameObject currentSpawnedBuilding;
-    RaycastHit hit;
     List<ProductionTile> activeTiles;
-    GameObject activeTilesParent;
+    GameObject activeTilesParent; // the parent object that contains the grid tiles
     #endregion
 
     void Start ()
@@ -51,6 +50,8 @@ public class SpawnBuildings : MonoBehaviour
              */
             if (Input.GetMouseButtonDown(0))
             {
+                RaycastHit hit;
+
                 // don't build if mouse if click is not on terrainLayer
                 if (!PlacementHelpers.RaycastFromMouse(out hit, terrainLayer))
                     return;
@@ -69,8 +70,11 @@ public class SpawnBuildings : MonoBehaviour
     void FixedUpdate()
     {
         if (currentSpawnedBuilding)
+        {
+            RaycastHit hit;
             if (PlacementHelpers.RaycastFromMouse(out hit, terrainLayer))
                 currentSpawnedBuilding.transform.position = hit.point;
+        }
     }
 
 
@@ -103,6 +107,7 @@ public class SpawnBuildings : MonoBehaviour
 
     IEnumerator BeginBuilding()
     {
+        float buildTime = buildingToPlace.currentBuilding.buildTime;
         Vector3 pos = currentSpawnedBuilding.transform.position;
         GameObject instance = currentSpawnedBuilding;
         currentSpawnedBuilding = null;
@@ -118,7 +123,7 @@ public class SpawnBuildings : MonoBehaviour
         while (!underConstructionIns.GetComponent<ShowBuildProgress>().started)
             yield return null;
 
-        yield return new WaitForSeconds(buildingToPlace.currentBuilding.buildTime);
+        yield return new WaitForSeconds(buildTime);
         Debug.Log("waited " + buildingToPlace.currentBuilding.buildTime + " seconds to build " + buildingToPlace.currentBuilding.name);
 
         // activating the mesh renderers
@@ -130,12 +135,11 @@ public class SpawnBuildings : MonoBehaviour
          */
         PlacementHelpers.ToggleNavMeshObstacle(instance, true);
 
+        EventManager.TriggerEvent(EventManager.Events.WorkerFinishedBuilding, underConstructionIns);
         Destroy(underConstructionIns);
-
-        EventManager.TriggerEvent(EventManager.Events.WorkerFinishedBuilding, null);
     }
 
-
+    
     void FillRectWithTiles(Collider col)
     {
         if (activeTilesParent)
@@ -173,9 +177,12 @@ public class SpawnBuildings : MonoBehaviour
         if (currentSpawnedBuilding)
             return;
 
-        currentSpawnedBuilding = Instantiate(building.buildingPrefab);
+        // the underConstruction object accesses this ScriptableObject to show the building progress
         buildingToPlace.currentBuilding = building;
 
+        currentSpawnedBuilding = Instantiate(building.buildingPrefab);
+
+        // make the building invisible in the scene, since it hasn't been placed
         PlacementHelpers.ToggleRenderers(currentSpawnedBuilding, false);
         PlacementHelpers.ToggleNavMeshObstacle(currentSpawnedBuilding, false);
 

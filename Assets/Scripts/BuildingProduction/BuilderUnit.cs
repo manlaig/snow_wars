@@ -13,7 +13,8 @@ public class BuilderUnit : MonoBehaviour
     GameObject currentBuildingToBuild;
     Animation animation;
     Queue<GameObject> buildingsQ;
-    bool idle;
+
+    public bool idle { get; private set; }
 
     void Start()
     {
@@ -21,59 +22,15 @@ public class BuilderUnit : MonoBehaviour
         buildingsQ = new Queue<GameObject>();
         agent = GetComponent<NavMeshAgent>();
         animation = GetComponent<Animation>();
+
+        Workers w = Workers.instance;
+        w.addWorker(this);
     }
 
-    void Update()
+    void OnDestroy()
     {
-        if(buildingsQ.Count > 0 && idle)
-            WorkOnBuilding(buildingsQ.Dequeue());
-
-        // the worker can build if he gets close enough to the building
-        if (currentBuildingToBuild)
-            if (Vector3.Distance(transform.position, currentBuildingToBuild.transform.position) <= buildingDistance)
-            {
-                HandleCollision();
-            }
-    }
-
-    void WorkOnBuilding(GameObject go)
-    {
-        currentBuildingToBuild = go;
-        agent.SetDestination(go.transform.position);
-        idle = false;
-        PlayAnimation("Run");
-
-    }
-
-    // unlikely to get called, but useful to have
-    void OnEnable()
-    {
-        EventManager.StartListening(EventManager.Events.NewBuildingPlaced, NewBuildingPlaced);
-        EventManager.StartListening(EventManager.Events.WorkerFinishedBuilding, FinishedBuilding);
-    }
-
-    // unlikely to get called, but useful to have
-    void OnDisable()
-    {
-        EventManager.StopListening(EventManager.Events.NewBuildingPlaced, NewBuildingPlaced);
-        EventManager.StopListening(EventManager.Events.WorkerFinishedBuilding, FinishedBuilding);
-    }
-
-    void NewBuildingPlaced(GameObject building)
-    {
-        /*
-         * Later on, when we'll have multiple workers, use a different class 
-         * to find the closest worker and enqueue the building to it
-         */
-        buildingsQ.Enqueue(building);
-    }
-
-    void FinishedBuilding(GameObject go)
-    {
-        agent.isStopped = false;
-        agent.ResetPath();
-        PlayAnimation("Idle");
-        idle = true;
+        if(Workers.instance)
+            Workers.instance.removeWorker(this);
     }
 
     void OnCollisionEnter(Collision collision)
@@ -84,6 +41,19 @@ public class BuilderUnit : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
         HandleCollision();
+    }
+
+    void Update()
+    {
+        if(buildingsQ.Count > 0 && idle)
+            StartBuilding();
+
+        // the worker can build if he gets close enough to the building
+        if (currentBuildingToBuild)
+            if (Vector3.Distance(transform.position, currentBuildingToBuild.transform.position) <= buildingDistance)
+            {
+                HandleCollision();
+            }
     }
 
     void HandleCollision()
@@ -105,9 +75,31 @@ public class BuilderUnit : MonoBehaviour
         }
     }
 
+    void StartBuilding()
+    {
+        GameObject nextInQueue = buildingsQ.Dequeue();
+        currentBuildingToBuild = nextInQueue;
+        agent.SetDestination(nextInQueue.transform.position);
+        idle = false;
+        PlayAnimation("Run");
+    }
+
     void PlayAnimation(string name)
     {
         if (animation)
             animation.Play(animation.clip.name.Split('|')[0] + "|" + name);
+    }
+
+    public void AddBuildingInQueue(GameObject building)
+    {
+        buildingsQ.Enqueue(building);
+    }
+
+    public void FinishBuilding()
+    {
+        agent.isStopped = false;
+        agent.ResetPath();
+        PlayAnimation("Idle");
+        idle = true;
     }
 }
