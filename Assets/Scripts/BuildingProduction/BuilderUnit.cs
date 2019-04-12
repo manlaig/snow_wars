@@ -29,6 +29,8 @@ public class BuilderUnit : MonoBehaviour
 
     void OnDestroy()
     {
+        // the singleton can be destroyed before this object
+        // not checking in this case will lead to a null reference exception
         if(Workers.instance)
             Workers.instance.removeWorker(this);
     }

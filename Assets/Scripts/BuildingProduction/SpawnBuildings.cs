@@ -107,16 +107,21 @@ public class SpawnBuildings : MonoBehaviour
 
     IEnumerator BeginBuilding()
     {
+        // by the time we start building, buildingToPlace can be changed
+        // so, we need to store the build time ASAP
         float buildTime = buildingToPlace.currentBuilding.buildTime;
-        Vector3 pos = currentSpawnedBuilding.transform.position;
+
+        // this will allow us to put build requests before the current one finishes
         GameObject instance = currentSpawnedBuilding;
         currentSpawnedBuilding = null;
 
         RaycastHit hitTerrain;
-        if (PlacementHelpers.RaycastFromMouse(out hitTerrain, terrainLayer))
-            pos = hitTerrain.point;
+        if (!PlacementHelpers.RaycastFromMouse(out hitTerrain, terrainLayer))
+            yield break;
 
-        GameObject underConstructionIns = Instantiate(underConstructionGO, pos, Quaternion.identity);
+        GameObject underConstructionIns = Instantiate(underConstructionGO, hitTerrain.point, Quaternion.identity);
+
+        // worker unit manager listens for this event and it will assign the appropriate worker
         EventManager.TriggerEvent(EventManager.Events.NewBuildingPlaced, underConstructionIns);
 
         // wait until the worker reaches the building
@@ -126,7 +131,7 @@ public class SpawnBuildings : MonoBehaviour
         yield return new WaitForSeconds(buildTime);
         Debug.Log("waited " + buildingToPlace.currentBuilding.buildTime + " seconds to build " + buildingToPlace.currentBuilding.name);
 
-        // activating the mesh renderers
+        // activating the mesh renderers, cuz we finished waiting the buildTime at this point 
         PlacementHelpers.ToggleRenderers(instance, true);
 
         /*
@@ -135,6 +140,7 @@ public class SpawnBuildings : MonoBehaviour
          */
         PlacementHelpers.ToggleNavMeshObstacle(instance, true);
 
+        // worker unit manager listens for this event and it will rest the worker that built it 
         EventManager.TriggerEvent(EventManager.Events.WorkerFinishedBuilding, underConstructionIns);
         Destroy(underConstructionIns);
     }
