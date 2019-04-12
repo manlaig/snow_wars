@@ -16,6 +16,7 @@ public class ShowBuildProgress : MonoBehaviour
     void Start()
     {
         started = false;
+        buildTime = buildingToPlace.currentBuilding.buildTime;
     }
 
     // called when a worker unit collides with the construction unit
@@ -23,7 +24,6 @@ public class ShowBuildProgress : MonoBehaviour
     {
         started = true;
         startTime = Time.time;
-        buildTime = buildingToPlace.currentBuilding.buildTime;
     }
 	
 	void OnGUI()
