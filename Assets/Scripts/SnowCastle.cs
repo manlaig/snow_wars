@@ -34,4 +34,9 @@ public class SnowCastle : BaseBuilding
     {
         
     }
+
+    public override void OnMouseHover()
+    {
+
+    }
 }

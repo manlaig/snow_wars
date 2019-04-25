@@ -7,16 +7,13 @@ using UnityEngine;
 /// </summary>
 public class Igloo : BaseBuilding
 {
-    /// <summary>
-    /// Initializes a new instance of the <see cref="Igloo"/> class.
-    /// </summary>
-    Igloo()
-    {
-        workerCapacity = 4;
-    }
-
     public override void OnClick()
     {
-        
+        Debug.Log("click");
+    }
+
+    public override void OnMouseHover()
+    {
+        Debug.Log("hover");
     }
 }

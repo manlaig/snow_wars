@@ -120,4 +120,9 @@ public class ChristmasTree : BaseBuilding
     {
         
     }
+
+    public override void OnMouseHover()
+    {
+
+    }
 }

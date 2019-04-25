@@ -125,12 +125,13 @@ public abstract class BaseBuilding : MonoBehaviour
         //if (resourcesObject == null)
         //    Debug.LogError("Unable to find 'ResourcesController'");
 
-        if (R != null)
+        /*if (R != null)
             R.AddWorker(workerCapacity); // Need to add a parameter for number of workers
         else
-            Debug.Log("Resources object is NULL");
+            Debug.Log("Resources object is NULL");*/
     }
 
     // the events require a GameObject parameter, but we'll not use it
     public abstract void OnClick();
+    public abstract void OnMouseHover();
 }
