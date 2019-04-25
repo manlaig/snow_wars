@@ -131,16 +131,6 @@ public abstract class BaseBuilding : MonoBehaviour
             Debug.Log("Resources object is NULL");
     }
 
-    void OnEnable()
-    {
-        EventManager.StartListening(EventManager.Events.LeftMouseClickedDown, OnClick);
-    }
-
-    void OnDisable()
-    {
-        EventManager.StopListening(EventManager.Events.LeftMouseClickedDown, OnClick);
-    }
-
     // the events require a GameObject parameter, but we'll not use it
-    protected abstract void OnClick(GameObject not_used);
+    public abstract void OnClick();
 }

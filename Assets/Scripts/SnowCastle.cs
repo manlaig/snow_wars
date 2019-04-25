@@ -30,7 +30,7 @@ public class SnowCastle : BaseBuilding
         }
     }
 
-    protected override void OnClick(GameObject not_used)
+    public override void OnClick()
     {
         
     }

@@ -116,7 +116,7 @@ public class ChristmasTree : BaseBuilding
     } */
     }
 
-    protected override void OnClick(GameObject not_used)
+    public override void OnClick()
     {
         
     }
