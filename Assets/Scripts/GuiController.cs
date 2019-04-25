@@ -17,10 +17,6 @@ public class GuiController : MonoBehaviour
     private GameObject unitTray = null;
     [SerializeField]
     private GameObject unitPrefab = null;
-    [SerializeField]
-    private Texture2D cursor = null;
-    [SerializeField]
-    private Texture2D attackCursor = null;
 
     /// <summary>
     /// Raises the enable event.
@@ -43,7 +39,6 @@ public class GuiController : MonoBehaviour
     void Start()
     {
         selectedObjects = new List<GameObject>();
-        Cursor.SetCursor(cursor, Vector2.zero, CursorMode.Auto);
     }
 
     /// <summary>
@@ -153,24 +148,11 @@ public class GuiController : MonoBehaviour
         RaycastHit hit;
         Ray ray;
 
-        Cursor.SetCursor(cursor, Vector2.zero, CursorMode.Auto);
-
         while (true)
         {
             ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(ray, out hit))
             {
-                if (hit.transform.tag == "Ground")
-                {
-                    Cursor.SetCursor(attackCursor, Vector2.zero, CursorMode.Auto);
-                }
-                else if (hit.transform.GetComponent<WorldObject>() && hit.transform.root != transform.root)
-                {
-                    Cursor.SetCursor(attackCursor, Vector2.zero, CursorMode.Auto);
-                }
-                //else
-                //    Debug.Log(hit);
-
                 if (Input.GetMouseButtonDown(1))
                 {
                     if (hit.transform.tag == "Ground")

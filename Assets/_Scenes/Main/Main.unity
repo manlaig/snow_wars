@@ -1769,6 +1769,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3217f43f02a4ccf47bc0c283351540ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mouseListenerLayer:
+    serializedVersion: 2
+    m_Bits: 33025
+  defaultCursor: {fileID: 2800000, guid: bb75c56404623524f8a3bb497f3fd346, type: 3}
+  attackCursor: {fileID: 2800000, guid: db32cacebeefacb44b8bb9cb4aee10c9, type: 3}
 --- !u!1 &276875541
 GameObject:
   m_ObjectHideFlags: 0
