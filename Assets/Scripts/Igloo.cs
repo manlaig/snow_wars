@@ -32,10 +32,10 @@ public class Igloo : BaseBuilding
 
     public void MakeUnit(UnitSO unit)
     {
-        /*if(!player)
+        if(!player)
         {
-            player = FindObjectsOfType<Player>();
-        }*/
+            player = FindObjectOfType<Player>().gameObject;
+        }
         StartCoroutine(MakeUnitCoroutine(unit));
     }
 
@@ -45,7 +45,8 @@ public class Igloo : BaseBuilding
         startTime = Time.time;
         working = true;
         yield return new WaitForSeconds(buildTime);
-        Instantiate(unit.unitPrefab, unitProduce.position, unitProduce.rotation);
+        GameObject go = Instantiate(unit.unitPrefab, player.transform);
+        go.transform.position = unitProduce.position;
         working = false;
     }
 
