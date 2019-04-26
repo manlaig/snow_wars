@@ -10,7 +10,11 @@ public class FogOfWarLighter : MonoBehaviour
     void Awake()
     {
         if (!fogPlane)
-            Debug.LogError("Need a reference to the current fog plane. If you don't have any, disable this component");
+        {
+            fogPlane = FindObjectOfType<FogPlane>().gameObject;
+            if(!fogPlane)
+                Debug.LogError("Need a reference to the current fog plane. If you don't have any, disable this component");
+        }
     }
 
     void Update ()
