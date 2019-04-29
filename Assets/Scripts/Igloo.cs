@@ -32,6 +32,7 @@ public class Igloo : BaseBuilding
 
     public void MakeUnit(UnitSO unit)
     {
+        if (working) return;
         if(!player)
         {
             player = FindObjectOfType<Player>().gameObject;
@@ -41,6 +42,11 @@ public class Igloo : BaseBuilding
 
     IEnumerator MakeUnitCoroutine(UnitSO unit)
     {
+        if (!player)
+        {
+            Debug.Log("Instance of Player not found in scene");
+            yield break;
+        }
         buildTime = unit.buildTime;
         startTime = Time.time;
         working = true;

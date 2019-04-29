@@ -159,7 +159,7 @@ public class EventManager : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, Mathf.Infinity, mouseListenerLayer))
         {
-            if (hit.transform.gameObject.GetComponent<BaseBuilding>())
+            if (hit.transform.gameObject.GetComponent<BaseBuilding>() && hit.transform.gameObject.activeInHierarchy)
             {
                 // the mouse clicked on a building
                 hit.transform.gameObject.GetComponent<BaseBuilding>().OnClick();
@@ -169,6 +169,8 @@ public class EventManager : MonoBehaviour
 
     void HandleMouseHover(RaycastHit hit)
     {
+        if (!hit.transform.gameObject.activeInHierarchy)
+            return;
         if (hit.transform.gameObject.GetComponent<BaseBuilding>())
         {
             // the mouse is hovering over a building
