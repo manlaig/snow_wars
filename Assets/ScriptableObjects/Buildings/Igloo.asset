@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Name: Igloo
   m_EditorClassIdentifier: 
   objectName: Igloo
-  buildingPrefab: {fileID: 1937772000712184, guid: 98db156cc6c8a7e4cb6b7e6459c64720,
+  buildingPrefab: {fileID: 1494039246704714, guid: 3c1117f61fc119945900e6e4dc63a9b9,
     type: 2}
   buildTime: 3
+  cost: 0
