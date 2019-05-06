@@ -23,7 +23,8 @@ public class Igloo : BaseBuilding
 
     public override void OnClick()
     {
-        iglooGUI.SetActive(true);
+        if(gameObject.activeInHierarchy)
+            iglooGUI.SetActive(true);
     }
 
     public override void OnMouseHover()

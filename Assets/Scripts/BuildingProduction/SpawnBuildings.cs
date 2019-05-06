@@ -57,8 +57,9 @@ public class SpawnBuildings : MonoBehaviour
                     return;
 
                 currentSpawnedBuilding.transform.position = hit.point;
+                activeTilesParent.transform.position = hit.point;
 
-                if(CanPlaceBuilding())
+                if (CanPlaceBuilding())
                     PlaceBuilding();
             }
             if (Input.GetMouseButtonDown(1))
@@ -73,7 +74,10 @@ public class SpawnBuildings : MonoBehaviour
         {
             RaycastHit hit;
             if (PlacementHelpers.RaycastFromMouse(out hit, terrainLayer))
+            {
                 currentSpawnedBuilding.transform.position = hit.point;
+                activeTilesParent.transform.position = hit.point;
+            }
         }
     }
 
@@ -131,14 +135,8 @@ public class SpawnBuildings : MonoBehaviour
         yield return new WaitForSeconds(buildTime);
         Debug.Log("waited " + buildingToPlace.currentBuilding.buildTime + " seconds to build " + buildingToPlace.currentBuilding.name);
 
-        // activating the mesh renderers, cuz we finished waiting the buildTime at this point 
-        PlacementHelpers.ToggleRenderers(instance, true);
-
-        /*
-         * Buildings need to be nav mesh obstacles, so that the worker and other agents avoid it while finding path
-         * When a building is finished building, it needs to become an obstacle for agents
-         */
-        PlacementHelpers.ToggleNavMeshObstacle(instance, true);
+        // we finished waiting the buildTime at this point, activate the building
+        instance.SetActive(true);
 
         // worker unit manager listens for this event and it will rest the worker that built it 
         EventManager.TriggerEvent(EventManager.Events.WorkerFinishedBuilding, underConstructionIns);
@@ -158,7 +156,6 @@ public class SpawnBuildings : MonoBehaviour
         float toZ = rect.position.y + rect.height;
 
         GameObject parent = new GameObject("PlacementGrid");
-        parent.transform.SetParent(col.gameObject.transform.root);
         parent.transform.position = col.gameObject.transform.position;
 
         activeTiles.Clear();
@@ -188,14 +185,13 @@ public class SpawnBuildings : MonoBehaviour
 
         currentSpawnedBuilding = Instantiate(building.buildingPrefab);
 
-        // make the building invisible in the scene, since it hasn't been placed
-        PlacementHelpers.ToggleRenderers(currentSpawnedBuilding, false);
-        PlacementHelpers.ToggleNavMeshObstacle(currentSpawnedBuilding, false);
-
         Collider[] cols = currentSpawnedBuilding.GetComponentsInChildren<Collider>();
         if(cols.Length > 0)
             FillRectWithTiles(cols[0]);
         else
             Debug.LogError("Building has no colliders");
+
+        // make the building invisible in the scene, since it hasn't been placed
+        currentSpawnedBuilding.SetActive(false);
     }
 }
