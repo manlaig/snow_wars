@@ -63,7 +63,10 @@ public class SpawnBuildings : MonoBehaviour
                     PlaceBuilding();
             }
             if (Input.GetMouseButtonDown(1))
+            {
                 Destroy(currentSpawnedBuilding);
+                Destroy(activeTilesParent);
+            }
         }
     }
 
